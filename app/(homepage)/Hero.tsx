@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col lg:flex-row gap-8 pt-26">
+    <div className="flex flex-col lg:flex-row gap-8">
       <div className="lg:w-2/4 relative h-[50vh] lg:h-screen">
         <Image
           src={"https://placehold.co/1600?text=Image+here"}
