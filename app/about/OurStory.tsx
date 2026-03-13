@@ -20,9 +20,9 @@ const Ourstory = () => {
       </div>
 
       {/* TOP TEXT */}
-      <div className="flex justify-start pl-6 pt-24 mb-35">
+      <div className="flex justify-start pl-6 pt-24 mb-33">
           <p className="text-lg max-w-2xl font-semibold">
-            Founded in 2015, Integr8 Software Solutions, Inc. began with a vision to empower cooperatives and businesses through innovative and reliable technology solutions. From the very beginning, the company focused on developing systems that simplify complex business processes, improve operational efficiency, and help organizations manage their financial and administrative operations more effectively. By combining industry knowledge with modern technology, the Integr8 worked to create practical and scalable software designed to support the evolving needs of businesses.
+            Founded in 2015, Integr8 Software Solutions, Inc. began with a vision to < br/> empower cooperatives and businesses through innovative and reliable technology solutions. From the start, the company focused on creating systems that simplify business processes, boost efficiency, and streamline financial and administrative operations.
           </p>
         </div>
     
@@ -70,7 +70,7 @@ const Ourstory = () => {
       {/* BOTTOM TEXT */}
       <div className="flex justify-end text-right pr-6 pl-6 mt-13 ">
         <p className="text-lg max-w-2xl font-semibold">
-          With a strong commitment to innovation, reliability, and customer focused development. The company established a solid foundation that enabled it to continuously enhance its products and broaden its capabilities. Over time, the company expanded through GR8Books and GR8 ERP,
+          Over time, the company expanded through GR8Books and GR8 ERP,
           delivering scalable business solutions to various industries
           nationwide, with a continued focus on innovation, reliable technology,
           and helping businesses streamline operations, improve decision-making,
