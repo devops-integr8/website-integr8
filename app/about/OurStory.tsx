@@ -81,7 +81,7 @@ const Ourstory = () => {
             <img
               src="/images/our-story/E.jpg"
               alt=""
-              className="w-110 h-60 object-cover -translate-y-10 hover:scale-103 transition duration-500 shadow-md shadow-2xl shadow-black/50 cursor-pointer"
+              className="w-108 h-60 object-cover -translate-y-10 hover:scale-103 transition duration-500 shadow-md shadow-2xl shadow-black/50 cursor-pointer"
             />
           </div>
 
