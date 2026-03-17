@@ -7,7 +7,9 @@ import CompanyEdge from "./CompanyEdge";
 import ErpExperties from "./ErpExperties";
 import OurStory from "./OurStory";
 import NewsArticle from "./NewsArticle";
-
+import ClientTrust from "./ClientTrust";
+import CTA from "./CTA";
+import OurTeam from "./OurTeam";
 const About = () => {
   return (
     <>
@@ -24,6 +26,19 @@ const About = () => {
         <CompanyEdge />
         <ErpExperties />
         <OurStory />
+        <OurTeam />
+
+        <section>
+          <div
+            style={{
+              background:
+                "radial-gradient(ellipse at center, #224d9a 0%, #000000 100%)",
+            }}
+          >
+            <ClientTrust />
+            <CTA />
+          </div>
+        </section>
       </main>
     </>
   );
