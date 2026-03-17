@@ -67,7 +67,6 @@ const Clients = () => {
   const row2Logos: Logo[] = [
     { id: 10, src: "/images/client-logos/Epeople.png", alt: "Epeople" },
     { id: 11, src: "/images/client-logos/Gu.png", alt: "Gu" },
-    { id: 12, src: "/images/client-logos/Hr.png", alt: "Hr" },
     { id: 13, src: "/images/client-logos/Ishida.png", alt: "Ishida" },
     { id: 14, src: "/images/client-logos/KaiMall.png", alt: "KaiMall" },
     { id: 15, src: "/images/client-logos/Lobo.png", alt: "Lobo" },
@@ -109,7 +108,7 @@ const Clients = () => {
       <div className="py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <LogoRow logos={row1Logos} direction="right" speed={35} />
-          <LogoRow logos={row2Logos} direction="left" speed={35} />
+          <LogoRow logos={row2Logos} direction="left" speed={40} />
           <LogoRow logos={row3Logos} direction="right" speed={35} />
         </div>
       </div>
