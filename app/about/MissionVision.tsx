@@ -7,13 +7,13 @@ export default function MissionVision() {
         <HoverCard
           title="MISSION"
           description="To empower businesses by delivering software solutions that enhance productivity, efficiency, resulting to success."
-          background="Mission.png"
+          background="missionIcon.png"
         />
 
         <HoverCard
           title="VISION"
           description="Optimizing businesses with one powerful software solution."
-          background="Vision.png"
+          background="visionIcon.png"
         />
       </div>
     </section>
