@@ -197,6 +197,7 @@ export default function CompanyCarousel() {
           onClick={prevSlide}
           className="absolute -left-24 top-1/2 -translate-y-1/2
           p-4 z-30
+          cursor-pointer
           opacity-0 group-hover:opacity-70 hover:opacity-100
           transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
           hover:scale-105 hover:-translate-x-1
@@ -209,6 +210,7 @@ export default function CompanyCarousel() {
           onClick={nextSlide}
           className="absolute -right-24 top-1/2 -translate-y-1/2
           p-4 z-30
+          cursor-pointer
           opacity-0 group-hover:opacity-70 hover:opacity-100
           transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
           hover:scale-105 hover:translate-x-1
