@@ -137,9 +137,9 @@ export default function ProductsPreview() {
   return (
     <section className="w-full">
       {/* HEADER */}
-      <div className="relative h-[300px] w-full overflow-hidden">
+      <div className="relative w-full h-64 md:h-80 lg:h-96 overflow-hidden">
         <Image
-          src="/images/erp-experties/Header.png"
+          src="/images/erp-experties/ERPHeader.png"
           alt="ERP Expertise"
           fill
           className="object-cover"
@@ -154,7 +154,7 @@ export default function ProductsPreview() {
             scalable enterprise solutions for modern organizations.
           </p>
 
-          <button className="cursor-pointer mt-6 flex items-center gap-2 text-white font-semibold">
+          <button className="cursor-pointer mt-6 flex items-center gap-2 text-white font-semibold rounded-full hover:bg-gray-800/50 px-3 py-2">
             Explore our products
             <ArrowRight size={18} />
           </button>
