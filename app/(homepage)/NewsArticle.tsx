@@ -111,8 +111,20 @@ const NewsArticle = () => {
 
           <div className="flex gap-2">
             <p className="text-lg">See All Posts</p>
-            <button className="cursor-pointer bg-[rgba(34,77,154,1)] text-white w-8 h-8">
-              &#8250;
+            <button className="cursor-pointer bg-[#224d9a] text-white w-8 h-8 flex items-center justify-center hover:brightness-125 transition-all duration-200">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
             </button>
           </div>
         </div>
