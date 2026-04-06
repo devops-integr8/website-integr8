@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const teamMembers = [
   {
@@ -113,12 +114,26 @@ const departments = [
 
 export default function OurTeam() {
   const [activeFilter, setActiveFilter] = useState("President");
+  const [tappedId, setTappedId] = useState<number | null>(null);
+
   const filteredMembers = teamMembers.filter(
     (member) => member.department === activeFilter,
   );
+
   function TeamMemberCard({ member }: { member: TeamMember }) {
+    const isTapped = tappedId === member.id;
+
+    const handleTap = () => {
+      if (window.matchMedia("(hover: none)").matches) {
+        setTappedId(isTapped ? null : member.id);
+      }
+    };
+
     return (
-      <div className="group relative overflow-hidden rounded-xl shadow-md shadow-2xl shadow-black/50 cursor-pointer">
+      <div
+        className="group relative overflow-hidden rounded-xl shadow-md shadow-2xl shadow-black/50 cursor-pointer"
+        onClick={handleTap}
+      >
         {/* --- THE PHOTO --- */}
         <div className="aspect-[3/4] w-full">
           <img
@@ -128,23 +143,32 @@ export default function OurTeam() {
           />
         </div>
 
-        {/* --- THE HOVER OVERLAY --- */}
-        <div
-          className="
-        absolute inset-0
-        bg-gradient-to-t from-[#224d9a]/70 via-blue-700/30 to-transparent
-        opacity-0 group-hover:opacity-100
-        transition-opacity duration-300
-        flex flex-col justify-end p-4"
-        >
-          {/* Name and position — slide up slightly on hover */}
-          <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+        {/* DESKTOP HOVER OVERLAY (CSS only, hidden on mobile) */}
+        <div className="hidden md:flex absolute inset-0 bg-gradient-to-t from-[#0437f2]/80 via-blue-700/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out flex-col justify-end p-4 pointer-events-none">
+          <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
             <p className="text-white font-bold text-lg leading-tight">
               {member.name}
             </p>
-            <p className="text-blue-200 text-sm mt-1">{member.position}</p>
+            <p className="text-blue-200 font-bold text-sm mt-1">
+              {member.position}
+            </p>
           </div>
         </div>
+
+        {/* --- MOBILE TAP OVERLAY --- */}
+        <motion.div
+          className="md:hidden absolute inset-0 bg-gradient-to-t from-[#0437f2]/80 via-blue-700/20 to-transparent flex flex-col justify-end p-4"
+          initial={{ y: "100%" }}
+          animate={{ y: isTapped ? 0 : "100%" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="text-white font-bold text-lg leading-tight">
+            {member.name}
+          </p>
+          <p className="text-blue-200 font-bold text-sm mt-1">
+            {member.position}
+          </p>
+        </motion.div>
       </div>
     );
   }
@@ -152,9 +176,9 @@ export default function OurTeam() {
   return (
     <section className="w-full bg-white py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        {/* ---- TITLE ---- */}
+        {/* TITLE */}
         <h2
-          className="text-center text-6xl font-extrabold text-gray-900 mb-10 tracking-wide uppercase"
+          className="text-center text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-10 tracking-wide uppercase"
           style={{
             textShadow:
               "0px 3px 6px rgba(0,0,0,0.25), 0px 8px 20px rgba(0,0,0,0.2)",
@@ -163,21 +187,17 @@ export default function OurTeam() {
           Our Team
         </h2>
 
-        {/* ---- FILTER BUTTONS ---- */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-[#224d9a] rounded-full p-3 px-5 gap-3 flex-wrap justify-center shadow-md shadow-2xl shadow-black/50">
+        {/* FILTER BUTTONS */}
+        <div className="flex justify-center mb-12 px-2">
+          <div className="inline-flex bg-gradient-to-b from-[#0437f2] to-[#224d9a] rounded-full p-2 px-3 gap-2 flex-wrap justify-center shadow-md shadow-2xl shadow-black/50">
             {departments.map((dept) => (
               <button
                 key={dept}
                 onClick={() => setActiveFilter(dept)}
                 className={`
-                px-5 py-2 min-w-[180px] rounded-full mx-1.5 text-sm font-semibold transition-all duration-200 shadow-md shadow-2xl shadow-black/20 cursor-pointer border border-black/30
-              ${
-                activeFilter === dept
-                  ? "bg-white text-blue-900 shadow"
-                  : "text-white hover:bg-white/20"
-              }
-            `}
+                  px-4 py-2 sm:min-w-[140px] lg:min-w-[180px] rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap
+                  ${activeFilter === dept ? "bg-white text-blue-900 shadow" : "text-white hover:bg-white/20"}
+                `}
               >
                 {dept}
               </button>
@@ -185,7 +205,7 @@ export default function OurTeam() {
           </div>
         </div>
 
-        {/* ---- TEAM CARDS GRID ---- */}
+        {/* TEAM CARDS GRID */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredMembers.map((member) => (
             <TeamMemberCard key={member.id} member={member} />
