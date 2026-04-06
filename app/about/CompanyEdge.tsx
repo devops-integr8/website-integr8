@@ -13,58 +13,53 @@ function ZoomImage({ src, alt }: { src: string; alt: string }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     if (ref.current) observer.observe(ref.current);
-
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div
-      ref={ref}
-      className="w-[570px] h-[570px] rounded-full border border-solid overflow-hidden"
-    >
-      <img
-        src={src}
-        alt={alt}
-        className={`
-          w-full h-full object-cover
-          transition-transform duration-[5000ms] ease-out
-          ${zoomed ? "scale-100" : "scale-125"}
-        `}
-      />
+    <div ref={ref} className="flex items-center justify-center">
+      <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-[420px] md:h-[420px] lg:w-[520px] lg:h-[520px] rounded-full border border-solid overflow-hidden">
+        <img
+          src={src}
+          alt={alt}
+          className={`w-full h-full object-cover transition-transform duration-[5000ms] ease-out ${zoomed ? "scale-100" : "scale-125"}`}
+        />
+      </div>
     </div>
   );
 }
 
 export default function CompanyEdge() {
   return (
-    <section className="bg-white py-20 px-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <div className="bg-white px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
+        {/* Text content */}
         <div>
-          <h2 className="text-4xl font-bold mb-10 ml-12">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10">
             WHAT MAKES US DIFFERENT
           </h2>
-          <div className="space-y-10 ml-12">
+          <div className="space-y-8 sm:space-y-10">
             <div>
               <div className="w-10 h-[2px] bg-black mb-4"></div>
-              <h4 className="font-semibold uppercase text-sm mb-2">
+              <h4 className="font-extrabold uppercase text-sm mb-2">
                 Built for your industry, not just any business
               </h4>
-              <p className="text-black font-semibold">
-                We don’t offer generic software. Our ERP solutions are designed
+              <p className="text-black font-semibold text-sm sm:text-base">
+                We don't offer generic software. Our ERP solutions are designed
                 to meet the real-world demands of cooperatives, trading
                 companies, and growing enterprises.
               </p>
             </div>
             <div>
               <div className="w-10 h-[2px] bg-black mb-4"></div>
-              <h4 className="font-semibold uppercase text-sm mb-2">
+              <h4 className="font-extrabold uppercase text-sm mb-2">
                 Implementation done right
               </h4>
-              <p className="text-black font-semibold">
+              <p className="text-black font-semibold text-sm sm:text-base">
                 We guide you from consultation to go-live with a structured,
                 hands-on approach that minimizes disruption and maximizes
                 results.
@@ -72,20 +67,20 @@ export default function CompanyEdge() {
             </div>
             <div>
               <div className="w-10 h-[2px] bg-black mb-4"></div>
-              <h4 className="font-semibold uppercase text-sm mb-2">
+              <h4 className="font-extrabold uppercase text-sm mb-2">
                 Real support. Real people.
               </h4>
-              <p className="text-black font-semibold">
+              <p className="text-black font-semibold text-sm sm:text-base">
                 Our team stays with you beyond deployment providing responsive
                 assistance, updates, and continuous improvement support.
               </p>
             </div>
             <div>
               <div className="w-10 h-[2px] bg-black mb-4"></div>
-              <h4 className="font-semibold uppercase text-sm mb-2">
+              <h4 className="font-extrabold uppercase text-sm mb-2">
                 Built for local compliance
               </h4>
-              <p className="text-black font-semibold">
+              <p className="text-black font-semibold text-sm sm:text-base">
                 Stay aligned with Philippine regulatory requirements through
                 accurate financial reporting and system-ready compliance
                 features.
@@ -93,6 +88,8 @@ export default function CompanyEdge() {
             </div>
           </div>
         </div>
+
+        {/* Image */}
         <div className="flex justify-center md:justify-end translate-x-30">
           <ZoomImage
             src="/images/company-edge/CompanyEdge.png"
@@ -100,6 +97,6 @@ export default function CompanyEdge() {
           />
         </div>
       </div>
-    </section>
+    </div>
   );
 }
