@@ -77,14 +77,14 @@ const Ourstory = () => {
               />
             </div>
 
-          {/* E — wide, cols 2–3, row 2 */}
-          <div style={{ gridColumn: "2 / 4", gridRow: "2" }}>
-            <img
-              src="/images/our-story/E.jpg"
-              alt=""
-              className="w-108 h-60 object-cover -translate-y-10 hover:scale-103 transition duration-500 shadow-md shadow-2xl shadow-black/50 cursor-pointer"
-            />
-          </div>
+            {/* E — wide, cols 2–3, row 2 */}
+            <div style={{ gridColumn: "2 / 4", gridRow: "2" }}>
+              <img
+                src="/images/our-story/E.jpg"
+                alt=""
+                className="w-110 h-60 object-cover -translate-y-10 hover:scale-103 transition duration-500 shadow-md shadow-2xl shadow-black/50 cursor-pointer"
+              />
+            </div>
 
             {/* F — col 4, row 2 */}
             <div style={{ gridColumn: "4", gridRow: "2" }}>
