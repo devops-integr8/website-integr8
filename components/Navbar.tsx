@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const navLinks = [
     { label: "About", href: "/about" },
-    { label: "Products", href: "/products" },
+    { label: "Products", href: "/products/productsErp" },
     { label: "Pricing", href: "/#pricing" },
     { label: "FAQs", href: "/#faqs" },
   ];
