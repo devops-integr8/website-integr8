@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 
-//Stat Items
 const stats = [
   {
     title: "Trusted by 300+ SMEs",
@@ -32,7 +31,6 @@ type Stat = {
   delay?: number;
 };
 
-//Reusable Animated Card
 function AnimatedStat({ title, subtitle, delay = 0 }: Stat) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -55,17 +53,12 @@ function AnimatedStat({ title, subtitle, delay = 0 }: Stat) {
   return (
     <div
       ref={ref}
-      style={{
-        transitionDelay: `${delay}ms`,
-      }}
-      className={`
-    transition-all duration-700
-    ${
-      visible
-        ? "opacity-100 translate-y-0 blur-none"
-        : "opacity-0 translate-y-8 blur-sm"
-    }
-    `}
+      style={{ transitionDelay: `${delay}ms` }}
+      className={`transition-all duration-700 ${
+        visible
+          ? "opacity-100 translate-y-0 blur-none"
+          : "opacity-0 translate-y-8 blur-sm"
+      }`}
     >
       <h3
         className="text-white font-bold text-xl md:text-2xl leading-tight"
@@ -83,22 +76,14 @@ function AnimatedStat({ title, subtitle, delay = 0 }: Stat) {
 
 export default function ClientTrust() {
   return (
-    <section className="relative pt-40 pb-10">
-      {/* SVG wave curve at the TOP */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
-        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,0 Q720,80 1440,0 L1440,0 L0,0 Z" fill="white" />
-        </svg>
-      </div>
-
-      {/* Stats grid — 3 columns on desktop, 1 on mobile */}
-      <div className="max-w-7xl mx-auto px-16 grid grid-cols-1 md:grid-cols-3 gap-20">
+    <section className="relative pt-32 sm:pt-40 pb-10">
+      <div className="max-w-7xl mx-auto px-8 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20">
         {stats.map((stat, index) => (
           <AnimatedStat
             key={index}
             title={stat.title}
             subtitle={stat.subtitle}
-            delay={index * 100} // 0ms, 100ms, 200ms, 300ms... stagger
+            delay={index * 100}
           />
         ))}
       </div>
