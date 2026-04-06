@@ -5,6 +5,7 @@ import TopLoader from "@/components/TopLoader";
 import ScrollToTopButton from "@/components/ui/scroll-to-top";
 import { HeroHeader } from "@/components/Header";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,8 +37,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} relative selection:bg-yellow-500/50 antialiased`}
       >
         <TopLoader />
-        <HeroHeader />
-        {/* <Navbar /> */}
+        {/* <HeroHeader /> */}
+        <Navbar />
         <main>
           {children}
           <ScrollToTopButton />
