@@ -38,7 +38,7 @@ const LogoRow = ({ logos, direction, speed = 30 }: LogoRowProps) => {
         {duplicatedLogos.map((logo, index) => (
           <div
             key={`${logo.id}-${index}`}
-            className="flex-shrink-0 w-56 h-36 flex items-center justify-center px-2 transition-transform duration-300 hover:scale-150 cursor-pointer"
+            className="flex-shrink-0 w-32 sm:w-40 md:w-56 h-24 sm:h-28 md:h-36 flex items-center justify-center px-2 transition-transform duration-300 hover:scale-150 cursor-pointer"
           >
             <img
               src={logo.src}
@@ -86,33 +86,34 @@ const Clients = () => {
   ];
 
   return (
-    <section className="w-full bg-white">
-      <div className="relative w-full h-64 md:h-80 lg:h-96 overflow-hidden">
+    <div className="w-full bg-white">
+      {/* Header image - FIXED: Added bg-gray-900 to prevent gray bar, ensure full coverage */}
+      <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-96 overflow-hidden bg-gray-900">
         <img
-          src="/ClientsHeader.png"
+          src="/images/client-logos/ClientsHeader.png"
           alt="City skyline"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-wide">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 sm:px-8">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-wide leading-tight">
             POWERING BUSINESSES
           </h2>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-wide mt-2">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-wide mt-1 sm:mt-2 leading-tight">
             ACROSS INDUSTRIES
           </h2>
         </div>
       </div>
 
       {/* Logo marquee rows */}
-      <div className="py-4">
+      <div className="py-6 md:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <LogoRow logos={row1Logos} direction="right" speed={35} />
           <LogoRow logos={row2Logos} direction="left" speed={40} />
           <LogoRow logos={row3Logos} direction="right" speed={35} />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
