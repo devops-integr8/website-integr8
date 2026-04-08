@@ -10,7 +10,6 @@ import img6 from "@/public/products/hoamdl.png";
 import img7 from "@/public/products/lmmdl.png";
 import img8 from "@/public/products/coopmdl.png";
 import StackingCards from "./StackingCards";
-import CardsParallax from "./CardsParallax";
 import Transform from "./Transform";
 
 
