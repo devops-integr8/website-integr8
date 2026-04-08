@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 
-// Card data remains the same
 const cardPairs = [
   {
     left: {
@@ -137,7 +136,7 @@ const cardPairs = [
         "E-Invoicing", "E-Receipt", "Tax Computation", "2307 Form",
       ],
     },
-    right: null, // last pair → CTA on right
+    right: null,
   },
 ];
 
@@ -147,15 +146,16 @@ type CardData = { id: number; category: string; description: string; tags: strin
 function CardFace({ card }: { card: CardData }) {
   return (
     <div
-      className="relative w-full p-8 sm:p-10 flex flex-col justify-between"
+      className="relative w-full p-8 sm:p-10 flex flex-col"
       style={{
         background: "linear-gradient(140deg, #1a35ff 0%, #0a20cc 55%, #0816a8 100%)",
         borderRadius: "18px",
         boxShadow: "0 24px 64px rgba(10, 32, 204, 0.5), inset 0 1px 0 rgba(255,255,255,0.12)",
-        height: "400px", // fixed height for smooth stacking
-        minHeight: "400px",
+        height: "calc(100vh - 160px)",
+        minHeight: "calc(100vh - 160px)",
       }}
     >
+      {/* Ghost number */}
       <span
         className="absolute top-5 right-7 font-bold select-none pointer-events-none"
         style={{
@@ -168,21 +168,33 @@ function CardFace({ card }: { card: CardData }) {
         {String(card.id).padStart(2, "0")}
       </span>
 
-      <div>
-        <p className="text-white font-bold mb-3" style={{ fontSize: "clamp(11px,1.1vw,13px)", letterSpacing: "0.2em" }}>
+      {/* ✅ Top content — no justify-between */}
+      <div className="mb-6">
+        <p
+          className="text-white font-bold mb-3"
+          style={{ fontSize: "clamp(18px,1.5vw,22px)", letterSpacing: "0.2em" }}
+        >
           {card.category}
         </p>
-        <p className="text-white/70 mb-8 leading-relaxed" style={{ fontSize: "clamp(12px,1.05vw,14px)", maxWidth: "36ch" }}>
+        <p
+          className="text-white/70 leading-relaxed"
+          style={{ fontSize: "clamp(16px, 2vw, 22px)", maxWidth: "36ch" }}
+        >
           {card.description}
         </p>
       </div>
 
+      {/* ✅ Tags sit directly below description */}
       <div className="flex flex-wrap gap-2">
         {card.tags.map((tag) => (
           <span
             key={tag}
             className="px-3 py-1.5 rounded-full font-medium bg-white text-blue-900"
-            style={{ fontSize: "clamp(10px,0.85vw,12px)", whiteSpace: "nowrap", boxShadow: "0 2px 8px rgba(0,0,0,0.18)" }}
+            style={{
+              fontSize: "clamp(10px,0.85vw,12px)",
+              whiteSpace: "nowrap",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.18)",
+            }}
           >
             {tag}
           </span>
@@ -201,8 +213,8 @@ function CtaCard() {
         background: "linear-gradient(140deg, #0a20cc 0%, #060f80 100%)",
         borderRadius: "18px",
         boxShadow: "0 24px 64px rgba(6, 15, 128, 0.5), inset 0 1px 0 rgba(255,255,255,0.08)",
-        height: "400px",
-        minHeight: "400px",
+        height: "calc(100vh - 160px)",
+        minHeight: "calc(100vh - 160px)",
       }}
     >
       <p className="text-white/40 text-xs tracking-widest uppercase mb-3">Ready to start?</p>
@@ -222,9 +234,8 @@ function CtaCard() {
   );
 }
 
-// ─── Stacked Card with smooth parallax ──────────────────────────────────────
+// ─── Stacked Card ───────────────────────────────────────────────────────────
 function StackedCard({ card, isCta = false, y }: { card: CardData | null; isCta?: boolean; y: any }) {
-  // smooth spring for parallax motion
   const smoothY = useSpring(y, { damping: 20, stiffness: 120 });
 
   return (
@@ -250,7 +261,7 @@ function StackedCard({ card, isCta = false, y }: { card: CardData | null; isCta?
   );
 }
 
-// ─── Sticky row ─────────────────────────────────────────────────────────────
+// ─── Sticky Row ─────────────────────────────────────────────────────────────
 interface RowProps {
   pair: (typeof cardPairs)[0];
   index: number;
@@ -262,8 +273,6 @@ const STICKY_TOP = 80;
 
 function StickyRow({ pair, index, scrollProgress, totalPairs }: RowProps) {
   const remaining = totalPairs - index - 1;
-
-  // Each row moves slightly based on scroll, creating parallax
   const y = useTransform(scrollProgress, [0, 1], [0, -remaining * 40]);
 
   return (
@@ -276,7 +285,7 @@ function StickyRow({ pair, index, scrollProgress, totalPairs }: RowProps) {
   );
 }
 
-// ─── Main Export ───────────────────────────────────────────────────────────
+// ─── Main Export ─────────────────────────────────────────────────────────────
 export default function StackingCards() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -287,22 +296,25 @@ export default function StackingCards() {
 
   return (
     <section className="relative bg-slate-100 py-24 px-4 sm:px-10">
-     <div className="flex justify-between items-end mb-20">
-       <div>
-        <p className="text-blue-600 text-xs font-bold tracking-widest uppercase">Features</p>
-        <h2 className="w-xl font-bold text-black leading-tight" style={{ fontSize: "clamp(26px, 4vw, 50px)" }}>
-          Everything your business needs
-        </h2>
+      <div className="flex justify-between items-end mb-20">
+        <div>
+          <p className="text-blue-600 text-xs font-bold tracking-widest uppercase">Features</p>
+          <h2
+            className="font-bold text-black leading-tight"
+            style={{ fontSize: "clamp(26px, 4vw, 50px)" }}
+          >
+            Everything your business needs
+          </h2>
+        </div>
+        <div>
+          <p className="text-gray-500 text-md sm:text-base max-w-md">
+            A fully integrated ERP Solutions that scales with you
+          </p>
+        </div>
       </div>
-      <div>
-         <p className="text-gray-500 text-md sm:text-base max-w-md">
-          A fully integrated ERP Solutions that scales with you
-        </p>
-      </div>
-     </div>
 
-      <div ref={containerRef} className="relative max-w-5xl mx-auto mb-20">
-        <div className="flex flex-col">
+      <div ref={containerRef} className="relative max-w-[1440px] mx-auto mb-20">
+        <div className="flex flex-col gap-[100vh]">
           {cardPairs.map((pair, i) => (
             <StickyRow
               key={i}
