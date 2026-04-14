@@ -9,6 +9,7 @@ const teamMembers = [
     position: "President",
     department: "President",
     image: "/images/our-team/PaulAndrewSantamaria.png",
+    row: 1,
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const teamMembers = [
     position: "IT Director",
     department: "IT Directors",
     image: "/images/our-team/Crizaldo.png",
+    row: 1,
   },
   {
     id: 3,
@@ -23,6 +25,7 @@ const teamMembers = [
     position: "IT Director",
     department: "IT Directors",
     image: "/images/our-team/Topacio.png",
+    row: 1,
   },
   {
     id: 4,
@@ -30,27 +33,31 @@ const teamMembers = [
     position: "Operations Manager",
     department: "Operations",
     image: "/images/our-team/Crusem.png",
+    row: 1,
   },
   {
     id: 5,
     name: "Ric Christian Billote",
-    position: "Asst. Operations Manager",
+    position: "Team 1 - Asst. Operations Manager",
     department: "Operations",
     image: "/images/our-team/Billote.png",
+    row: 2,
   },
   {
     id: 6,
     name: "Arjay Capili",
-    position: "Asst. Operations Manager",
+    position: "Team 2 - Asst. Operations Manager",
     department: "Operations",
     image: "/images/our-team/Capili.png",
+    row: 2,
   },
   {
     id: 7,
     name: "Rico Salazar",
-    position: "Lead Dev Ops Engineer",
-    department: "Dev Ops",
+    position: "Team 3 - Lead Dev Ops Engineer",
+    department: "Operations",
     image: "/images/our-team/Salazar.png",
+    row: 2,
   },
   {
     id: 8,
@@ -58,6 +65,7 @@ const teamMembers = [
     position: "Sales Manager",
     department: "Sales & Marketing",
     image: "/images/our-team/Barongrong.png",
+    row: 1,
   },
   {
     id: 9,
@@ -65,6 +73,7 @@ const teamMembers = [
     position: "Asst. Team Leader - Sales",
     department: "Sales & Marketing",
     image: "/images/our-team/Cadlum.png",
+    row: 2,
   },
   {
     id: 10,
@@ -72,6 +81,7 @@ const teamMembers = [
     position: "Sales Associate",
     department: "Sales & Marketing",
     image: "/images/our-team/Hayag.png",
+    row: 3,
   },
   {
     id: 11,
@@ -79,13 +89,15 @@ const teamMembers = [
     position: "Sales Associate",
     department: "Sales & Marketing",
     image: "/images/our-team/Indon.png",
+    row: 3,
   },
   {
     id: 12,
-    name: "King Emaru Alfaro",
+    name: "Patricia Queriado",
     position: "Sales Associate",
     department: "Sales & Marketing",
-    image: "/images/our-team/Alfaro.png",
+    image: "/images/our-team/Queriado.png",
+    row: 3,
   },
   {
     id: 13,
@@ -93,6 +105,15 @@ const teamMembers = [
     position: "Sales Associate",
     department: "Sales & Marketing",
     image: "/images/our-team/Galisim.png",
+    row: 3,
+  },
+  {
+    id: 14,
+    name: "King Emaru Alfaro",
+    position: "Sales Associate",
+    department: "Sales & Marketing",
+    image: "/images/our-team/Alfaro.png",
+    row: 3,
   },
 ];
 
@@ -102,12 +123,12 @@ type TeamMember = {
   position: string;
   department: string;
   image: string;
+  row: number;
 };
 
 const departments = [
   "President",
   "IT Directors",
-  "Dev Ops",
   "Operations",
   "Sales & Marketing",
 ];
@@ -175,7 +196,7 @@ export default function OurTeam() {
 
   return (
     <section className="w-full bg-white py-16 px-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* TITLE */}
         <h2
           className="text-center text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-10 tracking-wide uppercase"
@@ -206,11 +227,34 @@ export default function OurTeam() {
         </div>
 
         {/* TEAM CARDS GRID */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredMembers.map((member) => (
-            <TeamMemberCard key={member.id} member={member} />
-          ))}
-        </div>
+        {(() => {
+          const rows = filteredMembers.reduce(
+            (acc, member) => {
+              const r = (member as any).row ?? 1;
+              if (!acc[r]) acc[r] = [];
+              acc[r].push(member);
+              return acc;
+            },
+            {} as Record<number, typeof filteredMembers>,
+          );
+
+          return (
+            <div className="flex flex-col gap-6">
+              {Object.values(rows).map((rowMembers, i) => (
+                <div key={i} className="flex flex-wrap justify-center gap-6">
+                  {rowMembers.map((member) => (
+                    <div
+                      key={member.id}
+                      className="w-[calc(50%-12px)] sm:w-[calc(33.333%-16px)] lg:w-[calc(20%-20px)]"
+                    >
+                      <TeamMemberCard member={member} />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          );
+        })()}
       </div>
     </section>
   );
