@@ -28,7 +28,7 @@ const slides: Slide[] = [
   },
   {
     id: 3,
-    image: "/images/company-overview/CompanyOverviewC.jpg",
+    image: "/images/company-overview/CompanyOverviewC.png",
     title: "All-in-One ERP",
     description:
       "Integr8 delivers industry-focused ERP systems integrating accounting, inventory, payroll, HRIS, lending, and operational modules that are designed to improve workflow efficiency, data accuracy, and real-time visibility.",
