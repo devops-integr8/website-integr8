@@ -22,11 +22,11 @@ function ZoomImage({ src, alt }: { src: string; alt: string }) {
 
   return (
     <div ref={ref} className="flex items-center justify-center">
-      <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-[420px] md:h-[420px] lg:w-[520px] lg:h-[520px] rounded-full border border-solid overflow-hidden">
+      <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-[420px] md:h-[420px] lg:w-[520px] lg:h-[520px] rounded-full border border-solid border-black shadow-2xl overflow-hidden">
         <img
           src={src}
           alt={alt}
-          className={`w-full h-full object-cover transition-transform duration-[5000ms] ease-out ${zoomed ? "scale-100" : "scale-125"}`}
+          className={`w-full h-full object-cover repeat-infinite transition-transform duration-[5000ms] ease-out ${zoomed ? "scale-100" : "scale-125"}`}
         />
       </div>
     </div>
@@ -91,10 +91,7 @@ export default function CompanyEdge() {
 
         {/* Image */}
         <div className="flex justify-center md:justify-end translate-x-30">
-          <ZoomImage
-            src="/images/company-edge/CompanyEdge.png"
-            alt="Team working"
-          />
+          <ZoomImage src="/images/company-edge/CompanyEdge.png" alt="Integr8" />
         </div>
       </div>
     </div>

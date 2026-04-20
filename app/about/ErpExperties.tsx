@@ -25,7 +25,7 @@ const products: Product[] = [
     title: "ONYX POINT-OF-SALE SYSTEM",
     description:
       "A streamlined POS system for handling sales transactions and monitoring retail operations.",
-    image: "/images/erp-experties/OnyxPOS.png",
+    image: "/images/erp-experties/Gr8OnyxPOS.png",
   },
   {
     id: 3,
@@ -169,7 +169,7 @@ export default function ProductsPreview() {
 
               {/* HOVER OVERLAY */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-black/95 to-[#0437f2]/80 flex flex-col justify-center px-4 sm:px-6 text-white"
+                className="absolute inset-0 bg-gradient-to-t from-black/65 to-black/30 flex flex-col justify-center px-4 sm:px-6 text-white"
                 initial={{ y: "100%", opacity: 0 }}
                 animate={{
                   y: activeCard === product.id ? 0 : "100%",

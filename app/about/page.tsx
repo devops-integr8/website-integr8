@@ -44,7 +44,7 @@ const About = () => {
       </section>
 
       <section
-        className="relative overflow-hidden py-16 md:py-20 lg:py-26"
+        className="relative overflow-hidden py-28 md:py-36 lg:py-48"
         style={{
           background:
             "radial-gradient(ellipse at center, #0437f2 0%, #000000 100%)",
@@ -63,7 +63,6 @@ const About = () => {
 
         {/* Content */}
         <div className="relative z-0">
-          <ClientTrust />
           <CTA />
         </div>
 
