@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import TopLoader from "@/components/TopLoader";
-import ScrollToTopButton from "@/components/ui/scroll-to-top";
-import { HeroHeader } from "@/components/Header";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import LayoutWrapper from "@/components/layoutWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,26 +21,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
       <body
-        id="home"
-        className={`${geistSans.variable} ${geistMono.variable} relative selection:bg-yellow-500/50 antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <TopLoader />
-        {/* <HeroHeader /> */}
-        <Navbar />
-        <main>
-          {children}
-          <ScrollToTopButton />
-        </main>
-        <Footer />
+
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );
