@@ -10,10 +10,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div
-      className="relative w-full px-6 md:px-12 lg:px-16 overflow-hidden"
-      style={{ height: `calc(100dvh - ${navHeight}px)` }}
-    >
+    <div className="relative w-full h-[100dvh] px-6 md:px-12 lg:px-16 overflow-hidden">
       <video
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
@@ -24,7 +21,7 @@ export default function Hero() {
         <source src="/videos/AboutHero.mp4" type="video/mp4" />
       </video>
 
-      <div className="absolute top-1/2 md:top-[60%] -translate-y-1/2 left-6 md:left-12 lg:left-24 max-w-xs sm:max-w-sm md:max-w-lg xl:max-w-xl space-y-6 text-white">
+      <div className="absolute top-1/2 md:top-[60%] -translate-y-1/2 left-6 md:left-12 lg:left-24 max-w-xs sm:max-w-sm md:max-w-lg xl:max-w-xl space-y-6 text-white pt-20">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
           <span className="block text-white/40 -mb-2 sm:-mb-5 md:-mb-6 lg:-mb-7">
             One System.
