@@ -3,7 +3,7 @@ import Hero from "./Hero";
 import MissionVision from "./MissionVision";
 import CompanyCarousel from "./CompanyCarousel";
 import Clients from "./Clients";
-import CompanyEdge from "./CompanyEdge";
+import CompanyEdge from "../(homepage)/CompanyEdge";
 import ErpExperties from "./ErpExperties";
 import OurStory from "./OurStory";
 import ClientTrust from "./ClientTrust";
@@ -25,10 +25,6 @@ const About = () => {
 
       <section className="py-16 md:py-20 lg:py-26">
         <Clients />
-      </section>
-
-      <section className="py-16 md:py-20 lg:py-26">
-        <CompanyEdge />
       </section>
 
       <section className="py-16 md:py-20 lg:py-26">
