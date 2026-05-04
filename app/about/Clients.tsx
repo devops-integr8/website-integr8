@@ -80,9 +80,10 @@ const Clients = () => {
 
   const row1Logos: Logo[] = [
     { id: 1, src: "/images/client-logos/Hr.png", alt: "HR Network Inc" },
-    { id: 2, src: "/images/client-logos/logo-2.png", alt: "Barrio" },
-    { id: 3, src: "/images/client-logos/logo-0.png", alt: "Breighton" },
-    { id: 4, src: "/images/client-logos/logo-1.png", alt: "Baliwag" },
+    { id: 2, src: "/images/client-logos/Barrio.png", alt: "Barrio" },
+    { id: 3, src: "/images/client-logos/Breighton.png", alt: "Breighton" },
+    { id: 4, src: "/images/client-logos/Baliwag.png", alt: "Baliwag" },
+    { id: 5, src: "/images/client-logos/Clean.png", alt: "Clean" },
     { id: 6, src: "/images/client-logos/CoopUB.png", alt: "CoopUB" },
     { id: 7, src: "/images/client-logos/Crimson.png", alt: "Crimson" },
     { id: 8, src: "/images/client-logos/Darbc.png", alt: "Darbc" },
@@ -92,22 +93,22 @@ const Clients = () => {
   const row2Logos: Logo[] = [
     { id: 10, src: "/images/client-logos/Epeople.png", alt: "Epeople" },
     { id: 11, src: "/images/client-logos/Gu.png", alt: "Gu" },
-    { id: 13, src: "/images/client-logos/Ishida.png", alt: "Ishida" },
-    { id: 14, src: "/images/client-logos/KaiMall.png", alt: "KaiMall" },
-    { id: 15, src: "/images/client-logos/Lobo.png", alt: "Lobo" },
-    { id: 16, src: "/images/client-logos/Malalim.png", alt: "Malalim" },
-    { id: 17, src: "/images/client-logos/MetroTurf.png", alt: "MetroTurf" },
+    { id: 12, src: "/images/client-logos/Ishida.png", alt: "Ishida" },
+    { id: 13, src: "/images/client-logos/KaiMall.png", alt: "KaiMall" },
+    { id: 14, src: "/images/client-logos/Lobo.png", alt: "Lobo" },
+    { id: 15, src: "/images/client-logos/Malalim.png", alt: "Malalim" },
+    { id: 16, src: "/images/client-logos/MetroTurf.png", alt: "MetroTurf" },
   ];
 
   const row3Logos: Logo[] = [
-    { id: 18, src: "/images/client-logos/Polaris.png", alt: "Polaris" },
-    { id: 19, src: "/images/client-logos/Polyserve.png", alt: "Polyserve" },
-    { id: 20, src: "/images/client-logos/Precast.png", alt: "Precast" },
-    { id: 21, src: "/images/client-logos/Raquel.png", alt: "Raquel" },
-    { id: 22, src: "/images/client-logos/Rldc.png", alt: "Rldc" },
-    { id: 23, src: "/images/client-logos/Vegefoods.png", alt: "Vegefoods" },
-    { id: 24, src: "/images/client-logos/VillaMedica.png", alt: "VillaMedica" },
-    { id: 25, src: "/images/client-logos/Zamba.png", alt: "Zamba" },
+    { id: 17, src: "/images/client-logos/Polaris.png", alt: "Polaris" },
+    { id: 18, src: "/images/client-logos/Polyserve.png", alt: "Polyserve" },
+    { id: 19, src: "/images/client-logos/Precast.png", alt: "Precast" },
+    { id: 20, src: "/images/client-logos/Raquel.png", alt: "Raquel" },
+    { id: 21, src: "/images/client-logos/Rldc.png", alt: "Rldc" },
+    { id: 22, src: "/images/client-logos/Vegefoods.png", alt: "Vegefoods" },
+    { id: 23, src: "/images/client-logos/VillaMedica.png", alt: "VillaMedica" },
+    { id: 24, src: "/images/client-logos/Zamba.png", alt: "Zamba" },
   ];
 
   return (
