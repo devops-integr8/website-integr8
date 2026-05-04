@@ -7,6 +7,10 @@ import FAQs from "./FAQs";
 import Goals from "./Goals";
 import Padding from "../../components/padding";
 import NewsArticle from "./NewsArticle";
+import Introduction from "./Introduction";
+import ProblemSolution from "./ProblemSolution";
+import Values from "./Values";
+import CompanyEdge from "./CompanyEdge";
 
 const Home = () => {
   return (
@@ -15,13 +19,14 @@ const Home = () => {
         <div className="space-y-16">
           <Hero />
           <div id="about" className="scroll-mt-36" />
-          <NewsArticle />
-          <About />
+          <Introduction />
           <Clients />
-          <Goals />
-          <TeamSection />
-          <CallToAction />
+          <ProblemSolution />
+          <Values />
+          <CompanyEdge />
           <FAQs />
+          <NewsArticle />
+          <CallToAction />
         </div>
       </div>
     </>

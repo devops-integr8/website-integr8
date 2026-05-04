@@ -4,6 +4,7 @@ import ErpModules from "./ErpModules";
 import ErpIndustries from "./ErpIndustries";
 import ErpTestimonies from "./ErpTestimonies";
 import RelatedProducts from "./RelatedProducts";
+import StackingCards from "./StackingCards";
 
 const page = () => {
   return (

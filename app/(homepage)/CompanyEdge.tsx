@@ -8,10 +8,7 @@ function ZoomImage({ src, alt }: { src: string; alt: string }) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setZoomed(true);
-          observer.disconnect();
-        }
+        setZoomed(entry.isIntersecting);
       },
       { threshold: 0.3 },
     );
@@ -22,7 +19,7 @@ function ZoomImage({ src, alt }: { src: string; alt: string }) {
 
   return (
     <div ref={ref} className="flex items-center justify-center">
-      <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-[420px] md:h-[420px] lg:w-[520px] lg:h-[520px] rounded-full border border-solid border-black shadow-2xl overflow-hidden">
+      <div className="w-72 h-72 sm:w-96 sm:h-96 md:w-[500px] md:h-[500px] lg:w-[640px] lg:h-[640px] rounded-full border border-solid border-black overflow-hidden">
         <img
           src={src}
           alt={alt}
@@ -39,13 +36,13 @@ export default function CompanyEdge() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
         {/* Text content */}
         <div>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10 text-[#0818a8]">
             WHAT MAKES US DIFFERENT
           </h2>
           <div className="space-y-8 sm:space-y-10">
             <div>
               <div className="w-10 h-[2px] bg-black mb-4"></div>
-              <h4 className="font-extrabold uppercase text-sm mb-2">
+              <h4 className="font-extrabold uppercase text-sm mb-2 text-[#0818a8]">
                 Built for your industry, not just any business
               </h4>
               <p className="text-black font-semibold text-sm sm:text-base">
@@ -56,7 +53,7 @@ export default function CompanyEdge() {
             </div>
             <div>
               <div className="w-10 h-[2px] bg-black mb-4"></div>
-              <h4 className="font-extrabold uppercase text-sm mb-2">
+              <h4 className="font-extrabold uppercase text-sm mb-2 text-[#0818a8]">
                 Implementation done right
               </h4>
               <p className="text-black font-semibold text-sm sm:text-base">
@@ -67,7 +64,7 @@ export default function CompanyEdge() {
             </div>
             <div>
               <div className="w-10 h-[2px] bg-black mb-4"></div>
-              <h4 className="font-extrabold uppercase text-sm mb-2">
+              <h4 className="font-extrabold uppercase text-sm mb-2 text-[#0818a8]">
                 Real support. Real people.
               </h4>
               <p className="text-black font-semibold text-sm sm:text-base">
@@ -77,7 +74,7 @@ export default function CompanyEdge() {
             </div>
             <div>
               <div className="w-10 h-[2px] bg-black mb-4"></div>
-              <h4 className="font-extrabold uppercase text-sm mb-2">
+              <h4 className="font-extrabold uppercase text-sm mb-2 text-[#0818a8]">
                 Built for local compliance
               </h4>
               <p className="text-black font-semibold text-sm sm:text-base">
