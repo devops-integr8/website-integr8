@@ -5,20 +5,20 @@ import { useState } from "react";
 import { StaticImageData } from "next/image";
 
 import img1 from "@/public/images/productsErpHero/ManufacturingProduction.png";
-import img2 from "@/public/images/productsErpHero/Cooperatives.png";
-import img3 from "@/public/images/productsErpHero/Lending.png";
-import img4 from "@/public/images/productsErpHero/Construction.png";
-import img5 from "@/public/images/productsErpHero/RealEstate.png";
+import img2 from "@/public/images/productsErpHero/Lending.png";
+import img3 from "@/public/images/productsErpHero/Construction.png";
+import img4 from "@/public/images/productsErpHero/Brokerage.png";
+import img5 from "@/public/images/productsErpHero/Manpower.png";
 import img6 from "@/public/images/productsErpHero/HOA.png";
 import img7 from "@/public/images/productsErpHero/LeaseManagement.png";
-import img8 from "@/public/images/productsErpHero/Commissary.png";
+import img8 from "@/public/images/productsErpHero/Cooperatives.png";
 import img9 from "@/public/images/productsErpHero/Trading.png";
-import img10 from "@/public/images/productsErpHero/Restaurant.png";
-import img11 from "@/public/images/productsErpHero/Manpower.png";
-import img12 from "@/public/images/productsErpHero/Ecommerce.png";
-import img13 from "@/public/images/productsErpHero/Brokerage.png";
-import img14 from "@/public/images/productsErpHero/Importation.png";
-import img15 from "@/public/images/productsErpHero/ServiceProvider.png";
+import img10 from "@/public/images/productsErpHero/RealEstate.png";
+import img11 from "@/public/images/productsErpHero/Commissary.png";
+import img12 from "@/public/images/productsErpHero/Restaurant.png";
+import img13 from "@/public/images/productsErpHero/Ecommerce.png";
+import img14 from "@/public/images/productsErpHero/ServiceProvider.png";
+import img15 from "@/public/images/productsErpHero/Importation.png";
 
 // ─── Sideheader ──────────────────────────────────────────────────────────────
 
@@ -146,7 +146,7 @@ const modules = [
     image: img1,
     title: "MANUFACTURING/PRODUCTION MODULE",
     description:
-      "From raw materials to finished goods — plan, track, and cost every step.",
+      "From raw materials to finished goods — plan, track, and cost every step of your production.",
     features: [
       "BOM Semi-finished Goods",
       "Demand Forecasting",
@@ -157,8 +157,8 @@ const modules = [
       "BOM Conversion",
       "BOM Explosion",
       "Finished Goods Transfer",
-      "Standard Cost",
       "Average Cost",
+      "Standard Cost",
     ],
   },
   {
@@ -170,9 +170,10 @@ const modules = [
       "Auto Deduct if with Payroll System",
       "Co-Maker Limit",
       "Maximum and Minimum Loanable Amount",
+      "Straight Line Computation",
+      "Past Due Penalty Computation",
       "Loan Approval Limit",
       "Salary Deduction Billing and Collection",
-      "Past Due Penalty computation",
       "Straight Line Diminishing After a Year",
       "Diminishing Balance but with Even Principal",
     ],
@@ -180,13 +181,14 @@ const modules = [
   {
     image: img3,
     title: "CONSTRUCTION MODULE",
-    description: "Manage projects, materials, and costs on-site or in office.",
+    description:
+      "Manage projects, materials, and costs on-site or in the office.",
     features: [
       "Project Management",
       "Contract Management",
       "Project Scope of Work Management",
       "Progress Billing",
-      "Relation Payable",
+      "Retention Payable",
       "Billing for Downpayment",
       "Project Budget Uploader",
       "Recoupment of Downpayment",
@@ -194,38 +196,34 @@ const modules = [
   },
   {
     image: img4,
-    title: "PAYROLL MODULE",
-    description: "Automate salary computations, deductions, and payslips.",
+    title: "BROKERAGE MODULE",
+    description:
+      "Track transactions, commissions, and client activity without the clutter.",
     features: [
-      "User Management",
-      "Organization Management",
-      "Creating of Shift Codes",
-      "Creating of Group Codes",
-      "Payroll and TK Settings",
-      "Creating of Weekly Schedule",
-      "Adding of Leave Type",
+      "Shipper Maintenance",
+      "Charges Maintenance",
+      "Shipping Lines Maintenance",
+      "Vessel & Port Location",
+      "Container Number",
+      "Refund Monitoring",
+      "Shipment Reports",
+      "Item Tracking",
+      "Document Date",
+      "Status Monitoring",
+      "Delivery Area",
+      "Statement of Accounts",
     ],
   },
   {
     image: img5,
-    title: "HRIS MODULE",
+    title: "MANPOWER AGENCY MODULE",
     description:
-      "Manage every employee record, leave, and performance metric in one system.",
+      "Track deployments, billings, and worker records without the chaos.",
     features: [
-      "Employee Profile",
-      "Employee Daily Time Record",
-      "Certificate of SSS Contributions",
-      "Certificate of Philhealth",
-      "2316 Viewing",
-      "Record of Training",
-      "Performance Appraisal",
-      "Certificate of HDMF Contributions",
-      "Viewing of Payslip with History",
-      "Certificate of Employment",
-      "Notice to Explain",
-      "Leave Approval",
-      "Request Certificate of Employment and Compensation",
-      "Disciplinary Action",
+      "Fully Integrated with Accounting and Inventory",
+      "HRIS Management",
+      "Payroll Automation",
+      "Timekeeping System",
     ],
   },
   {
@@ -253,9 +251,9 @@ const modules = [
       "Rental, Electricity, Water, and Monthly Dues Billing",
       "Electricity and Water Reading",
       "Tenant Management",
-      "Consistency in your Property Rental",
       "PDC Monitoring",
       "Improved Control in Property Rental",
+      "Consistency in your Property Rental",
     ],
   },
   {
@@ -264,8 +262,9 @@ const modules = [
     description:
       "Manage memberships, shares, loans, and dividends in one place.",
     features: [
-      "Saving Account Maintenance",
-      "Loan Co-Maker Setup",
+      "Savings Account Maintenance",
+      "CDA Chart of Accounts",
+      "Loan Co-Maker Set Up",
       "Member Maintenance",
       "Loan Collateral Set Up",
       "Savings Maintenance",
@@ -273,6 +272,105 @@ const modules = [
       "Allocation of Net Surplus",
       "Loan Maintenance",
       "Collectors Maintenance",
+    ],
+  },
+  {
+    image: img9,
+    title: "TRADING MODULE",
+    description: "Track purchases, sales, and inventory movement in real time.",
+    features: [
+      "Fully Integrated with Accounting and Inventory",
+      "Core Financials",
+    ],
+  },
+  {
+    image: img10,
+    title: "REAL ESTATE MODULE",
+    description:
+      "List, sell, and manage properties without the paperwork maze.",
+    features: [
+      "Account Monitoring",
+      "List of Available Units",
+      "Contract to Sell",
+      "Inventory Property",
+      "Reservation Agreement",
+      "Waiver",
+      "Buyers Information Sheet",
+      "List of Requirements",
+      "Credit Approval Memorandum Form",
+      "Notice of Disapproval for CAM",
+      "Notice of Unpaid Equity",
+      "Notice on Non-Compliance",
+      "Notice of Cancellation for Documentation",
+      "Buyer’s Ledger",
+      "Real Estate Sales",
+      "Property Maintenance",
+      "JVA Maintenance",
+    ],
+  },
+  {
+    image: img11,
+    title: "COMMISSARY MODULE",
+    description:
+      "Manage production, costs, and distribution from a central hub.",
+    features: [
+      "Fully Integrated with Accounting and Inventory",
+      "Includes ONYX Point of Sale System",
+      "Includes Production Module",
+      "Online Sales Order",
+    ],
+  },
+  {
+    image: img12,
+    title: "RESTAURANT MODULE",
+    description: "Manage orders, recipes, and kitchen costs in one system .",
+    features: [
+      "Fully Integrated with Accounting and Inventory",
+      "Includes Production Module",
+      "Includes ONYX Point of Sale System",
+      "Online Sales Order",
+      "Kitchen Monitoring",
+      "Table Monitoring",
+      "Receipt Bill of Materials",
+    ],
+  },
+  {
+    image: img13,
+    title: "E-COMMERCE MODULE",
+    description: "Connect your store, inventory, and financials in one system.",
+    features: [
+      "Fully Integrated with Accounting and Inventory",
+      "API for E-Commerce Website",
+      "Online Ordering",
+      "Can be Integrated with Production Module",
+    ],
+  },
+  {
+    image: img14,
+    title: "SERVICE PROVIDERS MODULE",
+    description: "Manage job orders, billing, and client records in one place.",
+    features: [
+      "Book of Accounts",
+      "Service Invoice",
+      "Statement of Accounts",
+      "Aging of Accounts Receivable",
+      "BIR Reports",
+      "Statement of Cash Flows",
+    ],
+  },
+  {
+    image: img15,
+    title: "IMPORTATION MODULE",
+    description: "Monitor your imports from purchase order to landed cost.",
+    features: [
+      "Integrated with Accounting and Inventory",
+      "Landed Cost",
+      "Importation Cost",
+      "Brokerage and Delivery Charges",
+      "Container Deposit",
+      "Shipping Charges",
+      "Service Invoice",
+      "Advance Duties",
     ],
   },
 ];
