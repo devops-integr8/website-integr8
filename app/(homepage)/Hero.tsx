@@ -1,32 +1,42 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+"use client";
+import { useEffect, useState } from "react";
 
-const Hero = () => {
+export default function Hero() {
+  const [navHeight, setNavHeight] = useState(64);
+
+  useEffect(() => {
+    const nav = document.querySelector("[data-navbar]") as HTMLElement;
+    if (nav) setNavHeight(nav.offsetHeight);
+  }, []);
+
   return (
-    <div className="flex flex-col lg:flex-row gap-8">
-      <div className="lg:w-2/4 relative h-[50vh] lg:h-screen">
-        <Image
-          src={"https://placehold.co/1600?text=Image+here"}
-          alt=""
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div className="lg:w-2/4 flex flex-col gap-y-8 justify-center">
-        <h1 className="mt-8 lg:mt-0 text-3xl text-center lg:text-start lg:text-6xl font-bold capitalize">
-          Stay inspired, never stop creating.
+    <div className="relative w-full h-[100dvh] px-6 md:px-12 lg:px-16 overflow-hidden">
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="/videos/AboutHero.mp4" type="video/mp4" />
+      </video>
+
+      <div className="absolute top-1/2 md:top-[60%] -translate-y-1/2 left-6 md:left-12 lg:left-24 max-w-xs sm:max-w-sm md:max-w-lg xl:max-w-xl space-y-6 text-white pt-20">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
+          <span className="block text-white/40 -mb-2 sm:-mb-5 md:-mb-6 lg:-mb-7">
+            One System.
+          </span>
+          <span className="block text-white/60 -mb-2 sm:-mb-5 md:-mb-6 lg:-mb-7">
+            Total Control.
+          </span>
+          <span className="block text-white font-black">Gr8 Results.</span>
         </h1>
-        <div>
-          <Button className="" size={"lg"}>
-            Learn More About Us
-          </Button>
-          <Button size={"lg"} variant={"outline"}>
-            Our Products
-          </Button>
-        </div>
+        <p className="mt-4 md:mt-8 text-sm md:text-base text-white/80 max-w-xs md:max-w-lg leading-relaxed">
+          Explore Gr8Books — an integrated cloud and desktop ERP accounting
+          system designed to combine financial operations, enhance reporting
+          accuracy, and streamline business workflows, all in one platform.
+        </p>
       </div>
     </div>
   );
-};
-
-export default Hero;
+}
