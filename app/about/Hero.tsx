@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const [navHeight, setNavHeight] = useState(64); // 64px fallback
+  const [navHeight, setNavHeight] = useState(64);
 
   useEffect(() => {
     const nav = document.querySelector("[data-navbar]") as HTMLElement;
