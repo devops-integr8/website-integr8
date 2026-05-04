@@ -6,8 +6,7 @@ const Hero = () => {
 
   return (
     <div
-      className="relative w-full overflow-hidden"
-      style={{ height: `calc(100dvh - ${navHeight}px)` }}
+     className="relative h-[100dvh] w-full overflow-hidden"
     >
       <img
         src="/products/OnyxHeroBackground.png"

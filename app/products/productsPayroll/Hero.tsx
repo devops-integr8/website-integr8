@@ -6,14 +6,16 @@ const Hero = () => {
 
   return (
     <div
-      className="relative w-full overflow-hidden"
-      style={{ height: `calc(100dvh - ${navHeight}px)` }}
+      className="relative h-[100dvh] w-full overflow-hidden"
     >
+    
       <img
         src="/products/OnyxPayrollBackground.png"
         alt="City skyline"
         className="absolute inset-0 w-full h-full object-cover"
       />
+
+       
 <div className="absolute inset-0 bg-gradient-to-b from-[#0437F2]/30 to-black/20  " />
 
       <div className="absolute bottom-10 md:bottom-16 lg:bottom-20 right-0 px-6 md:px-12 lg:px-16 text-white">

@@ -16,29 +16,29 @@ type Product = {
 const ALL_PRODUCTS: Product[] = [
   {
     id: "books",
-    title: "Gr8 Books",
-    subtitle: "Accounting Software",
+    title: "Gr8 Books Accounting",
+    subtitle: "",
     videoSrc: "/videos/products/Gr8Accounting.mp4",
     href: "/products/productsAccounting",
   },
   {
     id: "payroll",
     title: "Gr8 Payroll and HRIS",
-    subtitle: "Human Resource Management",
+    subtitle: "",
     videoSrc: "/videos/products/Gr8Payroll.mp4",
     href: "/products/productsPayroll",
   },
   {
     id: "onyx",
-    title: "ONYX",
-    subtitle: "Point-Of-Sale System",
+    title: "ONYX Point-Of-Sale System",
+    subtitle: "",
     videoSrc: "/videos/products/Gr8Onyx.mp4",
     href: "/products/productsOnyx",
   },
   {
     id: "erp",
     title: "Gr8 ERP",
-    subtitle: "Enterprise Resource Planning",
+    subtitle: "",
     videoSrc: "/videos/products/Gr8Erp.mp4",
     href: "/products/productsErp",
   },
@@ -224,11 +224,9 @@ export default function RelatedProducts({
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <span className="inline-block py-1 px-3 rounded-full bg-black/30 border border-blue-400/30 text-blue-300 text-[10px] md:text-xs font-semibold tracking-widest uppercase mb-2 backdrop-blur-md">
-              Integr8 Software Solutions, Inc.
-            </span>
+         
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
-              GR8 RELATED PRODUCTS
+            Related Products
             </h2>
           </motion.div>
 
@@ -239,7 +237,7 @@ export default function RelatedProducts({
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-base md:text-lg text-blue-100 font-light max-w-xl mx-auto leading-relaxed drop-shadow-md"
           >
-            Everything your business needs, built to grow with you.
+           
           </motion.p>
         </div>
 
