@@ -1,7 +1,8 @@
+import AccountingModules from "./AccountingModules";
 import Hero from "./Hero";
 import RelatedProducts from "./RelatedProducts";
 import AccountingIntro from "./accountingIntro";
-import AccountingPricing from "./accountingPricing,";
+
 import AccountingTestimonies from "./accountingTestimonies";
 
 const productsAccounting = () => {
@@ -10,7 +11,8 @@ const productsAccounting = () => {
   <div> 
   <Hero />
   <AccountingIntro />
-<AccountingPricing />
+  <AccountingModules />
+
 <AccountingTestimonies />
 <RelatedProducts currentProductId="books" />
   </div>

@@ -111,7 +111,7 @@ export default function OnyxModules() {
               {products.map((product) => (
                 <motion.div
                   key={product.id}
-                  className="group relative w-full max-w-[320px] h-[320px] sm:h-[360px] lg:h-[420px] overflow-hidden rounded-md shadow-lg cursor-pointer isolate"
+                  className="group relative w-full max-w-[420px] h-[480px] overflow-hidden rounded-md shadow-lg cursor-pointer isolate"
                   onHoverStart={() => !isMobile && setActiveCard(product.id)}
                   onHoverEnd={() => !isMobile && setActiveCard(null)}
                   onClick={() => handleInteraction(product.id)}
