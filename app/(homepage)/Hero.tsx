@@ -18,7 +18,7 @@ export default function Hero() {
         muted
         playsInline
       >
-        <source src="/videos/AboutHero.mp4" type="video/mp4" />
+        <source src="/videos/HomeHero.mp4" type="video/mp4" />
       </video>
 
       <div className="absolute top-1/2 md:top-[60%] -translate-y-1/2 left-6 md:left-12 lg:left-24 max-w-xs sm:max-w-sm md:max-w-lg xl:max-w-xl space-y-6 text-white pt-20">
