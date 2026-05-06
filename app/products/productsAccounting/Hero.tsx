@@ -17,7 +17,7 @@ const Hero = () => {
 
       <div className="absolute bottom-10 md:bottom-16 lg:bottom-20 right-0 px-6 md:px-12 lg:px-16 text-white">
 
-        <p className="pb-3 text-right font-semibold">Gr8 Books Accounting Software</p>
+        <p className="pb-3 text-right font-bold">Gr8 Books Accounting Software</p>
 
         <div className="flex flex-col items-end gap-2 md:gap-3 max-w-xl">
 
