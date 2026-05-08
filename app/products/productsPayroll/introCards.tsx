@@ -75,7 +75,7 @@ export default function IntroCards() {
   const [activeId, setActiveId] = useState<number | null>(null);
 
   return (
-    <div className="grid grid-cols-2 gap-4 p-4 max-w-2xl mx-auto items-start">
+    <div className="grid grid-cols-2 gap-4 p-4 max-w-4xl mx-auto items-start">
       {[0, 1].map((col) => {
         const top = cards[col];
         const bottom = cards[col + 2];

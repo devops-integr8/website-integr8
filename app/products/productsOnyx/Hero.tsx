@@ -18,7 +18,7 @@ const Hero = () => {
 
       <div className="absolute bottom-10 md:bottom-16 lg:bottom-20 w-full px-6 md:px-12 lg:px-16 text-white">
         
-        <p className="pb-3">ONYX POS</p>
+        <p className="pb-3 font-bold">ONYX POS</p>
 
         
         <div className="flex flex-col items-start gap-2 md:gap-3 max-w-xl">
@@ -28,7 +28,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-xs sm:text-sm md:text-base max-w-lg leading-relaxed">
-            ONYX keeps your sales, inventory, and finances in sync < br/> automatically, in real time.
+            ONYX keeps your sales, inventory, and finances in sync —< br/> automatically, in real time.
           </p>
 
           <button className="flex items-center gap-2 bg-gradient-to-br from-[#02208C] to-[#0437F2] hover:bg-blue-700 active:scale-95 text-white font-bold py-2 px-4 whitespace-nowrap">
