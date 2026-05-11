@@ -171,7 +171,7 @@ export default function OnyxModules() {
                     y: activeCard === product.id ? 0 : "100%",
                     opacity: activeCard === product.id ? 1 : 0,
                   }}
-                  transition={{ duration: 0.7 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <h3 className="text-2xl font-bold mb-3">
                     {product.title}
