@@ -142,12 +142,12 @@ function CardItem({
         <div className="relative z-10 flex-1 overflow-y-auto no-scrollbar">
           <ul className="flex flex-col gap-2 pl-1 text-sm text-white">
             {card.bullets.map((b, i) => (
-              <li key={i} className="flex gap-2">
-                <span className="w-1.5 h-1.5 bg-white rounded-full mt-[6px]" />
-                <span className={isActive ? "" : "line-clamp-2"}>
-                  {b}
-                </span>
-              </li>
+                  <li key={i} className="flex gap-2 items-start">
+  <span className="w-1.5 h-1.5 bg-white rounded-full mt-[6px] flex-shrink-0" />
+  <span className={isActive ? "" : "line-clamp-2"}>
+    {b}
+  </span>
+</li>
             ))}
           </ul>
         </div>
