@@ -63,23 +63,23 @@ export default function ErpHero() {
         <p className="text-white/90 text-base mb-6">
           Priced Right. Affordable. All In One.
         </p>
-        <button className="flex items-center gap-2 mb-10 bg-blue-600 hover:bg-blue-700 transition text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-md">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-4 h-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-            />
-          </svg>
-          INQUIRE NOW
-        </button>
+          <button className="flex items-center gap-2 bg-gradient-to-br from-[#02208C] to-[#0437F2] hover:bg-blue-700 active:scale-95 text-white font-bold mb-10 py-2 px-4 whitespace-nowrap">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-3 h-3 sm:w-4 sm:h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+            INQUIRE NOW
+          </button>
       </div>
 
       {/* ── Marquee strip ── */}
