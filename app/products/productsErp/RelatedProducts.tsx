@@ -32,7 +32,7 @@ const ALL_PRODUCTS: Product[] = [
     id: "onyx",
     title: "ONYX Point-Of-Sale System",
     subtitle: "",
-    videoSrc: "/videos/products/Gr8Onyx.mp4",
+    videoSrc: "/videos/products/ONYX POS.mp4",
     href: "/products/productsOnyx",
   },
   {

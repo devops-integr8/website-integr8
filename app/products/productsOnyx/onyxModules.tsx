@@ -77,7 +77,7 @@ export default function OnyxModules() {
 
   const handleInteraction = (id: number) => {
     if (isMobile) {
-      setActiveCard(activeCard === id ? null : id);
+      setActiveCard((prev) => (prev === id ? null : id));
     }
   };
 
@@ -86,15 +86,8 @@ export default function OnyxModules() {
       <div className="min-h-screen bg-white flex justify-center px-6 py-7">
         <div className="max-w-5xl w-full">
 
-          <p
-            className="text-base font-extrabold tracking-[0.25em] uppercase mb-5"
-            style={{
-              background: "linear-gradient(to right, #0437f2, #02208C)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
+          {/* HEADER */}
+          <p className="text-base font-extrabold tracking-[0.25em] uppercase mb-5 text-[#0437f2]">
             Modules
           </p>
 
@@ -121,79 +114,84 @@ export default function OnyxModules() {
           {/* CARDS GRID */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
 
-            {products.map((product) => (
-              <motion.div
-                key={product.id}
-                className="group relative w-full h-[480px] overflow-hidden rounded-md shadow-lg cursor-pointer isolate"
-                onHoverStart={() => !isMobile && setActiveCard(product.id)}
-                onHoverEnd={() => !isMobile && setActiveCard(null)}
-                onClick={() => handleInteraction(product.id)}
-                animate={{ y: activeCard === product.id ? -3 : 0 }}
-                transition={{ duration: 0.4 }}
-              >
+            {products.map((product) => {
+              const isActive = activeCard === product.id;
 
-                {/* IMAGE */}
+              return (
                 <motion.div
-                  className="absolute inset-0"
-                  // animate={{ scale: activeCard === product.id ? 1.08 : 1.2 }}
-                  transition={{ duration: 0.6 }}
+                  key={product.id}
+                  className="relative w-full h-[480px] overflow-hidden rounded-md shadow-lg cursor-pointer isolate"
+                  onHoverStart={() => !isMobile && setActiveCard(product.id)}
+                  onHoverEnd={() => !isMobile && setActiveCard(null)}
+                  onClick={() => handleInteraction(product.id)}
+                  animate={{ y: isActive ? -3 : 0 }}
+                  transition={{ duration: 0.4 }}
                 >
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    fill
-                    className="object-cover object-top"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-[#0437f2]/50" />
-                </motion.div>
 
-                {/* TEXT */}
-                <div className="absolute bottom-5 sm:bottom-6 left-3 right-3 text-white z-10">
+                  {/* IMAGE */}
+                  <div className="absolute inset-0">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      className="object-cover object-top"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-[#0437f2]/40" />
+                  </div>
+
+                  {/* TITLE + DESCRIPTION (UPDATED SPACING ONLY) */}
                   <motion.div
-                    animate={{ opacity: activeCard === product.id ? 0 : 1 }}
+                    className="absolute bottom-0 left-0 right-0 p-8 sm:p-8 pb-10 z-10 text-white"
+                    animate={{
+                      opacity: isActive ? 0 : 1,
+                      y: isActive ? 20 : 0,
+                    }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h2 className="text-xl sm:text-2xl font-bold">
+                    <h2 className="text-xl sm:text-2xl font-bold mb-2">
                       {product.title}
                     </h2>
 
-                    <p className="text-sm mt-1 opacity-90 line-clamp-3">
+                    <p className="text-sm opacity-80 line-clamp-3 leading-relaxed">
                       {product.description}
                     </p>
                   </motion.div>
-                </div>
 
-                {/* HOVER OVERLAY */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-black/30 to-[#0437f2]/40 flex flex-col justify-center px-4 text-white"
-                  initial={{ y: "100%", opacity: 0 }}
-                  animate={{
-                    y: activeCard === product.id ? 0 : "100%",
-                    opacity: activeCard === product.id ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <h3 className="text-2xl font-bold mb-3">
-                    {product.title}
-                  </h3>
+                  {/* OVERLAY */}
+                  <motion.div
+                    className="absolute inset-0 flex flex-col justify-center px-4 text-white"
+                    initial={{ y: "100%", opacity: 0 }}
+                    animate={{
+                      y: isActive ? 0 : "100%",
+                      opacity: isActive ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.4 }}
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, rgba(4,55,242,0.75), rgba(0,0,0,0.85))",
+                    }}
+                  >
+                    <h3 className="text-2xl font-bold mb-3">
+                      {product.title}
+                    </h3>
 
-                  <div className="flex flex-wrap gap-1 max-h-[60vh] sm:max-h-none overflow-y-scroll sm:overflow-y-auto sm:overflow-visible pr-1 no-scrollbar">
-                    {product.features?.map((f, i) => (
-                      <span
-                        key={i}
-                        className="px-3.5 py-1.5 rounded-full bg-white text-gray-800 text-[11px] sm:text-xs font-medium shadow-md"
-                      >
-                        {f}
-                      </span>
-                    ))}
-                  </div>
+                    <div className="flex flex-wrap gap-2 overflow-y-auto max-h-[60vh] pr-1 no-scrollbar">
+                      {product.features?.map((f, i) => (
+                        <span
+                          key={i}
+                          className="px-3.5 py-1.5 rounded-full bg-white/10 text-white text-xs sm:text-sm font-medium border border-white/30"
+                        >
+                          {f}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+
                 </motion.div>
-
-              </motion.div>
-            ))}
+              );
+            })}
 
           </div>
-
         </div>
       </div>
     </section>
