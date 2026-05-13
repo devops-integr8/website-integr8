@@ -31,7 +31,7 @@ const cards: CardData[] = [
                "Sync employee data across payroll settings, shift codes, group codes, and organization maintenance",
               "Upload timekeeping logs and bankfiles while managing leave types and holiday configurations", 
 ],
-    defaultState: "half",
+    defaultState: "collapsed",
   },
   {
     id: 3,
@@ -53,14 +53,14 @@ const cards: CardData[] = [
               "Produce government-mandated reports",
               "Generate payslips, and payroll reports for full audit compliance",
     ],
-    defaultState: "half",
+    defaultState: "full",
   },
 ];
 
 const HEIGHT = {
   collapsed: 90,
-  half: 165,
-  full: 240,
+  half: 175,
+  full: 270,
 };
 
 const CheckIcon = () => (
@@ -133,17 +133,17 @@ function CardItem({
         {/* TITLE */}
         <div className="relative z-10 flex items-start gap-3">
           <CheckIcon />
-          <h3 className="text-white font-semibold text-[15px]">
+          <h3 className="text-white font-semibold text-[18px]">
             {card.title}
           </h3>
         </div>
 
         {/* CONTENT */}
         <div className="relative z-10 flex-1 overflow-y-auto no-scrollbar">
-          <ul className="flex flex-col gap-2 pl-1 text-sm text-white">
+          <ul className="flex flex-col gap-2 pl-1 text-base text-white">
             {card.bullets.map((b, i) => (
                   <li key={i} className="flex gap-2 items-start">
-  <span className="w-1.5 h-1.5 bg-white rounded-full mt-[6px] flex-shrink-0" />
+  <span className="w-1.5 h-1.5 bg-white rounded-full mt-[10px] flex-shrink-0" />
   <span className={isActive ? "" : "line-clamp-2"}>
     {b}
   </span>
