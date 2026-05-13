@@ -27,7 +27,7 @@ export default function Contacts() {
       {/* Header */}
       <div className="text-center mb-12">
         <h2
-          className="text-4xl md:text-5xl font-extrabold mb-4"
+          className="text-4xl md:text-6xl font-bold mb-4"
           style={{ color: "#0818a8" }}
         >
           Contact Us
@@ -50,7 +50,7 @@ export default function Contacts() {
           >
             {/* Floating icon ring */}
             <div
-              className="relative z-10 flex items-center justify-center rounded-full w-24 h-24 mb-[-3rem] shadow-lg flex-shrink-0"
+              className="relative z-10 flex items-center justify-center rounded-full w-22 h-22 mb-[-3rem] shadow-lg flex-shrink-0"
               style={{
                 background: "linear-gradient(to bottom, #0437f2, #02208c)",
               }}
@@ -79,7 +79,7 @@ export default function Contacts() {
               }}
             >
               {/* Card title — fixed top margin so all three align */}
-              <h3 className="text-white font-extrabold text-2xl mt-4 mb-4">
+              <h3 className="text-white font-bold text-2xl mt-4 mb-4">
                 {label}
               </h3>
 
