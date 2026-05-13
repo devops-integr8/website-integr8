@@ -27,7 +27,7 @@ const CallToAction = () => {
         </h2>
 
         <a
-          href="mailto:info@gr8software.ph"
+          href="/contactUs"
           className="
             inline-flex items-center gap-2.5
             px-12 py-3.5

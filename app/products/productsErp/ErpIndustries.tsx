@@ -20,12 +20,28 @@ import img13 from "@/public/images/productsErpHero/Ecommerce.png";
 import img14 from "@/public/images/productsErpHero/ServiceProvider.png";
 import img15 from "@/public/images/productsErpHero/Importation.png";
 
+import icon1 from "@/public/images/productsErpHero/icons/ManufacturingIcon.png";
+import icon2 from "@/public/images/productsErpHero/icons/LendingIcon.png";
+import icon3 from "@/public/images/productsErpHero/icons/ConstructionIcon.png";
+import icon4 from "@/public/images/productsErpHero/icons/BrokerageIcon.png";
+import icon5 from "@/public/images/productsErpHero/icons/ManpowerIcon.png";
+import icon6 from "@/public/images/productsErpHero/icons/HOAIcon.png";
+import icon7 from "@/public/images/productsErpHero/icons/LeaseManagementIcon.png";
+import icon8 from "@/public/images/productsErpHero/icons/CooperativesIcon.png";
+import icon9 from "@/public/images/productsErpHero/icons/TradingIcon.png";
+import icon10 from "@/public/images/productsErpHero/icons/RealEstateIcon.png";
+import icon11 from "@/public/images/productsErpHero/icons/CommissaryIcon.png";
+import icon12 from "@/public/images/productsErpHero/icons/RestaurantIcon.png";
+import icon13 from "@/public/images/productsErpHero/icons/EcommerceIcon.png";
+import icon14 from "@/public/images/productsErpHero/icons/ServiceProvidersIcon.png";
+import icon15 from "@/public/images/productsErpHero/icons/ImportationIcon.png";
+
 // ─── Sideheader ──────────────────────────────────────────────────────────────
 
 const Sideheader = () => {
   return (
     <div className="flex flex-col gap-4 lg:sticky lg:top-24 z-50">
-      <h1 className="text-blue-700 text-4xl font-semibold leading-tight">
+      <h1 className="text-[#0818a8] text-4xl font-bold leading-tight">
         Built for the way your business works
       </h1>
       <p className="text-gray-600 text-sm leading-relaxed">
@@ -43,8 +59,9 @@ type CardProps = {
   description: string;
   features?: string[];
   image: StaticImageData | string;
-  flipped: boolean; //
-  onFlip: () => void; //
+  icon: StaticImageData | string;
+  flipped: boolean;
+  onFlip: () => void;
 };
 
 const Card = ({
@@ -52,6 +69,7 @@ const Card = ({
   description,
   features = [],
   image,
+  icon,
   flipped,
   onFlip,
 }: CardProps) => {
@@ -78,8 +96,17 @@ const Card = ({
           <Image src={image} alt={title} fill className="object-cover" />
           <div className="absolute inset-0 bg-black/30 hover:bg-black/40 transition" />
           <div className="absolute bottom-6 left-6 right-6">
-            <h3 className="text-white font-bold text-xl">{title}</h3>
-            <p className="text-white/80 text-sm mt-1">{description}</p>
+            {/* Icon + Title row */}
+            <div className="flex items-center gap-2">
+              <Image
+                src={icon}
+                alt={`${title} icon`}
+                width={24}
+                height={24}
+                className="object-contain"
+              />
+              <h3 className="text-white font-bold text-xl">{title}</h3>
+            </div>
             <p className="text-white text-xs mt-4 italic">
               Click to see features →
             </p>
@@ -87,6 +114,15 @@ const Card = ({
         </div>
 
         {/* BACK */}
+        <style>{`
+          .pills-scroll::-webkit-scrollbar { width: 2px; }
+          .pills-scroll::-webkit-scrollbar-track { background: transparent; }
+          .pills-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.18);
+            border-radius: 99px;
+          }
+          .pills-scroll { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.18) transparent; }
+        `}</style>
         <div
           className="absolute inset-0 rounded-xl overflow-hidden"
           style={{
@@ -94,6 +130,7 @@ const Card = ({
             transform: "rotateY(180deg)",
           }}
         >
+
           {/* BLURRED IMAGE BACKGROUND */}
           <Image
             src={image}
@@ -104,37 +141,46 @@ const Card = ({
           />
 
           {/* OVERLAY */}
-          <div className="absolute inset-0 bg-white/10" />
+          <div className="absolute inset-0 bg-black/30" />
 
-          {/* SCROLLABLE CONTENT */}
-          <div className="absolute inset-0 overflow-y-auto px-6 pt-6 pb-10">
-            {/* TITLE */}
-            <h3 className="text-white font-bold text-xl drop-shadow mb-4">
-              {title}
-            </h3>
+          {/* CONTENT — one flex column, no outer scroll */}
+          <div className="absolute inset-0 flex flex-col px-6 pt-6">
 
-            {/* PILL BADGES */}
-            <div className="flex flex-wrap gap-2">
-              {features.map((f, i) => (
-                <span
-                  key={i}
-                  className="px-4 py-2 rounded-full bg-white text-gray-800 text-xs font-medium shadow-md"
-                >
-                  {f}
-                </span>
-              ))}
+            {/* Icon + Title — pinned, never scrolls */}
+            <div className="flex items-center gap-2 mb-4 shrink-0">
+              <Image
+                src={icon}
+                alt={`${title} icon`}
+                width={24}
+                height={24}
+                className="object-contain"
+              />
+              <h3 className="text-white font-bold text-xl drop-shadow">{title}</h3>
             </div>
 
-            {/* CLICK TO FLIP — pinned to bottom */}
-            <p className="absolute bottom-4 right-6 text-white/100 text-xs italic">
-              Click to flip back
-            </p>
-          </div>
-        </div>
-      </div>
+    {/* Pills — scrolls only when content overflows */}
+    <div className="pills-scroll flex-1 overflow-y-auto flex flex-wrap gap-2 content-start">
+      {[...features].sort((a, b) => a.length - b.length).map((f, i) => (
+        <span
+          key={i}
+          className="px-4 py-2 rounded-full bg-white text-gray-800 text-xs font-medium shadow-md h-fit"
+        >
+          {f}
+        </span>
+      ))}
+    </div>
+
+    {/* Click to flip back — always pinned at bottom */}
+    <p className="text-right text-white text-xs italic py-3 shrink-0">
+      Click to flip back
+    </p>
+
+    </div>
+  </div>
+</div>
 
       {/* DESCRIPTION BELOW CARD */}
-      <p className="text-sm text-gray-600 mt-3 max-w-[280px]">{description}</p>
+      <p className="text-sm text-gray-600 mt-3 max-w-full">{description}</p>
     </div>
   );
 };
@@ -144,10 +190,13 @@ const Card = ({
 const modules = [
   {
     image: img1,
+    icon: icon1,
     title: "MANUFACTURING/PRODUCTION MODULE",
     description:
       "From raw materials to finished goods — plan, track, and cost every step of your production.",
     features: [
+      "Accounting Modules",
+      "Inventory Modules",
       "BOM Semi-finished Goods",
       "Demand Forecasting",
       "BOM Finished Goods Transfer",
@@ -163,12 +212,17 @@ const modules = [
   },
   {
     image: img2,
+    icon: icon2,
     title: "LENDING MODULE",
     description: "Verify, approve, and collect employee loans automatically.",
     features: [
+      "Accounting Modules",
+      "Inventory Modules",
       "Loan Verifier",
+      "Loan Application",
       "Auto Deduct if with Payroll System",
       "Co-Maker Limit",
+      "Collateral Limit",
       "Maximum and Minimum Loanable Amount",
       "Straight Line Computation",
       "Past Due Penalty Computation",
@@ -176,14 +230,20 @@ const modules = [
       "Salary Deduction Billing and Collection",
       "Straight Line Diminishing After a Year",
       "Diminishing Balance but with Even Principal",
+      "Diminishing Balance Computation",
+      "Multiple Loan Types",
+      "Restructuring of Loans",
     ],
   },
   {
     image: img3,
+    icon: icon3,
     title: "CONSTRUCTION MODULE",
     description:
       "Manage projects, materials, and costs on-site or in the office.",
     features: [
+      "Accounting Modules",
+      "Inventory Modules",
       "Project Management",
       "Contract Management",
       "Project Scope of Work Management",
@@ -196,10 +256,12 @@ const modules = [
   },
   {
     image: img4,
+    icon: icon4,
     title: "BROKERAGE MODULE",
     description:
       "Track transactions, commissions, and client activity without the clutter.",
     features: [
+      "Accounting Modules",
       "Shipper Maintenance",
       "Charges Maintenance",
       "Shipping Lines Maintenance",
@@ -216,11 +278,13 @@ const modules = [
   },
   {
     image: img5,
+    icon: icon5,
     title: "MANPOWER AGENCY MODULE",
     description:
       "Track deployments, billings, and worker records without the chaos.",
     features: [
-      "Fully Integrated with Accounting and Inventory",
+      "Accounting Modules",
+      "Inventory Modules",
       "HRIS Management",
       "Payroll Automation",
       "Timekeeping System",
@@ -228,10 +292,13 @@ const modules = [
   },
   {
     image: img6,
+    icon: icon6,
     title: "HOA MODULE",
     description:
       "Collect dues, manage residents, and handle association finances effortlessly.",
     features: [
+      "Accounting Modules",
+      "Inventory Modules",
       "Monthly Dues Billing",
       "Water Billing",
       "Statement of Account",
@@ -242,10 +309,13 @@ const modules = [
   },
   {
     image: img7,
+    icon: icon7,
     title: "LEASE MANAGEMENT MODULE",
     description:
       "Track contracts, renewals, and payments across all your properties.",
     features: [
+      "Accounting Modules",
+      "Inventory Modules",
       "Tenant Charges Maintenance",
       "Contract Management",
       "Rental, Electricity, Water, and Monthly Dues Billing",
@@ -258,13 +328,17 @@ const modules = [
   },
   {
     image: img8,
+    icon: icon8,
     title: "COOPERATIVES MODULE",
     description:
       "Manage memberships, shares, loans, and dividends in one place.",
     features: [
+      "Accounting Modules",
+      "Inventory Modules",
       "Savings Account Maintenance",
       "CDA Chart of Accounts",
       "Loan Co-Maker Set Up",
+      "Loan Application",
       "Member Maintenance",
       "Loan Collateral Set Up",
       "Savings Maintenance",
@@ -276,19 +350,20 @@ const modules = [
   },
   {
     image: img9,
+    icon: icon9,
     title: "TRADING MODULE",
     description: "Track purchases, sales, and inventory movement in real time.",
-    features: [
-      "Fully Integrated with Accounting and Inventory",
-      "Core Financials",
-    ],
+    features: ["Accounting Modules", "Inventory Modules", "Core Financials"],
   },
   {
     image: img10,
+    icon: icon10,
     title: "REAL ESTATE MODULE",
     description:
       "List, sell, and manage properties without the paperwork maze.",
     features: [
+      "Accounting Modules",
+      "Inventory Modules",
       "Account Monitoring",
       "List of Available Units",
       "Contract to Sell",
@@ -302,7 +377,7 @@ const modules = [
       "Notice of Unpaid Equity",
       "Notice on Non-Compliance",
       "Notice of Cancellation for Documentation",
-      "Buyer’s Ledger",
+      "Buyer's Ledger",
       "Real Estate Sales",
       "Property Maintenance",
       "JVA Maintenance",
@@ -310,24 +385,28 @@ const modules = [
   },
   {
     image: img11,
+    icon: icon11,
     title: "COMMISSARY MODULE",
     description:
       "Manage production, costs, and distribution from a central hub.",
     features: [
-      "Fully Integrated with Accounting and Inventory",
-      "Includes ONYX Point of Sale System",
-      "Includes Production Module",
+      "Accounting Modules",
+      "Inventory Modules",
+      "POS Module",
+      "Production Module",
       "Online Sales Order",
     ],
   },
   {
     image: img12,
+    icon: icon12,
     title: "RESTAURANT MODULE",
-    description: "Manage orders, recipes, and kitchen costs in one system .",
+    description: "Manage orders, recipes, and kitchen costs in one system.",
     features: [
-      "Fully Integrated with Accounting and Inventory",
-      "Includes Production Module",
-      "Includes ONYX Point of Sale System",
+      "Accounting Modules",
+      "Inventory Modules",
+      "Production Module",
+      "POS Module",
       "Online Sales Order",
       "Kitchen Monitoring",
       "Table Monitoring",
@@ -336,17 +415,20 @@ const modules = [
   },
   {
     image: img13,
+    icon: icon13,
     title: "E-COMMERCE MODULE",
     description: "Connect your store, inventory, and financials in one system.",
     features: [
-      "Fully Integrated with Accounting and Inventory",
+      "Accounting Modules",
+      "Inventory Modules",
       "API for E-Commerce Website",
       "Online Ordering",
-      "Can be Integrated with Production Module",
+      "Production Module",
     ],
   },
   {
     image: img14,
+    icon: icon14,
     title: "SERVICE PROVIDERS MODULE",
     description: "Manage job orders, billing, and client records in one place.",
     features: [
@@ -360,10 +442,12 @@ const modules = [
   },
   {
     image: img15,
+    icon: icon15,
     title: "IMPORTATION MODULE",
     description: "Monitor your imports from purchase order to landed cost.",
     features: [
-      "Integrated with Accounting and Inventory",
+      "Accounting Modules",
+      "Inventory Modules",
       "Landed Cost",
       "Importation Cost",
       "Brokerage and Delivery Charges",
@@ -371,6 +455,7 @@ const modules = [
       "Shipping Charges",
       "Service Invoice",
       "Advance Duties",
+      "Letters of Credit Charges",
     ],
   },
 ];
@@ -378,11 +463,9 @@ const modules = [
 // ─── ErpIndustries ────────────────────────────────────────────────────────────
 
 const ErpIndustries = () => {
-  // Tracks which card is flipped by its index. null = none flipped.
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
 
   const handleFlip = (index: number) => {
-    // If clicking the already-flipped card, flip it back. Otherwise flip the new one.
     setFlippedIndex((prev) => (prev === index ? null : index));
   };
 

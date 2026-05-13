@@ -15,27 +15,23 @@ const Navbar = () => {
     let timeout: NodeJS.Timeout;
 
     const triggerAnimation = () => {
-      setVisible(false); // reset
+      setVisible(false);
       clearTimeout(timeout);
-
       timeout = setTimeout(() => {
-        setVisible(true); // slide down
+        setVisible(true);
       }, 40);
     };
 
     const handleScroll = () => {
       const atHero = window.scrollY < window.innerHeight * 0.8;
-
       if (atHero) {
         triggerAnimation();
       } else {
-        setVisible(false); // hide when leaving hero
+        setVisible(false);
       }
     };
 
-    // run on first load
     triggerAnimation();
-
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -53,22 +49,22 @@ const Navbar = () => {
     <div
       data-navbar
       className={`
-  absolute left-1/2 -translate-x-1/2 w-full max-w-5xl px-4 z-50
-  transition-all duration-700 ease-out
- 
-  ${visible ? "top-4 opacity-100 scale-100" : "-top-20 opacity-0 scale-95"}
-`}
+        absolute left-1/2 -translate-x-1/2 w-full max-w-3xl px-4 z-50
+        transition-all duration-700 ease-out
+        ${visible ? "top-4 opacity-100 scale-100" : "-top-20 opacity-0 scale-95"}
+      `}
     >
+      {/* Dynamic Island pill */}
       <div
         className={`
-      backdrop-blur-2xl
-      bg-gradient-to-r from-[#808080]/30 via-[#808080]/30 to-[#808080]/30
-      shadow-[0_10px_40px_rgba(37,99,235,0.25)]
-      border border-white/10
-      rounded-2xl
-      flex justify-between items-center
-      px-6 py-4 md:py-5 transition-all duration-500
-    `}
+          bg-white/10
+          backdrop-blur-2xl
+          shadow-[0_8px_32px_rgba(0,0,0,0.6),0_0_0_0.5px_rgba(255,255,255,0.08)]
+          rounded-full
+          flex justify-between items-center
+          px-4 py-2
+          transition-all duration-500
+        `}
       >
         {/* Logo */}
         <Link href="/">
@@ -77,27 +73,27 @@ const Navbar = () => {
             alt="Integr8 logo"
             width={870}
             height={400}
-            className="w-32 md:w-36 brightness-150 contrast-150 drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
+            className="w-24 md:w-28 brightness-150 contrast-150 drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
           />
         </Link>
 
-        {/* Desktop Nav Links */}
-        <ul className="hidden md:flex flex-row border border-white/20 font-semibold absolute left-1/2 -translate-x-1/2">
+        {/* Desktop Nav Links — no box, just the links */}
+        <ul className="hidden md:flex flex-row items-center gap-1 font-semibold absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
             <li key={link.label}>
               <Link href={link.href}>
                 <button
-                  className={`relative px-5 py-1 gap-x-4 transition-all duration-300 cursor-pointer group ${
+                  className={`relative px-4 py-1.5 text-sm transition-all duration-300 cursor-pointer group rounded-full ${
                     pathname === link.href
                       ? "text-white drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]"
-                      : "text-[#9db4ff] hover:text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]"
+                      : "text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]"
                   }`}
                 >
                   {link.label}
 
-                  {/* Underline */}
+                  {/* Underline animation — kept intact */}
                   <span
-                    className={`absolute left-0 -bottom-1 h-[2px] bg-white transition-all duration-300 ${
+                    className={`absolute left-0 -bottom-0.5 h-[2px] bg-white transition-all duration-300 ${
                       pathname === link.href
                         ? "w-full"
                         : "w-0 group-hover:w-full"
@@ -109,44 +105,43 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className="hidden md:flex items-center gap-x-3">
+        {/* Login button — borderless, minimal */}
+        <div className="hidden md:flex items-center">
           <Link href="https://books.integr8.com.ph/Pages/Login.aspx">
-            <Button
-              variant="outline"
-              size="sm"
+            <button
               className="
-        border border-white/20
-        text-[#9db4ff]
-        bg-white/5
-        backdrop-blur-sm
-        hover:bg-white/30
-        hover:text-white
-        transition-all duration-300
-      "
+                text-sm font-semibold text-white
+                
+                transition-all duration-300
+                px-3 py-1
+                rounded-full
+                hover:bg-white/60
+                cursor-pointer
+              "
             >
-              Login
-            </Button>
+              Log in
+            </button>
           </Link>
         </div>
 
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden p-2"
+          className="md:hidden p-1.5 text-white"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
-      {/* Mobile Dropdown */}
+      {/* Mobile Dropdown — expands below pill */}
       {menuOpen && (
-        <div className="md:hidden bg-[#fafafa] border-t border-[#0437f2]/20 px-8 py-4 flex flex-col gap-3">
+        <div className="md:hidden mt-2 bg-white/10 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.6)] px-6 py-4 flex flex-col gap-3">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-[#0437f2]/90 font-semibold py-2 border-b border-[#0437f2]/10 hover:text-[#0437f2]/90 transition-colors"
+              className="text-white/80 font-semibold py-2 border-b border-white/10 hover:text-[#0437f2] transition-colors"
             >
               {link.label}
             </Link>
@@ -160,7 +155,7 @@ const Navbar = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full border-[#0437f2]/80 text-[#0437f2]/90 hover:bg-[#0437f2]/90 hover:text-white"
+                className="w-full border-white/20 text-white hover:bg-white/10 hover:text-[#0437f2] rounded-full"
               >
                 Login
               </Button>
@@ -168,7 +163,7 @@ const Navbar = () => {
 
             <Button
               size="sm"
-              className="flex-1 bg-gradient-to-b from-[#0437f2] to-[#224d9a] text-white"
+              className="flex-1 bg-gradient-to-b from-[#0437f2] to-[#224d9a] text-white rounded-full"
             >
               Sign Up
             </Button>

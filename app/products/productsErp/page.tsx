@@ -4,18 +4,28 @@ import ErpModules from "./ErpModules";
 import ErpIndustries from "./ErpIndustries";
 import ErpTestimonies from "./ErpTestimonies";
 import RelatedProducts from "./RelatedProducts";
-import StackingCards from "./StackingCards";
 
 const page = () => {
   return (
-    <>
+    <div className="flex flex-col">
       <ErpHero />
-      <ErpFeatures />
-      <ErpModules />
-      <ErpIndustries />
-      <ErpTestimonies />
-      <RelatedProducts currentProductId="erp" />
-    </>
+
+      <section className="py-20">
+        <ErpFeatures />
+      </section>
+      <section className="py-20">
+        <ErpModules />
+      </section>
+      <section className="py-20">
+        <ErpIndustries />
+      </section>
+      <section className="py-20">
+        <ErpTestimonies />
+      </section>
+      <section className="py-20">
+        <RelatedProducts currentProductId="erp" />
+      </section>
+    </div>
   );
 };
 

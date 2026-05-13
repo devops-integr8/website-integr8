@@ -2,7 +2,7 @@ import { Check } from "lucide-react";
 import Image from "next/image";
 
 const features = [
-  "User- Friendly Interface",
+  "User-Friendly Interface",
   "BIR Compliant",
   "Fully Integrated And Seamless",
   "Real-Time Report Generation",
@@ -16,7 +16,7 @@ export default function ErpFeatures() {
   return (
     <section className="w-full bg-white py-14 sm:py-20 px-4 sm:px-8">
       <div className="max-w-[1440px] mx-auto">
-        {/* ── FEATURES ── */}
+        {/* Label */}
         <p
           className="text-base font-extrabold tracking-[0.2em] uppercase mb-4"
           style={{
@@ -29,27 +29,26 @@ export default function ErpFeatures() {
           Features
         </p>
 
-        {/* ── Header row ── */}
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-3 mb-12 sm:mb-14">
+        {/* Header row */}
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-3 mb-8 sm:mb-12 lg:mb-14">
           <h2
             className="font-bold leading-tight"
-            style={{ fontSize: "clamp(26px, 3vw, 46px)", color: "#0818A8" }}
+            style={{ fontSize: "clamp(22px, 3vw, 46px)", color: "#0818A8" }}
           >
             Transform Your Business
             <br />
             Operations
           </h2>
-          {/* Subtitle — bumped up to text-base sm:text-xl */}
-          <p className="text-black/60 text-base sm:text-xl font-medium sm:max-w-xs sm:text-right">
+          <p className="text-black/60 text-sm sm:text-base lg:text-xl font-medium sm:max-w-xs sm:text-right">
             Manage your entire organization
             <br className="hidden sm:block" /> in one powerful platform
           </p>
         </div>
 
-        {/* ── Content: image + feature cards ── */}
+        {/* Content: image + feature cards */}
         <div className="flex flex-col lg:flex-row gap-5 lg:gap-8 items-stretch">
-          {/* Left — Large image column */}
-          <div className="w-full lg:w-[50%] flex-shrink-0 min-h-[340px] relative rounded-xl overflow-hidden">
+          {/* Image */}
+          <div className="w-full lg:w-[50%] flex-shrink-0 min-h-[220px] sm:min-h-[300px] lg:min-h-[400px] relative rounded-xl overflow-hidden">
             <Image
               src="/images/productsErpHero/Gr8Features.png"
               alt="Gr8 ERP Software"
@@ -58,23 +57,23 @@ export default function ErpFeatures() {
             />
           </div>
 
-          {/* Right — 2-column card grid */}
-          <div className="flex-1 grid grid-cols-2 gap-3">
+          {/* Feature cards — 1 col on mobile, 2 col on sm+ */}
+          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="flex flex-col justify-center gap-3 px-6 py-4 rounded-xl"
+                className="flex flex-row sm:flex-col justify-start sm:justify-center items-center sm:items-start gap-3 px-4 sm:px-5 lg:px-6 py-3 sm:py-4 rounded-xl"
                 style={{
                   background: "linear-gradient(to right, #0437f2, #02208C)",
                 }}
               >
-                <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-sm flex-shrink-0">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white flex items-center justify-center shadow-sm flex-shrink-0">
                   <Check
-                    className="w-3.5 h-3.5 stroke-[3]"
+                    className="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3]"
                     style={{ color: "#02208C" }}
                   />
                 </div>
-                <span className="text-white text-base font-semibold leading-snug">
+                <span className="text-white text-sm sm:text-base font-semibold leading-snug">
                   {feature}
                 </span>
               </div>

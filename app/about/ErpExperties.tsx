@@ -4,12 +4,15 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface Product {
   id: number;
   title: string;
   description: string;
   image: string;
+  href: string;
 }
 
 const products: Product[] = [
@@ -19,13 +22,15 @@ const products: Product[] = [
     description:
       "A structured accounting system for managing financial transactions and generating reliable reports.",
     image: "/images/erp-experties/Gr8Accounting.png",
+    href: "/products/productsAccounting",
   },
   {
     id: 2,
     title: "ONYX POINT-OF-SALE SYSTEM",
     description:
       "A streamlined POS system for handling sales transactions and monitoring retail operations.",
-    image: "/images/erp-experties/Gr8OnyxPOS.png",
+    image: "/images/erp-experties/OnyxPOS.png",
+    href: "/products/productsOnyx",
   },
   {
     id: 3,
@@ -33,6 +38,7 @@ const products: Product[] = [
     description:
       "A centralized solution for managing employee data, attendance, and payroll processes.",
     image: "/images/erp-experties/Gr8Payroll.png",
+    href: "/products/productsPayroll",
   },
   {
     id: 4,
@@ -40,6 +46,7 @@ const products: Product[] = [
     description:
       "An integrated platform built to manage and connect core business operations in one centralized system.",
     image: "/images/erp-experties/Gr8ERP.png",
+    href: "/products/productsErp",
   },
 ];
 
@@ -83,6 +90,7 @@ function ArrowButton({
 }
 
 export default function ProductsPreview() {
+  const router = useRouter(); 
   const [activeCard, setActiveCard] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -109,7 +117,7 @@ export default function ProductsPreview() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="absolute left-[6%] sm:left-[8%] top-1/2 -translate-y-1/2 text-white max-w-xs sm:max-w-sm md:max-w-xl px-4 sm:px-0">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">
             GR8 PRODUCTS
@@ -119,9 +127,15 @@ export default function ProductsPreview() {
             organizations manage operations, finances, and workforce processes
             in one unified platform.
           </p>
-          <ArrowButton className="mt-3 sm:mt-6 text-sm sm:text-base">
+          <Link
+            href="/products/productsLanding"
+            className="mt-3 sm:mt-6 text-sm sm:text-base hover:underline flex items-center gap-2 w-fit group"
+          >
             Explore our products
-          </ArrowButton>
+            <span className="flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 group-hover:bg-white/20">
+              <ArrowRight size={14} className="text-white" />
+            </span>
+          </Link>
         </div>
       </div>
 
@@ -169,8 +183,7 @@ export default function ProductsPreview() {
 
               {/* HOVER OVERLAY */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-black/65 to-black/30 flex flex-col justify-center px-4 sm:px-6 text-white"
-                initial={{ y: "100%", opacity: 0 }}
+               className="absolute inset-0 bg-gradient-to-t from-black/85 to-black/55 flex flex-col justify-center px-4 sm:px-6 text-white"
                 animate={{
                   y: activeCard === product.id ? 0 : "100%",
                   opacity: activeCard === product.id ? 1 : 0,
@@ -189,7 +202,7 @@ export default function ProductsPreview() {
                 </motion.h3>
 
                 <motion.p
-                  className="text-xs sm:text-sm leading-relaxed opacity-90"
+                  className="text-xs sm:text-sm leading-relaxed opacity-90 font-medium"
                   animate={{
                     opacity: activeCard === product.id ? 1 : 0,
                     y: activeCard === product.id ? 0 : 12,
@@ -206,14 +219,17 @@ export default function ProductsPreview() {
                   }}
                   transition={{ duration: 0.4, delay: 0.32 }}
                 >
-                  <ArrowButton
-                    arrowSize={14}
-                    className="mt-3 sm:mt-4 text-xs sm:text-sm"
-                    onPointerDown={(e) => e.stopPropagation()}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    Learn more
-                  </ArrowButton>
+                    <ArrowButton
+                      arrowSize={14}
+                      className="mt-3 sm:mt-4 text-xs sm:text-sm"
+                      onPointerDown={(e) => e.stopPropagation()}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        router.push(product.href); // 
+                      }}
+                    >
+                      Learn more
+                    </ArrowButton>
                 </motion.div>
               </motion.div>
             </motion.div>

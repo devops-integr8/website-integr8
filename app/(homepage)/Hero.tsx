@@ -2,17 +2,17 @@
 import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const [navHeight, setNavHeight] = useState(64);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const nav = document.querySelector("[data-navbar]") as HTMLElement;
-    if (nav) setNavHeight(nav.offsetHeight);
+    setMounted(true);
   }, []);
 
   return (
-    <div className="relative w-full h-[100dvh] px-6 md:px-12 lg:px-16 overflow-hidden">
+    <div className="relative w-full h-[100dvh] overflow-hidden bg-[#080d1f]">
+      {/* Video background */}
       <video
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover opacity-60"
         autoPlay
         loop
         muted
@@ -21,21 +21,86 @@ export default function Hero() {
         <source src="/videos/HomeHero.mp4" type="video/mp4" />
       </video>
 
-      <div className="absolute top-1/2 md:top-[60%] -translate-y-1/2 left-6 md:left-12 lg:left-24 max-w-xs sm:max-w-sm md:max-w-lg xl:max-w-xl space-y-6 text-white pt-20">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
-          <span className="block text-white/40 -mb-2 sm:-mb-5 md:-mb-6 lg:-mb-7">
-            One System.
-          </span>
-          <span className="block text-white/60 -mb-2 sm:-mb-5 md:-mb-6 lg:-mb-7">
-            Total Control.
-          </span>
-          <span className="block text-white font-black">Gr8 Results.</span>
-        </h1>
-        <p className="mt-4 md:mt-8 text-sm md:text-base text-white/80 max-w-xs md:max-w-lg leading-relaxed">
-          Explore Gr8Books — an integrated cloud and desktop ERP accounting
-          system designed to combine financial operations, enhance reporting
-          accuracy, and streamline business workflows, all in one platform.
-        </p>
+      {/* Geometric diamond grid overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(
+              45deg,
+              rgba(30, 80, 220, 0.18) 0px,
+              rgba(30, 80, 220, 0.18) 1px,
+              transparent 1px,
+              transparent 80px
+            ),
+            repeating-linear-gradient(
+              -45deg,
+              rgba(30, 80, 220, 0.18) 0px,
+              rgba(30, 80, 220, 0.18) 1px,
+              transparent 1px,
+              transparent 80px
+            )
+          `,
+        }}
+      />
+
+      {/* Subtle dark vignette on edges */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 20%, rgba(4, 8, 20, 0.7) 100%)",
+        }}
+      />
+
+      {/* Hero content */}
+      <div
+        className={`relative z-10 flex flex-col h-full px-8 md:px-16 lg:px-24 transition-opacity duration-700 ${
+          mounted ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        {/* Headlines sit just below true center */}
+        <div className="flex-1 flex items-center pt-24">
+          {/* Main Headlines */}
+          <div className="flex flex-col gap-0 w-full">
+            {/* Line 1 — left aligned */}
+            <h1
+              className="text-white font-extrabold leading-none tracking-tight"
+              style={{
+                fontSize: "80px",
+                animation: mounted
+                  ? "slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both"
+                  : "none",
+              }}
+            >
+              FLEXIBLE SOLUTIONS.
+            </h1>
+
+            {/* Line 2 — right aligned */}
+            <h1
+              className="text-white font-extrabold leading-none tracking-tight text-right"
+              style={{
+                fontSize: "80px",
+                animation: mounted
+                  ? "slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s both"
+                  : "none",
+              }}
+            >
+              BUILT TO INTEGR
+              <span style={{ color: "#2563EB" }}>8</span>.
+            </h1>
+          </div>
+        </div>
+
+        {/* Subtitle — bottom right */}
+        <div className="flex justify-end pb-16">
+          <p
+            className="text-white/80 font-normal text-right"
+            style={{ fontSize: "33px" }}
+          >
+            Priced Right. Adaptable. All in One.
+          </p>
+        </div>
       </div>
     </div>
   );

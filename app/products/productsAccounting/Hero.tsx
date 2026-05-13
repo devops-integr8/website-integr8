@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 
 const Hero = () => {
   const [navHeight] = useState(64);
@@ -35,7 +36,8 @@ const Hero = () => {
        Gr8Books keeps your records, transactions, and reports organized so you <br /> always have a clear picture of your finances
         </p>
 
-     <button className="flex items-center gap-2 bg-gradient-to-br from-[#02208C] to-[#0437F2] text-white font-bold mb-10 py-3 px-6 whitespace-nowrap cursor-pointer transition-all duration-200 hover:brightness-110 hover:shadow-lg hover:shadow-blue-500/40">
+     <Link href= "/contactUs" 
+     className="flex items-center gap-2 bg-gradient-to-br from-[#02208C] to-[#0437F2] text-white font-bold mb-10 py-3 px-6 whitespace-nowrap cursor-pointer transition-all duration-200 hover:brightness-110 hover:shadow-lg hover:shadow-blue-500/40">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-3 h-3 sm:w-4 sm:h-4"
@@ -51,7 +53,7 @@ const Hero = () => {
             />
           </svg>
           INQUIRE NOW
-        </button>
+        </Link>
 
         </div>
       </div>
