@@ -24,22 +24,22 @@ const cards = [
 export default function Values() {
   return (
     <section className="w-full bg-white px-6 py-16 md:px-16 lg:px-24">
-      {/* WHY INTEGR8 label */}
-      <p
-        className="mb-3 text-[11.5px] font-bold uppercase tracking-[0.17em]"
-        style={{
-          background: "linear-gradient(to right, #0437f2, #02208c)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-        }}
-      >
-        Why Integr8
-      </p>
+     {/* Label */}
+        <p
+          className="text-base font-extrabold tracking-[0.2em] uppercase mb-4"
+          style={{
+            background: "linear-gradient(to right, #0437f2, #02208C)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
+          WHY INTEGR8
+        </p>
 
       {/* Section heading — single line */}
       <h2
-        className="mb-12 max-w-5xl text-[2.5rem] font-extrabold leading-[1.2] tracking-tight"
+        className="mb-12 max-w-5xl text-[2.5rem] font-bold leading-[1.2] tracking-tight"
         style={{ color: "#0818a8" }}
       >
         Built To Streamline. Designed To Deliver.
