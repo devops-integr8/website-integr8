@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function Introduction() {
   const imgRef = useRef<HTMLDivElement>(null);
@@ -60,10 +61,13 @@ export default function Introduction() {
             organization.
           </p>
 
-          <button className="flex items-center gap-2 text-[#0437f2] font-medium hover:underline w-fit cursor-pointer">
-            Learn more about us
-            <span className="text-lg">→</span>
-          </button>
+        <Link 
+          href="/about" 
+          className="flex items-center gap-2 text-[#0437f2] font-medium hover:underline w-fit cursor-pointer"
+        >
+          Learn more about us
+          <span className="text-lg">→</span>
+        </Link>
         </div>
       </div>
     </section>
