@@ -118,14 +118,12 @@ export default function OnyxModules() {
               const isActive = activeCard === product.id;
 
               return (
-                <motion.div
+                <div
                   key={product.id}
                   className="relative w-full h-[480px] overflow-hidden rounded-md shadow-lg cursor-pointer isolate"
-                  onHoverStart={() => !isMobile && setActiveCard(product.id)}
-                  onHoverEnd={() => !isMobile && setActiveCard(null)}
+                  onMouseEnter={() => !isMobile && setActiveCard(product.id)}
+                  onMouseLeave={() => !isMobile && setActiveCard(null)}
                   onClick={() => handleInteraction(product.id)}
-                  animate={{ y: isActive ? -3 : 0 }}
-                  transition={{ duration: 0.4 }}
                 >
 
                   {/* IMAGE */}
@@ -136,50 +134,63 @@ export default function OnyxModules() {
                       fill
                       className="object-cover object-top"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-[#0437f2]/40" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-[#0437f2]/60" />
                   </div>
 
-                  {/* TITLE + DESCRIPTION (UPDATED SPACING ONLY) */}
+                  {/* TITLE + DESCRIPTION — slides down and fades out on hover */}
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 p-8 sm:p-8 pb-10 z-10 text-white"
+                    className="absolute bottom-0 left-0 right-0 p-8 pb-10 z-10 text-white"
                     animate={{
                       opacity: isActive ? 0 : 1,
-                      y: isActive ? 20 : 0,
+                      y: isActive ? 12 : 0,
                     }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.38, ease: [0.32, 0, 0.67, 0] }}
                   >
                     <h2 className="text-xl sm:text-2xl font-bold mb-2">
                       {product.title}
                     </h2>
-
                     <p className="text-sm opacity-80 line-clamp-3 leading-relaxed">
                       {product.description}
                     </p>
                   </motion.div>
 
-                  {/* OVERLAY */}
+                  {/* OVERLAY — slides up from the bottom of the card */}
                   <motion.div
-                    className="absolute inset-0 flex flex-col justify-center px-4 text-white"
-                    initial={{ y: "100%", opacity: 0 }}
-                    animate={{
-                      y: isActive ? 0 : "100%",
-                      opacity: isActive ? 1 : 0,
+                    className="absolute inset-0 flex flex-col px-5 pt-6 pb-6 text-white"
+                    initial={{ y: "100%" }}
+                    animate={{ y: isActive ? "0%" : "100%" }}
+                    transition={{
+                      duration: 0.42,
+                      ease: [0.25, 0.46, 0.45, 0.94], // smooth ease-out curve
                     }}
-                    transition={{ duration: 0.4 }}
                     style={{
                       background:
-                        "linear-gradient(to bottom, rgba(4,55,242,0.75), rgba(0,0,0,0.85))",
+                        "linear-gradient(to bottom, rgba(4,55,242,0.85), rgba(0,0,0,0.90))",
+                      backdropFilter: "blur(2px)",
+                      pointerEvents: isActive ? "auto" : "none",
                     }}
                   >
-                    <h3 className="text-2xl font-bold mb-3">
+                    {/* Module title */}
+                    <h3 className="text-xl font-bold mb-1 tracking-wide">
                       {product.title}
                     </h3>
 
-                    <div className="flex flex-wrap gap-2 overflow-y-auto max-h-[60vh] pr-1 no-scrollbar">
+                    {/* Divider */}
+                    <div className="w-10 h-0.5 mb-4 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.35)" }} />
+
+                    {/* Pill badges — frosted glass style */}
+                    <div className="flex flex-wrap gap-x-2 gap-y-2.5 overflow-y-auto max-h-[360px] pr-1 no-scrollbar">
                       {product.features?.map((f, i) => (
                         <span
                           key={i}
-                          className="px-3.5 py-1.5 rounded-full bg-white/10 text-white text-xs sm:text-sm font-medium border border-white/30"
+                          className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium text-white"
+                          style={{
+                            backgroundColor: "rgba(255,255,255,0.15)",
+                            border: "1px solid rgba(255,255,255,0.30)",
+                            backdropFilter: "blur(8px)",
+                            WebkitBackdropFilter: "blur(8px)",
+                            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.20)",
+                          }}
                         >
                           {f}
                         </span>
@@ -187,7 +198,7 @@ export default function OnyxModules() {
                     </div>
                   </motion.div>
 
-                </motion.div>
+                </div>
               );
             })}
 
