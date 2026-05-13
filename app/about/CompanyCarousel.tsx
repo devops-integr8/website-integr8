@@ -17,7 +17,7 @@ const slides: Slide[] = [
     image: "/images/company-overview/CompanyOverviewA.png",
     title: "The Beginning",
     description:
-      "Founded in 2015, Integr8 Software Solutions, Inc. began by delivering computerized solutions for cooperatives and has since evolved into a multi-industry ERP provider under the GR8Books and GR8 ERP platforms.",
+      "Founded in 2015, Integr8 Software Solutions, Inc. began by delivering computerized solutions for cooperatives and has since evolved into a multi-industry ERP provider under the Gr8Books and Gr8 ERP platforms.",
   },
   {
     id: 2,
