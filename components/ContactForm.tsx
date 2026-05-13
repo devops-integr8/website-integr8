@@ -38,6 +38,7 @@ export default function ContactForm() {
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
+  const [emailError, setEmailError] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown when clicking outside
@@ -56,7 +57,10 @@ export default function ContactForm() {
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  ) => {
+    if (e.target.name === "email") setEmailError("");
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   const handleSelectIndustry = (value: string) => {
     setForm((prev) => ({ ...prev, industry: value, customIndustry: "" }));
@@ -77,6 +81,14 @@ export default function ContactForm() {
       alert("Please fill in all fields.");
       return;
     }
+
+    // ✅ Email validation lives here, inside handleSubmit
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      setEmailError("Please enter a valid email address.");
+      return;
+    }
+    setEmailError("");
 
     setStatus("sending");
 
@@ -161,8 +173,11 @@ export default function ContactForm() {
             placeholder="Your company email*"
             value={form.email}
             onChange={handleChange}
-            className={inputClass}
+            className={`${inputClass} ${emailError ? "ring-2 ring-red-400" : ""}`}
           />
+          {emailError && (
+            <p className="text-red-300 text-xs -mt-2 ml-1">{emailError}</p>
+          )}
 
           {/* Custom Dropdown */}
           <div ref={dropdownRef} className="relative">
@@ -181,7 +196,6 @@ export default function ContactForm() {
               />
             </button>
 
-            {/* Dropdown List — always opens downward */}
             {dropdownOpen && (
               <ul className="absolute top-full left-0 w-full mt-1 bg-white rounded-lg shadow-xl z-50 max-h-60 overflow-y-auto border border-gray-100">
                 {industries.map((industry) => (
@@ -227,7 +241,7 @@ export default function ContactForm() {
         {/* Status messages */}
         {status === "success" && (
           <p className="text-green-300 text-sm text-center mt-4">
-            ✅ Inquiry sent successfully!
+            ✅ Inquiry sent successfully
           </p>
         )}
         {status === "error" && (
