@@ -8,7 +8,7 @@ export default function VisitOurOffice() {
       {/* Header */}
       <div className="text-center mb-10">
         <h2
-          className="text-4xl md:text-5xl font-extrabold mb-4"
+          className="text-4xl md:text-6xl font-bold mb-4"
           style={{ color: "#0818a8" }}
         >
           Visit Our Office
