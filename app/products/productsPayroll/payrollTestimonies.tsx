@@ -16,16 +16,6 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    company: "Mofels Food International, Inc.",
-    quote:
-      "GR8 Software Solutions helped Mofels attain its goal of automation. From Payroll to Accounting, from Inventory to Production, from Finished Goods to Delivery, we have streamlined our processes through a reliable ERP system which can be customized to our distinct processes.",
-    name: "Mr. Rolly Fulgencio",
-    role: "Financial Planning & Analysis Manager",
-    initials: "RF",
-    avatar: "/images/erpTestimonies/Rolly.png",
-  },
-  {
-    id: 2,
     company: "Cavite Farmers Feedmilling and Marketing Cooperative",
     quote:
       "CAFFMACO is one of the largest and oldest Cooperatives in Cavite, we are already 44 years in operation. We are glad that there is a company that offers software for Cooperatives and can even customize to our policies and procedures - that is GR8 Systems.",
@@ -35,7 +25,7 @@ const testimonials: Testimonial[] = [
     avatar: "/images/erpTestimonies/Lolita.png",
   },
   {
-    id: 3,
+    id: 2,
     company: "Sabang Ibaan Multipurpose Cooperative",
     quote:
       "We at Sabang Ibaan Multipurpose Cooperative (SIMPC) are grateful for our partnership with GR8 Systems. Their customized modules for Savings and Loan, Accounting, POS, and Inventory have improved our efficiency and productivity. With their continuous support, we can better meet our members’ needs.",
@@ -45,7 +35,7 @@ const testimonials: Testimonial[] = [
     avatar: "/images/erpTestimonies/Nelia.png",
   },
   {
-    id: 4,
+    id: 3,
     company:
       "Silang Municipal Employees’ and Community Multi-Purpose Cooperative",
     quote:
@@ -56,7 +46,7 @@ const testimonials: Testimonial[] = [
     avatar: "/images/erpTestimonies/Agnes.png",
   },
   {
-    id: 5,
+    id: 4,
     company: "EEI - Employees’ Development Cooperative",
     quote:
       "After 43 years of manual accounting, EEI–Employees’ Development Cooperative (EDC) successfully transitioned to a computerized system with GR8 Systems. Despite challenges, teamwork made it possible. Now, with real-time processing, we serve over 2,000 members faster and more efficiently.",
@@ -66,7 +56,7 @@ const testimonials: Testimonial[] = [
     avatar: "/images/erpTestimonies/EEI EDC.png",
   },
   {
-    id: 6,
+    id: 5,
     company: "DAKKI Classics Concepts, Inc.",
     quote:
       "Reliable, Accurate and User Friendly! Isang Karangalan ang magbigay pugay sa GR8 Systems Team, Thank you for the support!",
@@ -76,7 +66,7 @@ const testimonials: Testimonial[] = [
     avatar: "/images/erpTestimonies/Revy.png",
   },
   {
-    id: 7,
+    id: 6,
     company: "De La Salle University Dasmariñas - Development Cooperative",
     quote:
       "Sa mga previous accounting system na nagamit ko, Yung company ang nag aadjust ng mga policies para sa Accounting System, Unlike sa GR8 System kaya nilang i-adjust ang System para ma meet mga policies ng isang Company Very reliable ang system nila, User friendly and very accommodating ang mga buong team ng GR8.",
@@ -86,7 +76,7 @@ const testimonials: Testimonial[] = [
     avatar: "/images/erpTestimonies/Lester.png",
   },
   {
-    id: 8,
+    id: 7,
     company: "Power Link Center for Advanced Technical Skills Development Inc.",
     quote:
       "Malaking tulong yung accounting system, nakakasunod na yung accounting team, may hinire aming management accounting graduate na nakakaintindi sa entries. Pag na perfect na namin to kuha din yung sister company namin, with the same needs in accounting system.",
@@ -96,14 +86,14 @@ const testimonials: Testimonial[] = [
     avatar: "/images/erpTestimonies/PowerLink.png",
   },
   {
-    id: 9,
+    id: 8,
     company: "Silang Transport Service Development Cooperative",
     quote:
       "The services of GR8 is excellent and we now have clear and sound internal control we are able to comply to CDA requirements.",
     name: "Mr. Sulpicio Arellano",
     role: "Manager",
     initials: "SA",
-    avatar: "/images/erpTestimonies/PowerLink.png",
+    avatar: "/images/erpTestimonies/Sulpicio.png",
   },
 ];
 
