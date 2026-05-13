@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 function ZoomImage({ src, alt }: { src: string; alt: string }) {
   const ref = useRef(null);
@@ -63,9 +64,12 @@ export default function CTA() {
             with confidence.
           </p>
           <div className="flex gap-4 mt-2 justify-center md:justify-end">
-            <button className="px-6 py-3 border-2 border-white text-white font-semibold text-sm tracking-widest hover:bg-white hover:text-[#224d9a] active:bg-white active:text-[#224d9a] transition-all duration-200 cursor-pointer">
-              INQUIRE NOW
-            </button>
+         <Link
+            href="/contactUs"
+            className="px-6 py-3 border-2 border-white text-white font-semibold text-sm tracking-widest hover:bg-white hover:text-[#224d9a] active:bg-white active:text-[#224d9a] transition-all duration-200 cursor-pointer"
+          >
+            INQUIRE NOW
+          </Link>
           </div>
         </div>
       </div>
