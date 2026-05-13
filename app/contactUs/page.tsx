@@ -5,12 +5,16 @@ import ContactForm from "@/components/ContactForm";
 
 const Home = () => {
   return (
-    <>
+    <div className="flex flex-col">
       <Hero />
-      <Contacts />
-      <VisitOurOffice />
+      <div className="py-20">
+        <Contacts />
+      </div>
+      <div className="py-20">
+        <VisitOurOffice />
+      </div>
       <ContactForm />
-    </>
+    </div>
   );
 };
 
