@@ -45,7 +45,7 @@ export default function CompanyEdge() {
               <h4 className="font-extrabold uppercase text-sm mb-2 text-[#0818a8]">
                 Built for your industry, not just any business
               </h4>
-              <p className="text-black font-semibold text-sm sm:text-base">
+              <p className="text-black/60 font-semibold text-sm sm:text-base">
                 We don't offer generic software. Our ERP solutions are designed
                 to meet the real-world demands of cooperatives, trading
                 companies, and growing enterprises.
@@ -56,7 +56,7 @@ export default function CompanyEdge() {
               <h4 className="font-extrabold uppercase text-sm mb-2 text-[#0818a8]">
                 Implementation done right
               </h4>
-              <p className="text-black font-semibold text-sm sm:text-base">
+              <p className="text-black/60 font-semibold text-sm sm:text-base">
                 We guide you from consultation to go-live with a structured,
                 hands-on approach that minimizes disruption and maximizes
                 results.
@@ -67,7 +67,7 @@ export default function CompanyEdge() {
               <h4 className="font-extrabold uppercase text-sm mb-2 text-[#0818a8]">
                 Real support. Real people.
               </h4>
-              <p className="text-black font-semibold text-sm sm:text-base">
+              <p className="text-black/60 font-semibold text-sm sm:text-base">
                 Our team stays with you beyond deployment providing responsive
                 assistance, updates, and continuous improvement support.
               </p>
@@ -77,7 +77,7 @@ export default function CompanyEdge() {
               <h4 className="font-extrabold uppercase text-sm mb-2 text-[#0818a8]">
                 Built for local compliance
               </h4>
-              <p className="text-black font-semibold text-sm sm:text-base">
+              <p className="text-black/60 font-semibold text-sm sm:text-base">
                 Stay aligned with Philippine regulatory requirements through
                 accurate financial reporting and system-ready compliance
                 features.
