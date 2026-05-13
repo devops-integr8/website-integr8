@@ -107,11 +107,11 @@ const NewsArticle = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-2 mt-1">
-          <p className="text-base font-semibold text-[#0818a8]">
+        <div className="flex items-center gap-2 mt-4">
+          <p className="text-base font-semibold text-[#0437F2]">
             See All Posts
           </p>
-          <button className="cursor-pointer bg-[#0818a8] text-white w-7 h-7 flex items-center justify-center hover:brightness-125 transition-all duration-200">
+          <button className="cursor-pointer bg-[#0437F2] text-white w-7 h-7 flex items-center justify-center hover:brightness-125 transition-all duration-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="14"
