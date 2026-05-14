@@ -1,17 +1,28 @@
 "use client";
 
 import Image from "next/image";
+import React from "react";
 
 const contacts = [
   {
     icon: "/images/contact-us/Email.png",
-    label: "Email",
-    detail: "gr8softwaresolutions\n@integr8.com.ph",
+    label: "Socials",
+    detail: [
+      { platform: "Email", value: "gr8softwaresolutions\n@integr8.com.ph" },
+      { platform: "Facebook", value: "Gr8 Software Solutions" },
+    ],
   },
   {
     icon: "/images/contact-us/Phone.png",
     label: "Phone",
-    detail: "+639171205043",
+    detail: [
+      { name: "Ms. Jackie Cadlum", number: "+639171205043" },
+      { name: "Mr. Lourence Indon", number: "+639241642718" },
+      { name: "Mr. Jordan Hayag", number: "+697241642722" },
+      { name: "Mr. Jom Galisim", number: "+639241642717" },
+      { name: "Ms. Pat Queriado", number: "+639241642719" },
+      { name: "Mr. King Alfaro", number: "+639925149799" },
+    ],
   },
   {
     icon: "/images/contact-us/Office.png",
@@ -86,10 +97,43 @@ export default function Contacts() {
               {/* Divider line */}
               <div className="w-full h-px bg-white/20 mb-5" />
 
-              {/* Detail text — bumped to text-base + font-semibold for uniformity */}
-              <p className="text-white/90 font-semibold text-base leading-relaxed whitespace-pre-line">
-                {detail}
-              </p>
+              {/* Detail text */}
+              {Array.isArray(detail) ? (
+                "platform" in detail[0] ? (
+                  // Socials card
+                  <div className="flex flex-col gap-4 w-full text-left">
+                    {(detail as { platform: string; value: string }[]).map(
+                      ({ platform, value }) => (
+                        <p
+                          key={platform}
+                          className="text-white text-base leading-relaxed whitespace-pre-line"
+                        >
+                          <span className="font-bold">{platform}: </span>
+                          {value}
+                        </p>
+                      ),
+                    )}
+                  </div>
+                ) : (
+                  // Phone card
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-2 w-fit mx-auto text-sm">
+                    {(detail as { name: string; number: string }[]).map(
+                      ({ name, number }) => (
+                        <React.Fragment key={number}>
+                          <span className="text-white font-semibold text-right">
+                            {number}
+                          </span>
+                          <span className="text-white text-left">{name}</span>
+                        </React.Fragment>
+                      ),
+                    )}
+                  </div>
+                )
+              ) : (
+                <p className="text-white font-semibold text-base leading-relaxed whitespace-pre-line">
+                  {detail}
+                </p>
+              )}
             </div>
           </div>
         ))}
