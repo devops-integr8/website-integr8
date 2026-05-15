@@ -55,19 +55,18 @@ export default function Hero() {
 
       {/* Hero content */}
       <div
-        className={`relative z-10 flex flex-col h-full px-8 md:px-16 lg:px-24 transition-opacity duration-700 ${
+        className={`relative z-10 flex flex-col h-full px-4 sm:px-6 md:px-16 lg:px-24 transition-opacity duration-700 ${
           mounted ? "opacity-100" : "opacity-0"
         }`}
       >
         {/* Headlines sit just below true center */}
-        <div className="flex-1 flex items-center pt-24">
+        <div className="flex-1 flex items-center pt-20 md:pt-24">
           {/* Main Headlines */}
           <div className="flex flex-col gap-0 w-full">
             {/* Line 1 — left aligned */}
             <h1
-              className="text-white font-extrabold leading-none tracking-tight"
+              className="text-white font-extrabold leading-none tracking-tight text-[42px] sm:text-6xl md:text-7xl lg:text-[80px]"
               style={{
-                fontSize: "80px",
                 animation: mounted
                   ? "slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both"
                   : "none",
@@ -78,9 +77,8 @@ export default function Hero() {
 
             {/* Line 2 — right aligned */}
             <h1
-              className="text-white font-extrabold leading-none tracking-tight text-right"
+              className="text-white font-extrabold leading-none tracking-tight text-right text-[42px] sm:text-6xl md:text-7xl lg:text-[80px]"
               style={{
-                fontSize: "80px",
                 animation: mounted
                   ? "slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s both"
                   : "none",
@@ -89,15 +87,17 @@ export default function Hero() {
               BUILT TO INTEGR
               <span style={{ color: "#2563EB" }}>8</span>.
             </h1>
+
+            {/* Subtitle — mobile only, right under headlines */}
+            {/* <p className="md:hidden text-white/80 font-normal text-center text-lg sm:text-2xl mt-3">
+              Priced Right. Adaptable. All in One.
+            </p> */}
           </div>
         </div>
 
-        {/* Subtitle — bottom right */}
-        <div className="flex justify-end pb-16">
-          <p
-            className="text-white/80 font-normal text-right"
-            style={{ fontSize: "33px" }}
-          >
+        {/* Subtitle — bottom right, desktop only */}
+        <div className="hidden md:flex justify-end pb-8 md:pb-16">
+          <p className="text-white/80 font-normal text-right text-lg sm:text-2xl lg:text-[33px]">
             Priced Right. Adaptable. All in One.
           </p>
         </div>

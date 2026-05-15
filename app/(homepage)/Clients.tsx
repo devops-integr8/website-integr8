@@ -34,7 +34,7 @@ const Clients = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-center text-[#0818a8]">
             Trusted By Companies Nationwide
           </h2>
-          <div className="w-[45rem] h-[1px] bg-[#0818a8] rounded-full" />
+          <div className="w-full md:w-[45rem] h-[1px] bg-[#0818a8] rounded-full" />
         </div>
 
         {/* Logo Marquee */}

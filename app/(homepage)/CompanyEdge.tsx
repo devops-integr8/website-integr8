@@ -87,7 +87,7 @@ export default function CompanyEdge() {
         </div>
 
         {/* Image */}
-        <div className="flex justify-center md:justify-end translate-x-30">
+        <div className="flex mx-auto md:justify-end md:translate-x-10">
           <ZoomImage src="/images/company-edge/CompanyEdge.png" alt="Integr8" />
         </div>
       </div>

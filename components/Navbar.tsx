@@ -155,18 +155,18 @@ const Navbar = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full border-white/20 text-white hover:bg-white/10 hover:text-[#0437f2] rounded-full"
+                className="w-full border-white/20 text-[#2563EB] hover:bg-white/10 hover:text-[#0437f2] rounded-full"
               >
                 Login
               </Button>
             </Link>
 
-            <Button
+            {/* <Button
               size="sm"
               className="flex-1 bg-gradient-to-b from-[#0437f2] to-[#224d9a] text-white rounded-full"
             >
               Sign Up
-            </Button>
+            </Button> */}
           </div>
         </div>
       )}

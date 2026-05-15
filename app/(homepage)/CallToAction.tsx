@@ -13,11 +13,11 @@ const CallToAction = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="flex flex-col items-center text-center gap-10 -translate-y-[45%]">
+      <div className="flex flex-col items-center text-center sm:px-6 md:px-16 lg:px-24 gap-10 -translate-y-[45%]">
         <h2
           className="text-white font-extrabold leading-tight tracking-widest m-0"
           style={{
-            fontSize: "clamp(2.5rem, 5vw, 4rem)",
+            fontSize: "clamp(2rem, 5vw, 4rem)",
             textShadow: "0 0 40px rgba(80,140,255,0.35)",
           }}
         >

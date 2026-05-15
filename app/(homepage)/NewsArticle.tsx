@@ -96,7 +96,10 @@ const NewsArticle = () => {
     <section className="h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto">
       {/* HEADER */}
       <div className="flex justify-between items-start mb-5">
-        <div className="max-w-[55%]">
+        <div className="w-full md:max-w-[55%]">
+          <div className="md:text-left text-center mx-auto md:mx-0 max-w-xl">
+
+       
           <h1 className="text-4xl text-[#0818a8] font-bold mb-2">
             News & Articles
           </h1>
@@ -106,8 +109,11 @@ const NewsArticle = () => {
             collaborations, and business growth.
           </p>
         </div>
+   </div>
+        
+{/* SEE ALL POSTS BUTTON (commented out for now) */}
 
-        <div className="flex items-center gap-2 mt-4">
+        {/* <div className="flex items-center gap-2 mt-4">
           <p className="text-base font-semibold text-[#0437F2]">
             See All Posts
           </p>
@@ -126,18 +132,20 @@ const NewsArticle = () => {
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </button>
-        </div>
+        </div> */}
+
+
       </div>
 
       {/* MAIN GRID — 3 columns: large | medium | 2 small stacked */}
       <div
-        className="grid gap-3"
-        style={{
-          gridTemplateColumns: "2fr 1.3fr 1.3fr",
-          gridTemplateRows: "1fr 1fr",
-          height: "370px",
-        }}
-      >
+  className="grid gap-3 w-full overflow-hidden
+             grid-cols-2 md:grid-cols-[2fr_1.3fr_1.3fr]"
+  style={{
+    gridTemplateRows: "1fr 1fr",
+    height: "370px",
+  }}
+>
         {/* LARGE CARD — spans 2 rows */}
         {large && (
           <a
@@ -243,7 +251,7 @@ const NewsArticle = () => {
       </div>
 
       {/* BUBBLE NEWS LIST */}
-      <div className="grid grid-cols-4 gap-5 pt-5">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 pt-5">
         {bubbleNews.map((item) => (
           <a
             key={item.id}
