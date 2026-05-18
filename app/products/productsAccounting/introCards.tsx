@@ -30,7 +30,7 @@ const cards: CardData[] = [
               "Produce BIR-compliant reports",
               "Perform gross profit analysis, variance analysis, and trial balance reporting",
     ],
-    defaultState: "half",
+    defaultState: "collapsed",
   },
   {
     id: 3,
@@ -52,7 +52,7 @@ const cards: CardData[] = [
       "Track inventory movements with goods receipts, inventory audits, and more",
       "Ensure BIR compliance with E-Invoicing, E-Receipts, and more",
     ],
-    defaultState: "half",
+    defaultState: "full",
   },
 ];
 
