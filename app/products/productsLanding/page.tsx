@@ -59,6 +59,11 @@ const LaptopFrame = ({
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   useEffect(() => {
     if (isHovered) {
       videoRef.current?.play().catch(() => {});
@@ -73,8 +78,8 @@ const LaptopFrame = ({
       {/* Title + laptop in one motion wrapper — rise together with bounce */}
       <motion.div
         className="flex flex-col items-center cursor-pointer group"
-        onHoverStart={onHoverStart}
-        onHoverEnd={onHoverEnd}
+        onHoverStart={!isMobile ? onHoverStart : undefined}
+        onHoverEnd={!isMobile ? onHoverEnd : undefined}
         animate={{ y: isHovered ? -22 : 0 }}
         transition={{
           type: "spring",
@@ -99,7 +104,7 @@ const LaptopFrame = ({
         </motion.div>
 
         {/* Screen lid */}
-        <div className="relative w-[200px] h-[125px] md:w-[255px] md:h-[160px] bg-gray-800 rounded-t-lg border-[3px] border-gray-700 shadow-2xl overflow-hidden">
+        <div className="relative w-[150px] h-[95px] md:mx-auto md:w-[255px] md:h-[160px] bg-gray-800 rounded-t-lg border-[3px] border-gray-700 shadow-2xl overflow-hidden">
           <div className="absolute inset-[2px] bg-black rounded-md overflow-hidden">
             <video
               ref={videoRef}
@@ -198,7 +203,7 @@ export default function ProductLandingHero() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.4)_100%)]" />
       </div>
 
-      {/* Logo */}
+      {/* Logo
       <Link
         href="/"
         className="absolute top-8 left-8 md:top-10 md:left-10 z-20"
@@ -227,7 +232,7 @@ export default function ProductLandingHero() {
       "
           />
         </div>
-      </Link>
+      </Link> */}
 
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center w-full max-w-[1600px] mx-auto px-4 pt-16 pb-6 h-full">
@@ -238,10 +243,10 @@ export default function ProductLandingHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <span className="inline-block py-1 px-3 rounded-full bg-black/30 border border-blue-400/30 text-blue-300 text-[10px] md:text-xs font-semibold tracking-widest uppercase mb-2 backdrop-blur-md">
+            {/* <span className="inline-block py-1 px-3 rounded-full bg-black/30 border border-blue-400/30 text-blue-300 text-[10px] md:text-xs font-semibold tracking-widest uppercase mb-2 backdrop-blur-md">
               Integr8 Software Solutions, Inc.
-            </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+            </span> */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight pt-8 text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
               GR8 PRODUCT SUITE
             </h1>
           </motion.div>
@@ -259,7 +264,7 @@ export default function ProductLandingHero() {
         {/* Laptops + shelf */}
         <div className="relative w-full flex flex-col items-center mt-4">
           {/* Laptop row */}
-          <div className="flex flex-row items-end justify-center gap-4 md:gap-6 lg:gap-10 w-full px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 md:gap-6 lg:gap-10 w-full px-8">
             {PRODUCTS.map((product) => (
               <Link key={product.id} href={product.href} className="group">
                 <div className="cursor-pointer transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_10px_30px_rgba(59,130,246,0.4)]">
