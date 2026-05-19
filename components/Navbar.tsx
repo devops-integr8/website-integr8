@@ -10,6 +10,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const pathname = usePathname();
   const [visible, setVisible] = React.useState(false);
+  const menuRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -39,6 +40,20 @@ const Navbar = () => {
     };
   }, []);
 
+  React.useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
+
   const navLinks = [
     { label: "About", href: "/about" },
     { label: "Products", href: "/products/productsLanding" },
@@ -47,6 +62,7 @@ const Navbar = () => {
 
   return (
     <div
+      ref={menuRef}
       data-navbar
       className={`
         absolute left-1/2 -translate-x-1/2 w-full max-w-3xl px-4 z-50

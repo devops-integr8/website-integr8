@@ -28,7 +28,7 @@ const testimonials: Testimonial[] = [
     id: 2,
     company: "Sabang Ibaan Multipurpose Cooperative",
     quote:
-      "We at Sabang Ibaan Multipurpose Cooperative (SIMPC) are grateful for our partnership with GR8 Systems. Their customized modules for Savings and Loan, Accounting, POS, and Inventory have improved our efficiency and productivity. With their continuous support, we can better meet our members’ needs.",
+      "We at Sabang Ibaan Multipurpose Cooperative (SIMPC) are grateful for our partnership with GR8 Systems. Their customized modules for Savings and Loan, Accounting, POS, and Inventory have improved our efficiency and productivity. With their continuous support, we can better meet our members' needs.",
     name: "Ms. Nelia Castillo",
     role: "Manager",
     initials: "NC",
@@ -37,7 +37,7 @@ const testimonials: Testimonial[] = [
   {
     id: 3,
     company:
-      "Silang Municipal Employees’ and Community Multi-Purpose Cooperative",
+      "Silang Municipal Employees' and Community Multi-Purpose Cooperative",
     quote:
       "Our Cooperative has adapted to a new technology and now runs through a more efficient set of systems. We are grateful for introducing software systems that fits our needs and helps our cooperative to have complete and accurate reports. The partnership resulted to faster and more efficient processing of transactions and report generation in SMEMPCO.",
     name: "Ms. Agnes P. Laureles",
@@ -47,9 +47,9 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 4,
-    company: "EEI - Employees’ Development Cooperative",
+    company: "EEI - Employees' Development Cooperative",
     quote:
-      "After 43 years of manual accounting, EEI–Employees’ Development Cooperative (EDC) successfully transitioned to a computerized system with GR8 Systems. Despite challenges, teamwork made it possible. Now, with real-time processing, we serve over 2,000 members faster and more efficiently.",
+      "After 43 years of manual accounting, EEI–Employees' Development Cooperative (EDC) successfully transitioned to a computerized system with GR8 Systems. Despite challenges, teamwork made it possible. Now, with real-time processing, we serve over 2,000 members faster and more efficiently.",
     name: "EEI EDC Cooperative",
     role: "",
     initials: "EE",
@@ -97,7 +97,6 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-const CARD_WIDTH = 720;
 const GAP = 20;
 const TOTAL = testimonials.length;
 
@@ -115,18 +114,29 @@ export default function PayrollTestimonies() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [animate, setAnimate] = useState(true);
+  const [cardWidth, setCardWidth] = useState(720);
   const outerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
   // Real 0-based index for the page indicator
   const realIndex = (((index - CLONES) % TOTAL) + TOTAL) % TOTAL;
 
+  // Update card width on resize
+  useEffect(() => {
+    const update = () => {
+      setCardWidth(window.innerWidth < 768 ? window.innerWidth - 32 : 720);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
   const getOffset = useCallback(() => {
     if (!outerRef.current) return 0;
     const outerW = outerRef.current.offsetWidth;
-    const centerTarget = outerW / 2 - CARD_WIDTH / 2;
-    return index * (CARD_WIDTH + GAP) - centerTarget;
-  }, [index]);
+    const centerTarget = outerW / 2 - cardWidth / 2;
+    return index * (cardWidth + GAP) - centerTarget;
+  }, [index, cardWidth]);
 
   const goTo = useCallback(
     (nextIndex: number) => {
@@ -182,7 +192,7 @@ export default function PayrollTestimonies() {
     <section className="w-full bg-white py-16 px-0 overflow-hidden">
       {/* Heading */}
       <div className="text-center mb-10 px-4">
-        <h2 className="text-[46px] font-bold text-[#0818a8] mb-3">
+        <h2 className="text-4xl md:text-[46px] font-bold text-[#0818a8] mb-3">
           What Our Clients Say
         </h2>
         <p className="text-black/60 text-base font-medium max-w-xl mx-auto leading-relaxed">
@@ -200,7 +210,7 @@ export default function PayrollTestimonies() {
       >
         {/* Left fade */}
         <div
-          className="absolute left-0 top-0 h-full w-48 z-10 pointer-events-none"
+          className="hidden md:block absolute left-0 top-0 h-full w-48 z-10 pointer-events-none"
           style={{
             background:
               "linear-gradient(to right, rgba(255,255,255,1) 30%, rgba(255,255,255,0))",
@@ -208,7 +218,7 @@ export default function PayrollTestimonies() {
         />
         {/* Right fade */}
         <div
-          className="absolute right-0 top-0 h-full w-48 z-10 pointer-events-none"
+          className="hidden md:block absolute right-0 top-0 h-full w-48 z-10 pointer-events-none"
           style={{
             background:
               "linear-gradient(to left, rgba(255,255,255,1) 30%, rgba(255,255,255,0))",
@@ -237,8 +247,8 @@ export default function PayrollTestimonies() {
                 onClick={() => goTo(i)}
                 className="cursor-pointer flex-shrink-0"
                 style={{
-                  width: `${CARD_WIDTH}px`,
-                  minWidth: `${CARD_WIDTH}px`,
+                  width: `${cardWidth}px`,
+                  minWidth: `${cardWidth}px`,
                 }}
               >
                 <div

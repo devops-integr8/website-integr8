@@ -180,7 +180,7 @@ export default function ProductLandingHero() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <section className="relative w-full h-[100dvh] overflow-hidden bg-black text-white overflow-hidden font-sans selection:bg-blue-500 selection:text-white flex flex-col">
+    <section className="relative w-full min-h-screen overflow-hidden bg-black text-white overflow-hidden font-sans selection:bg-blue-500 selection:text-white flex flex-col">
       <Head>
         <title>Integr8 | Product Suite</title>
         <meta
@@ -303,9 +303,9 @@ export default function ProductLandingHero() {
             transition={{ delay: 1, duration: 1 }}
             className="mt-10 text-center"
           >
-            <p className="text-xs md:text-sm text-blue-200/80 tracking-widest uppercase flex items-center justify-center gap-2 drop-shadow-md">
+            <p className="text-xs md:text-sm text-blue-200/80 tracking-widest flex items-center justify-center gap-2 drop-shadow-md">
               <Monitor className="w-3 h-3 md:w-4 md:h-4" />
-              Select to explore products
+              SELECT TO EXPLORE PRODUCTS
               <ChevronRight className="w-3 h-3 md:w-4 md:h-4 animate-pulse" />
             </p>
           </motion.div>
