@@ -244,7 +244,7 @@ export default function RelatedProducts({
         {/* Laptops + shelf */}
         <div className="relative w-full flex flex-col items-center">
           {/* Laptop row */}
-          <div className="flex flex-row items-end justify-center gap-4 md:gap-6 lg:gap-10 w-full px-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 items-end justify-center gap-4 md:gap-6 lg:gap-10 w-full px-8">
             {products.map((product) => (
               <Link key={product.id} href={product.href} className="group">
                 <div className="cursor-pointer transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_10px_30px_rgba(59,130,246,0.4)]">

@@ -64,7 +64,7 @@ const HEIGHT = {
 };
 
 const CheckIcon = () => (
-  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+  <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0">
     <svg width="20" height="20" viewBox="0 0 14 14" fill="none">
       <path d="M2.5 7L5.5 10L11.5 4" stroke="#02208C" strokeWidth="2" />
     </svg>
@@ -133,7 +133,7 @@ function CardItem({
         {/* TITLE */}
         <div className="relative z-10 flex items-start gap-3">
           <CheckIcon />
-          <h3 className="text-white font-semibold text-[18px]">
+          <h3 className="text-white font-semibold text-[16px] md:text-[18px]">
             {card.title}
           </h3>
         </div>
