@@ -12,8 +12,7 @@ interface Module {
 }
 
 const modules: Module[] = [
-
-    {
+  {
     id: 1,
     title: "P.O. TO PAYMENT",
     description:
@@ -29,7 +28,7 @@ const modules: Module[] = [
     ],
   },
 
-    {
+  {
     id: 2,
     title: "ACCOUNTING MODULE",
     description:
@@ -82,7 +81,7 @@ const modules: Module[] = [
       "Accounts Payable Book",
     ],
   },
-   
+
   {
     id: 4,
     title: "FINANCIAL REPORTS",
@@ -111,10 +110,11 @@ const modules: Module[] = [
     ],
   },
 
-    {
+  {
     id: 5,
     title: "BIR REPORTS",
-    description:"Generate tax reports, alphalists, and BIR-compliant forms and submissions in one place",
+    description:
+      "Generate tax reports, alphalists, and BIR-compliant forms and submissions in one place",
     image: "/images/productsModules/BIR Reports.png",
     tags: [
       "Summary List of Sales (SLS)",
@@ -133,13 +133,6 @@ const modules: Module[] = [
   },
 ];
 
-/* ─────────────────────────────────────────
-   Individual hovercard
-   Heights match original card proportions:
-     image  → h-[220px] mobile / h-[240px] sm+
-     body   → ~150px (py-6 + title + gap + ~3-line desc)
-   ───────────────────────────────────────── */
-// Cards with fewer tags than this threshold get extra spacing to avoid looking empty
 const FEW_TAGS_THRESHOLD = 12;
 
 function ModuleCard({ mod }: { mod: Module }) {
@@ -150,7 +143,8 @@ function ModuleCard({ mod }: { mod: Module }) {
 
   return (
     <div
-      className="group relative h-[410px] sm:h-[430px] rounded-2xl overflow-hidden cursor-pointer"
+      tabIndex={0}
+      className="group relative h-[410px] sm:h-[430px] rounded-2xl overflow-hidden cursor-pointer outline-none"
       style={{ border: "1.5px solid rgba(8, 24, 168, 0.4)" }}
     >
       {/* ── Full-card background image (always behind everything) ── */}
@@ -164,7 +158,7 @@ function ModuleCard({ mod }: { mod: Module }) {
         />
       </div>
 
-      {/* ── White card body — slides DOWN on hover ── */}
+      {/* ── White card body — slides DOWN on hover/focus ── */}
       <div
         className="
           absolute left-0 right-0 bottom-0 bg-white
@@ -172,6 +166,7 @@ function ModuleCard({ mod }: { mod: Module }) {
           top-[220px] sm:top-[240px]
           transition-transform duration-[520ms] ease-[cubic-bezier(0.4,0,0.2,1)]
           group-hover:translate-y-full
+          group-focus-within:translate-y-full
         "
       >
         <h3
@@ -180,6 +175,7 @@ function ModuleCard({ mod }: { mod: Module }) {
         >
           {mod.title}
         </h3>
+
         <p
           className="text-sm leading-relaxed"
           style={{ color: "rgba(0,0,0,0.6)" }}
@@ -188,11 +184,13 @@ function ModuleCard({ mod }: { mod: Module }) {
         </p>
       </div>
 
-      {/* ── Gradient overlay — slides UP from bottom on hover ── */}
+      {/* ── Gradient overlay — slides UP from bottom on hover/focus ── */}
       <div
         className="
           absolute inset-0
-          translate-y-full group-hover:translate-y-0
+          translate-y-full
+          group-hover:translate-y-0
+          group-focus-within:translate-y-0
           transition-transform duration-[520ms] ease-[cubic-bezier(0.4,0,0.2,1)]
           flex flex-col p-6 pt-5
         "
@@ -201,19 +199,21 @@ function ModuleCard({ mod }: { mod: Module }) {
             "linear-gradient(to bottom, rgba(4,55,242,0.8) 0%, rgba(0,0,0,0.8) 100%)",
         }}
       >
-        {/* Title — fades in after overlay arrives */}
+        {/* Title */}
         <h3
           className="
             font-extrabold text-base tracking-wide uppercase leading-snug
             text-white mb-4 flex-shrink-0
-            opacity-0 group-hover:opacity-100
+            opacity-0
+            group-hover:opacity-100
+            group-focus-within:opacity-100
             transition-opacity duration-300 delay-[200ms]
           "
         >
           {mod.title}
         </h3>
 
-        {/* Feature tags — scrollable when overflowing, spacious when sparse */}
+        {/* Feature tags */}
         <div
           className={`flex flex-wrap ${tagGap} content-start overflow-y-auto flex-1 pr-1`}
           style={{
@@ -225,8 +225,12 @@ function ModuleCard({ mod }: { mod: Module }) {
             <span
               key={tag}
               className={`
-                ${tagPadding} ${tagText} rounded-full font-medium text-white
-                opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                ${tagPadding} ${tagText}
+                rounded-full font-medium text-white
+                opacity-0
+                group-hover:opacity-100
+                group-focus-within:opacity-100
+                transition-opacity duration-300
                 flex-shrink-0
               `}
               style={{
@@ -244,9 +248,6 @@ function ModuleCard({ mod }: { mod: Module }) {
   );
 }
 
-/* ─────────────────────────────────────────
-   Section wrapper — unchanged from original
-   ───────────────────────────────────────── */
 export default function AccountingModules() {
   const [showAll, setShowAll] = useState<boolean>(false);
   const visibleModules: Module[] = showAll ? modules : modules.slice(0, 6);
@@ -254,7 +255,6 @@ export default function AccountingModules() {
 
   function handleToggle() {
     if (showAll) {
-      // Scroll to grid top first, then collapse after scroll completes
       gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       setTimeout(() => {
         setShowAll(false);
@@ -267,7 +267,6 @@ export default function AccountingModules() {
   return (
     <section className="w-full bg-white py-14 sm:py-20 px-4 sm:px-8">
       <div className="max-w-[1440px] mx-auto">
-        {/* ── MODULES eyebrow ── */}
         <p
           className="text-base font-extrabold tracking-[0.25em] uppercase mb-5"
           style={{
@@ -280,28 +279,26 @@ export default function AccountingModules() {
           Modules
         </p>
 
-        {/* ── Header row ── */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-14 sm:mb-16">
           <h2
             className="font-bold leading-[1.1]"
             style={{ fontSize: "clamp(26px, 3vw, 46px)", color: "#0818A8" }}
           >
-            Take Full Control of Every Number 
+            Take Full Control of Every Number
             <br />
-           That Matters
+            That Matters
           </h2>
 
           <p
             className="text-base sm:text-xl font-medium sm:text-right flex-shrink-0 sm:pt-2"
             style={{ color: "rgba(0,0,0,0.6)" }}
           >
-        From daily transactions to 
+            From daily transactions to
             <br />
             financial reports
           </p>
         </div>
 
-        {/* ── Module cards grid ── */}
         <div
           ref={gridRef}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -310,9 +307,6 @@ export default function AccountingModules() {
             <ModuleCard key={mod.id} mod={mod} />
           ))}
         </div>
-
-       
-        
       </div>
     </section>
   );

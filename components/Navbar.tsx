@@ -10,6 +10,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const pathname = usePathname();
   const [visible, setVisible] = React.useState(false);
+  const menuRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -39,6 +40,20 @@ const Navbar = () => {
     };
   }, []);
 
+  React.useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
+
   const navLinks = [
     { label: "About", href: "/about" },
     { label: "Products", href: "/products/productsLanding" },
@@ -47,6 +62,7 @@ const Navbar = () => {
 
   return (
     <div
+      ref={menuRef}
       data-navbar
       className={`
         absolute left-1/2 -translate-x-1/2 w-full max-w-3xl px-4 z-50
@@ -155,18 +171,18 @@ const Navbar = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full border-white/20 text-white hover:bg-white/10 hover:text-[#0437f2] rounded-full"
+                className="w-full border-white/20 text-[#2563EB] hover:bg-white/10 hover:text-[#0437f2] rounded-full"
               >
                 Login
               </Button>
             </Link>
 
-            <Button
+            {/* <Button
               size="sm"
               className="flex-1 bg-gradient-to-b from-[#0437f2] to-[#224d9a] text-white rounded-full"
             >
               Sign Up
-            </Button>
+            </Button> */}
           </div>
         </div>
       )}

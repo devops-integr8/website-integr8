@@ -16,7 +16,9 @@ export default function LayoutWrapper({
 
   return (
     <>
-      {!hideLayout && <Navbar />}
+      {/* {!hideLayout && <Navbar />} */}
+
+      <Navbar />
 
       <main>{children}</main>
 

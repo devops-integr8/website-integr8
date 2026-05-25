@@ -200,7 +200,8 @@ function ModuleCard({ mod }: { mod: Module }) {
 
   return (
     <div
-      className="group relative h-[410px] sm:h-[430px] rounded-2xl overflow-hidden cursor-pointer"
+      tabIndex={0}
+      className="group relative h-[410px] sm:h-[430px] rounded-2xl overflow-hidden cursor-pointer outline-none"
       style={{ border: "1.5px solid rgba(8, 24, 168, 0.4)" }}
     >
       {/* ── Full-card background image (always behind everything) ── */}
@@ -222,6 +223,7 @@ function ModuleCard({ mod }: { mod: Module }) {
           top-[220px] sm:top-[240px]
           transition-transform duration-[520ms] ease-[cubic-bezier(0.4,0,0.2,1)]
           group-hover:translate-y-full
+          group-focus-within:translate-y-full
         "
       >
         <h3
@@ -242,7 +244,9 @@ function ModuleCard({ mod }: { mod: Module }) {
       <div
         className="
           absolute inset-0
-          translate-y-full group-hover:translate-y-0
+          translate-y-full
+          group-hover:translate-y-0
+          group-focus-within:translate-y-0
           transition-transform duration-[520ms] ease-[cubic-bezier(0.4,0,0.2,1)]
           flex flex-col p-6 pt-5
         "
@@ -257,6 +261,7 @@ function ModuleCard({ mod }: { mod: Module }) {
             font-extrabold text-base tracking-wide uppercase leading-snug
             text-white mb-4 flex-shrink-0
             opacity-0 group-hover:opacity-100
+            group-focus-within:opacity-100
             transition-opacity duration-300 delay-[200ms]
           "
         >
@@ -276,7 +281,9 @@ function ModuleCard({ mod }: { mod: Module }) {
               key={tag}
               className={`
                 ${tagPadding} ${tagText} rounded-full font-medium text-white
-                opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                opacity-0 group-hover:opacity-100
+                group-focus-within:opacity-100
+                transition-opacity duration-300
                 flex-shrink-0
               `}
               style={{

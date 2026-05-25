@@ -26,19 +26,21 @@ const cards: CardData[] = [
     id: 2,
     title: "Improved Operational Monitoring",
     image: "/products/ImprovedOperationalMonitoring.png",
-    bullets: ["Monitor daily sales and product movement efficiently",
-              "Track member total purchases and view previous transactions",
-               "Manage user access controls and reprint receipts",
+    bullets: [
+      "Monitor daily sales and product movement efficiently",
+      "Track member total purchases and view previous transactions",
+      "Manage user access controls and reprint receipts",
     ],
-      defaultState: "collapsed",
+    defaultState: "collapsed",
   },
   {
     id: 3,
     title: "Organized Business Records",
     image: "/products/OrganizedBusinessRecords.png",
-    bullets: ["Maintain a centralized item master database",
-              "Manage member tagging, VCE masterfile, and company information",
-                "Generate audit trail reports, item master lists, and BIR sales reports",
+    bullets: [
+      "Maintain a centralized item master database",
+      "Manage member tagging, VCE masterfile, and company information",
+      "Generate audit trail reports, item master lists, and BIR sales reports",
     ],
     defaultState: "collapsed",
   },
@@ -46,23 +48,23 @@ const cards: CardData[] = [
     id: 4,
     title: "Streamlined Sales Transactions",
     image: "/products/StreamlinedSalesTransactions.png",
-    bullets: ["Processes quickly and efficiently through system",
-    " Handle everything within a single POS interface",
-
-"Seamlessly integrate POS transactions with Accounting and Inventory modules",
+    bullets: [
+      "Processes quickly and efficiently through system",
+      " Handle everything within a single POS interface",
+      "Seamlessly integrate POS transactions with Accounting and Inventory modules",
     ],
     defaultState: "full",
   },
 ];
 
 const HEIGHT = {
- collapsed: 90,
+  collapsed: 90,
   half: 175,
   full: 260,
 };
 
 const CheckIcon = () => (
-  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+  <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0">
     <svg width="20" height="20" viewBox="0 0 14 14" fill="none">
       <path d="M2.5 7L5.5 10L11.5 4" stroke="#02208C" strokeWidth="2" />
     </svg>
@@ -73,29 +75,55 @@ export default function IntroCards() {
   const [activeId, setActiveId] = useState<number | null>(null);
 
   return (
-    <div className="grid grid-cols-2 gap-4 p-4 max-w-4xl mx-auto items-start">
-      {[0, 1].map((col) => {
-        const top = cards[col];
-        const bottom = cards[col + 2];
+    <>
+      {/* MOBILE */}
+      <div className="flex flex-col gap-3 md:hidden p-4">
+        {cards.map((card) => {
+          const isActive = activeId === card.id;
 
-        return (
-          <div key={col} className="flex flex-col gap-4">
-            <CardItem
-              card={top}
-              isActive={activeId === top.id}
-              isSiblingActive={activeId === bottom.id}
-              setActiveId={setActiveId}
-            />
-            <CardItem
-              card={bottom}
-              isActive={activeId === bottom.id}
-              isSiblingActive={activeId === top.id}
-              setActiveId={setActiveId}
-            />
-          </div>
-        );
-      })}
-    </div>
+          return (
+            <div
+              key={card.id}
+              className="transition-all duration-500"
+              style={{ zIndex: isActive ? 20 : 1 }}
+            >
+              <CardItem
+                card={card}
+                isActive={isActive}
+                isSiblingActive={false}
+                setActiveId={setActiveId}
+                mobile
+              />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* DESKTOP (UNCHANGED) */}
+      <div className="hidden md:grid grid-cols-2 gap-4 p-4 max-w-4xl mx-auto items-start">
+        {[0, 1].map((col) => {
+          const top = cards[col];
+          const bottom = cards[col + 2];
+
+          return (
+            <div key={col} className="flex flex-col gap-4">
+              <CardItem
+                card={top}
+                isActive={activeId === top.id}
+                isSiblingActive={activeId === bottom.id}
+                setActiveId={setActiveId}
+              />
+              <CardItem
+                card={bottom}
+                isActive={activeId === bottom.id}
+                isSiblingActive={activeId === top.id}
+                setActiveId={setActiveId}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
 
@@ -104,26 +132,32 @@ function CardItem({
   isActive,
   isSiblingActive,
   setActiveId,
+  mobile = false,
 }: {
   card: CardData;
   isActive: boolean;
   isSiblingActive: boolean;
   setActiveId: (id: number | null) => void;
+  mobile?: boolean;
 }) {
   const state = card.defaultState || "half";
 
-  const height =
-    isActive
+  const height = mobile
+    ? isActive
       ? HEIGHT.full
-      : isSiblingActive
-      ? HEIGHT.collapsed
-      : HEIGHT[state];
+      : 95
+    : isActive
+    ? HEIGHT.full
+    : isSiblingActive
+    ? HEIGHT.collapsed
+    : HEIGHT[state];
 
   return (
     <div
-      onMouseEnter={() => setActiveId(card.id)}
-      onMouseLeave={() => setActiveId(null)}
-      className="w-full transition-all duration-500 ease-in-out"
+      onMouseEnter={() => !mobile && setActiveId(card.id)}
+      onMouseLeave={() => !mobile && setActiveId(null)}
+      onClick={() => mobile && setActiveId(isActive ? null : card.id)}
+      className="w-full transition-all duration-500 ease-in-out cursor-pointer"
       style={{ height }}
     >
       <div className="relative h-full bg-gradient-to-br from-[#02208C] to-[#0437F2] border border-white/10 rounded-2xl shadow-md p-5 flex flex-col gap-3 overflow-hidden">
@@ -131,24 +165,26 @@ function CardItem({
         {/* TITLE */}
         <div className="relative z-10 flex items-start gap-3">
           <CheckIcon />
-          <h3 className="text-white font-semibold text-[18px]">
+          <h3 className="text-white font-semibold text-[16px] md:text-[18px]">
             {card.title}
           </h3>
         </div>
 
-        {/* CONTENT */}
-        <div className="relative z-10 flex-1 overflow-y-auto no-scrollbar">
-          <ul className="flex flex-col gap-2 pl-1 text-base text-white">
-            {card.bullets.map((b, i) => (
-                 <li key={i} className="flex gap-2 items-start">
-  <span className="w-1.5 h-1.5 bg-white rounded-full mt-[10px] flex-shrink-0" />
-  <span className={isActive ? "" : "line-clamp-2"}>
-    {b}
-  </span>
-</li>
-            ))}
-          </ul>
-        </div>
+        {/* CONTENT (ONLY SHOW WHEN ACTIVE ON MOBILE) */}
+        {(!mobile || isActive) && (
+          <div className="relative z-10 flex-1 overflow-y-auto no-scrollbar">
+            <ul className="flex flex-col gap-2 pl-1 text-base text-white">
+              {card.bullets.map((b, i) => (
+                <li key={i} className="flex gap-2 items-start">
+                  <span className="w-1.5 h-1.5 bg-white rounded-full mt-[10px] flex-shrink-0" />
+                  <span className={isActive ? "" : "line-clamp-2"}>
+                    {b}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* IMAGE */}
         {card.image && (

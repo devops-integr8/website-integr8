@@ -17,12 +17,11 @@ const logos = [
   { id: 16, src: "/images/client-logos/MetroTurf.png", alt: "MetroTurf" },
   { id: 17, src: "/images/client-logos/Polaris.png", alt: "Polaris" },
   { id: 18, src: "/images/client-logos/Polyserve.png", alt: "Polyserve" },
-  { id: 19, src: "/images/client-logos/Precast.png", alt: "Precast" },
-  { id: 20, src: "/images/client-logos/Raquel.png", alt: "Raquel" },
-  { id: 21, src: "/images/client-logos/Rldc.png", alt: "Rldc" },
-  { id: 22, src: "/images/client-logos/Vegefoods.png", alt: "Vegefoods" },
-  { id: 23, src: "/images/client-logos/VillaMedica.png", alt: "VillaMedica" },
-  { id: 24, src: "/images/client-logos/Zamba.png", alt: "Zamba" },
+  { id: 19, src: "/images/client-logos/Raquel.png", alt: "Raquel" },
+  { id: 20, src: "/images/client-logos/Rldc.png", alt: "Rldc" },
+  { id: 21, src: "/images/client-logos/Vegefoods.png", alt: "Vegefoods" },
+  { id: 22, src: "/images/client-logos/VillaMedica.png", alt: "VillaMedica" },
+  { id: 23, src: "/images/client-logos/Zamba.png", alt: "Zamba" },
 ];
 
 const Clients = () => {
@@ -34,7 +33,7 @@ const Clients = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-center text-[#0818a8]">
             Trusted By Companies Nationwide
           </h2>
-          <div className="w-[45rem] h-[1px] bg-[#0818a8] rounded-full" />
+          <div className="w-full md:w-[45rem] h-[1px] bg-[#0818a8] rounded-full" />
         </div>
 
         {/* Logo Marquee */}
