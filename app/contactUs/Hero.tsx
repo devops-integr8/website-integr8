@@ -30,7 +30,7 @@ export default function Hero() {
       {/* Content — bottom-left anchored, matching reference */}
       <div className="relative z-10 flex flex-col justify-end h-full px-10 pb-20 md:px-16 md:pb-24 lg:px-20 lg:pb-28 max-w-4xl">
         {/* Heading */}
-        <h1 className="text-white font-extrabold leading-tight tracking-tight text-4xl md:text-5xl lg:text-[3.25rem] mb-4">
+        <h1 className="text-white font-extrabold leading-tight tracking-tight text-[32px] md:text-5xl lg:text-[3.25rem] mb-4">
           Let&apos;s Find The Right Fit
           <br />
           For Your Business

@@ -19,7 +19,6 @@ const cards: CardData[] = [
       "Store employee profiles and HR information in one centralized platform",
       "Maintain structured employee records for easy HR administration",
       "Securely manage employee data, documents, and information",
-      
     ],
     defaultState: "full",
   },
@@ -27,21 +26,21 @@ const cards: CardData[] = [
     id: 2,
     title: "Integrated HR and Payroll Operations",
     image: "/products/IntegratedHRandPayrollOperations.png",
-    bullets: [ "Seamlessly connect HRIS and Payroll modules",
-               "Sync employee data across payroll settings, shift codes, group codes, and organization maintenance",
-              "Upload timekeeping logs and bankfiles while managing leave types and holiday configurations", 
-],
+    bullets: [
+      "Seamlessly connect HRIS and Payroll modules",
+      "Sync employee data across payroll settings, shift codes, group codes, and organization maintenance",
+      "Upload timekeeping logs and bankfiles while managing leave types and holiday configurations",
+    ],
     defaultState: "collapsed",
   },
   {
     id: 3,
     title: "Improved Workforce Administration",
     image: "/products/ImprovedWorkforceAdministration.png",
-    bullets: [ "Manage employee profiles, approvals, and schedules in one system",
-               "Track performance records for complete HR oversight",
-               "Generate certificates with ease",
-
-
+    bullets: [
+      "Manage employee profiles, approvals, and schedules in one system",
+      "Track performance records for complete HR oversight",
+      "Generate certificates with ease",
     ],
     defaultState: "collapsed",
   },
@@ -49,9 +48,10 @@ const cards: CardData[] = [
     id: 4,
     title: "Accurate Payroll Processing",
     image: "/products/AccuratePayrollProcessing.png",
-    bullets: ["Automate payroll computations for consistent and reliable results",
-              "Produce government-mandated reports",
-              "Generate payslips, and payroll reports for full audit compliance",
+    bullets: [
+      "Automate payroll computations for consistent and reliable results",
+      "Produce government-mandated reports",
+      "Generate payslips, and payroll reports for full audit compliance",
     ],
     defaultState: "full",
   },
@@ -75,29 +75,55 @@ export default function IntroCards() {
   const [activeId, setActiveId] = useState<number | null>(null);
 
   return (
-    <div className="grid grid-cols-2 gap-4 p-4 max-w-4xl mx-auto items-start">
-      {[0, 1].map((col) => {
-        const top = cards[col];
-        const bottom = cards[col + 2];
+    <>
+      {/* MOBILE */}
+      <div className="flex flex-col gap-3 md:hidden p-4">
+        {cards.map((card) => {
+          const isActive = activeId === card.id;
 
-        return (
-          <div key={col} className="flex flex-col gap-4">
-            <CardItem
-              card={top}
-              isActive={activeId === top.id}
-              isSiblingActive={activeId === bottom.id}
-              setActiveId={setActiveId}
-            />
-            <CardItem
-              card={bottom}
-              isActive={activeId === bottom.id}
-              isSiblingActive={activeId === top.id}
-              setActiveId={setActiveId}
-            />
-          </div>
-        );
-      })}
-    </div>
+          return (
+            <div
+              key={card.id}
+              className="transition-all duration-500"
+              style={{ zIndex: isActive ? 20 : 1 }}
+            >
+              <CardItem
+                card={card}
+                isActive={isActive}
+                isSiblingActive={false}
+                setActiveId={setActiveId}
+                mobile
+              />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* DESKTOP (UNCHANGED) */}
+      <div className="hidden md:grid grid-cols-2 gap-4 p-4 max-w-4xl mx-auto items-start">
+        {[0, 1].map((col) => {
+          const top = cards[col];
+          const bottom = cards[col + 2];
+
+          return (
+            <div key={col} className="flex flex-col gap-4">
+              <CardItem
+                card={top}
+                isActive={activeId === top.id}
+                isSiblingActive={activeId === bottom.id}
+                setActiveId={setActiveId}
+              />
+              <CardItem
+                card={bottom}
+                isActive={activeId === bottom.id}
+                isSiblingActive={activeId === top.id}
+                setActiveId={setActiveId}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
 
@@ -106,26 +132,32 @@ function CardItem({
   isActive,
   isSiblingActive,
   setActiveId,
+  mobile = false,
 }: {
   card: CardData;
   isActive: boolean;
   isSiblingActive: boolean;
   setActiveId: (id: number | null) => void;
+  mobile?: boolean;
 }) {
   const state = card.defaultState || "half";
 
-  const height =
-    isActive
+  const height = mobile
+    ? isActive
       ? HEIGHT.full
-      : isSiblingActive
-      ? HEIGHT.collapsed
-      : HEIGHT[state];
+      : 95
+    : isActive
+    ? HEIGHT.full
+    : isSiblingActive
+    ? HEIGHT.collapsed
+    : HEIGHT[state];
 
   return (
     <div
-      onMouseEnter={() => setActiveId(card.id)}
-      onMouseLeave={() => setActiveId(null)}
-      className="w-full transition-all duration-500 ease-in-out"
+      onMouseEnter={() => !mobile && setActiveId(card.id)}
+      onMouseLeave={() => !mobile && setActiveId(null)}
+      onClick={() => mobile && setActiveId(isActive ? null : card.id)}
+      className="w-full transition-all duration-500 ease-in-out cursor-pointer"
       style={{ height }}
     >
       <div className="relative h-full bg-gradient-to-br from-[#02208C] to-[#0437F2] border border-white/10 rounded-2xl shadow-md p-5 flex flex-col gap-3 overflow-hidden">
@@ -138,19 +170,21 @@ function CardItem({
           </h3>
         </div>
 
-        {/* CONTENT */}
-        <div className="relative z-10 flex-1 overflow-y-auto no-scrollbar">
-          <ul className="flex flex-col gap-2 pl-1 text-base text-white">
-            {card.bullets.map((b, i) => (
-                  <li key={i} className="flex gap-2 items-start">
-  <span className="w-1.5 h-1.5 bg-white rounded-full mt-[10px] flex-shrink-0" />
-  <span className={isActive ? "" : "line-clamp-2"}>
-    {b}
-  </span>
-</li>
-            ))}
-          </ul>
-        </div>
+        {/* CONTENT (ONLY SHOW WHEN ACTIVE ON MOBILE) */}
+        {(!mobile || isActive) && (
+          <div className="relative z-10 flex-1 overflow-y-auto no-scrollbar">
+            <ul className="flex flex-col gap-2 pl-1 text-base text-white">
+              {card.bullets.map((b, i) => (
+                <li key={i} className="flex gap-2 items-start">
+                  <span className="w-1.5 h-1.5 bg-white rounded-full mt-[10px] flex-shrink-0" />
+                  <span className={isActive ? "" : "line-clamp-2"}>
+                    {b}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* IMAGE */}
         {card.image && (

@@ -33,7 +33,7 @@ export default function Footer() {
         </Link>
 
         {/* Navigation Links - vertical on mobile, horizontal on sm+ */}
-        <nav className="my-6 sm:my-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 md:gap-6 text-sm">
+        <nav className="my-6 sm:my-8 flex items-center gap-3 flex-row sm:flex-wrap justify-center sm:gap-4 md:gap-6 text-sm">
           {links.map((link, index) => (
             <Link
               key={index}

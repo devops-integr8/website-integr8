@@ -55,17 +55,17 @@ export default function Hero() {
 
       {/* Hero content */}
       <div
-        className={`relative z-10 flex flex-col h-full px-4 sm:px-6 md:px-16 lg:px-24 transition-opacity duration-700 ${
+        className={`relative z-10 flex flex-col h-full px-[6vw] sm:px-6 md:px-16 lg:px-24 transition-opacity duration-700 ${
           mounted ? "opacity-100" : "opacity-0"
         }`}
       >
         {/* Headlines sit just below true center */}
-        <div className="flex-1 flex items-center pt-20 md:pt-24">
+        <div className="flex-1 flex items-center translate-y-[8vh] md:translate-y-0 md:pt-24">
           {/* Main Headlines */}
-          <div className="flex flex-col gap-0 w-full">
+          <div className="flex flex-col gap-0 w-full max-w-[95vw]">
             {/* Line 1 — left aligned */}
             <h1
-              className="text-white font-extrabold leading-none tracking-tight text-[42px] sm:text-6xl md:text-7xl lg:text-[80px]"
+              className="text-white font-extrabold leading-[0.9] tracking-tight text-[clamp(2.8rem,10vw,5rem)] sm:text-6xl md:text-7xl lg:text-[80px]"
               style={{
                 animation: mounted
                   ? "slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both"
@@ -77,7 +77,7 @@ export default function Hero() {
 
             {/* Line 2 — right aligned */}
             <h1
-              className="text-white font-extrabold leading-none tracking-tight text-right text-[42px] sm:text-6xl md:text-7xl lg:text-[80px]"
+              className="text-white font-extrabold leading-[0.9] tracking-tight text-right text-[clamp(2.8rem,10vw,5rem)] sm:text-6xl md:text-7xl lg:text-[80px]"
               style={{
                 animation: mounted
                   ? "slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s both"
