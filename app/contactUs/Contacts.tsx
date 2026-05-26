@@ -16,12 +16,12 @@ const contacts = [
     icon: "/images/contact-us/Phone.png",
     label: "Phone",
     detail: [
-      { name: "Ms. Jackie Cadlum", number: "+639171205043" },
-      { name: "Mr. Lourence Indon", number: "+639241642718" },
-      { name: "Mr. Jordan Hayag", number: "+697241642722" },
-      { name: "Mr. Jom Galisim", number: "+639241642717" },
-      { name: "Ms. Pat Queriado", number: "+639241642719" },
-      { name: "Mr. King Alfaro", number: "+639925149799" },
+      { name: "Ms. Jackie Cadlum", position: "Asst. Team Leader -Sales", number: "+639171205043" },
+      { name: "Mr. Lourence Indon", position: "Sales Associate", number: "+639241642718" },
+      { name: "Mr. Jhordan Hayag", position: "Sales Associate", number: "+697241642722" },
+      { name: "Mr. Joemari Galisim", position: "Sales Associate", number: "+639241642717" },
+      { name: "Ms. Patricia Queriado", position: "Sales Associate", number: "+639241642719" },
+      { name: "Mr. King Alfaro", position: "Sales Associate", number: "+639925149799" },
     ],
   },
   {
@@ -117,14 +117,18 @@ export default function Contacts() {
                 ) : (
                   // Phone card
                   <div className="grid grid-cols-2 gap-x-4 gap-y-2 w-fit mx-auto text-sm">
-                    {(detail as { name: string; number: string }[]).map(
-                      ({ name, number }) => (
-                        <React.Fragment key={number}>
-                          <span className="text-white font-semibold text-right">
-                            {number}
-                          </span>
-                          <span className="text-white text-left">{name}</span>
-                        </React.Fragment>
+                    {(detail as { name: string; position: string; number: string }[]).map(
+  ({ name, position, number }) => (
+    <React.Fragment key={number}>
+      <span className="text-white font-semibold text-right">
+        {number}
+      </span>
+      <span className="text-white text-left">
+        {name}
+        <br />
+        <span className="text-white/80 text-xs">{position}</span>
+      </span>
+    </React.Fragment>
                       ),
                     )}
                   </div>

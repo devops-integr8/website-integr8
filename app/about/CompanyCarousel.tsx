@@ -184,7 +184,7 @@ export default function CompanyCarousel() {
                 {!loadedImages.has(current) && (
                   <div className="absolute inset-0 bg-gray-200 animate-pulse" />
                 )}
-                <h2 className="absolute left-6 top-1/2 -translate-y-1/2 text-white font-bold leading-tight tracking-tight text-3xl drop-shadow-lg">
+                <h2 className="absolute left-6 top-1/2 sm:-translate-y-1/2 text-white font-bold leading-tight tracking-tight text-3xl drop-shadow-lg">
                   {slides[current].title}
                 </h2>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-transparent pointer-events-none">
