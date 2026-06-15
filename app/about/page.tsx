@@ -26,10 +26,10 @@ const About = () => {
       <section className="py-16 md:py-20 lg:py-26">
         <MissionVision />
       </section>
-
+{/* 
       <section className="py-16 md:py-20 lg:py-26">
         <Clients />
-      </section>
+      </section> */}
 
 
       <section className="py-16 md:py-20 lg:py-26">
