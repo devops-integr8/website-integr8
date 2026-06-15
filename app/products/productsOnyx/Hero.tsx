@@ -15,7 +15,7 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0437F2]/50 to-black/40" />
+<div className="absolute inset-0 bg-gradient-to-b from-[#004A80]/50 to-black/40  " />
 
 <div className="absolute bottom-10 md:bottom-16 lg:bottom-20 left-0 px-6 md:px-12 lg:px-16 text-white">
 
@@ -40,7 +40,7 @@ const Hero = () => {
      ONYX keeps your sales, inventory, and finances in sync — <br />automatically, in real time
     </p>
         <Link href="/contactUs"
-        className="flex items-center gap-2 bg-gradient-to-br from-[#02208C] to-[#0437F2] text-white font-bold mb-10 py-3 px-6 whitespace-nowrap cursor-pointer transition-all duration-200 hover:brightness-110 hover:shadow-lg hover:shadow-blue-500/40">
+className="flex items-center gap-2 bg-gradient-to-br from-[#004A80] to-[#2D7DB8] text-white font-bold mb-10 py-3 px-6 whitespace-nowrap cursor-pointer transition-all duration-200 hover:brightness-110 hover:shadow-lg hover:shadow-blue-500/40">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-3 h-3 sm:w-4 sm:h-4"

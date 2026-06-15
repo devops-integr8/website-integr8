@@ -197,10 +197,21 @@ export default function CompanyCarousel() {
               </div>
               <div
                 className="w-full px-6 py-8"
-                style={{
-                  background:
-                    "linear-gradient(to bottom right, rgba(4,55,242,1), rgba(0,0,0,0.85))",
-                }}
+             style={{
+  background: `
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.15) 0%,
+      rgba(255,255,255,0) 35%
+    ),
+    linear-gradient(
+      135deg,
+      #8CC9FF 0%,
+      #004A80 50%,
+      #003B66 100%
+    )
+  `,
+}}
               >
                 <p className="text-white text-sm leading-relaxed">
                   {slides[current].description}
@@ -245,13 +256,13 @@ export default function CompanyCarousel() {
                 variants={cardVariants}
                 transition={{ ...smoothTransition, delay: 0.05 }}
                 className="absolute right-0 top-14 lg:top-20 w-[55%] h-[85%]
-                backdrop-blur-[3px] border border-black
+                backdrop-blur-[3px] 
                 shadow-[0_10px_20px_rgba(0,0,0,0.25)]
                 z-20 flex items-center px-8 lg:px-14 will-change-transform"
-                style={{
-                  background:
-                    "linear-gradient(to bottom right, rgba(4,55,242,1), rgba(0,0,0,0.85))",
-                }}
+             style={{
+  background: 
+     "linear-gradient(135deg, #8CC9FF 0%, #5FAFFF 20%, #2D7DB8 45%, #004A80 70%, #003B66 100%)",
+}}
               >
                 <p className="text-white text-base lg:text-lg leading-relaxed">
                   {slides[current].description}
@@ -314,7 +325,7 @@ export default function CompanyCarousel() {
             onClick={() => setCurrent([index, index > current ? 1 : -1])}
             className={`h-1 transition-all duration-300 cursor-pointer ${
               current === index
-                ? "bg-[#0437f2] w-8 md:w-20"
+                ? "bg-[#004A80] w-8 md:w-20"
                 : "bg-gray-300 w-6 md:w-12 hover:bg-gray-400"
             }`}
             aria-label={`Go to slide ${index + 1}`}

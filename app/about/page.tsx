@@ -4,16 +4,20 @@ import MissionVision from "./MissionVision";
 import CompanyCarousel from "./CompanyCarousel";
 import Clients from "./Clients";
 import CompanyEdge from "../(homepage)/CompanyEdge";
-import ErpExperties from "./ErpExperties";
+
 import OurStory from "./OurStory";
 import ClientTrust from "./ClientTrust";
 import CTA from "./CTA";
 import OurTeam from "./OurTeam";
+import NewsArticle from "./NewsArticle";
+import Introduction from "./Introduction";
 
 const About = () => {
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
+
+      <Introduction />
 
       <section className="pt-32 md:pt-40 pb-16 md:pb-20 lg:pb-26">
         <CompanyCarousel />
@@ -27,9 +31,6 @@ const About = () => {
         <Clients />
       </section>
 
-      <section className="py-16 md:py-20 lg:py-26">
-        <ErpExperties />
-      </section>
 
       <section className="py-16 md:py-20 lg:py-26">
         <OurStory />
@@ -39,11 +40,14 @@ const About = () => {
         <OurTeam />
       </section>
 
+       <NewsArticle />
+
+
       <section
         className="relative overflow-hidden py-28 md:py-36 lg:py-48"
         style={{
           background:
-            "radial-gradient(ellipse at center, #0437f2 0%, #000000 100%)",
+            "radial-gradient(ellipse at center, #004A80 0%, #0b1f5e 100%)",
         }}
       >
         {/* TOP CURVE */}

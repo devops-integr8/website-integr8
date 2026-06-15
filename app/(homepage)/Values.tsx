@@ -24,39 +24,49 @@ const cards = [
 export default function Values() {
   return (
     <section className="w-full bg-white px-6 py-16 md:px-16 lg:px-24">
-     {/* Label */}
-        <p
-          className="text-base font-extrabold tracking-[0.2em] uppercase mb-4"
-          style={{
-            background: "linear-gradient(to right, #0437f2, #02208C)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-          }}
-        >
-          WHY INTEGR8
-        </p>
+      {/* Label */}
+      <p
+        className="mb-4 text-base font-extrabold uppercase tracking-[0.2em]"
+        style={{
+          background: "linear-gradient(to right, #2D7DB8, #2D7DB8)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+        }}
+      >
+        WHY GR8 SOFTWARE?
+      </p>
 
-      {/* Section heading — single line */}
+      {/* Section heading */}
       <h2
         className="mb-12 max-w-5xl text-[2.5rem] font-bold leading-[1.2] tracking-tight"
-        style={{ color: "#0818a8" }}
+        style={{ color: "#0b1f5e" }}
       >
         Built To Streamline. Designed To Deliver.
       </h2>
 
-      {/* 3-column card grid */}
+      {/* Cards */}
       <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
         {cards.map((card, index) => (
           <div
             key={index}
-            className="flex flex-col rounded-[22px] px-[34px] py-[38px]"
+            className="flex min-h-[380px] flex-col rounded-[22px] px-[34px] py-[38px]"
             style={{
-              background:
-                "linear-gradient(to bottom, #0437f2 0%, #02208c 100%)",
-              minHeight: "380px",
+              background: `
+                linear-gradient(
+                  135deg,
+                  rgba(255,255,255,0.18) 0%,
+                  rgba(255,255,255,0) 35%
+                ),
+                linear-gradient(
+                  135deg,
+                  #6BB8FF 0%,
+                  #004A80 45%,
+                  #002B5C 100%
+                )
+              `,
               boxShadow:
-                "0 12px 40px rgba(4, 55, 242, 0.38), 0 4px 16px rgba(2, 32, 140, 0.22)",
+                "0 12px 40px rgba(0, 74, 128, 0.35), 0 4px 16px rgba(0, 31, 63, 0.25)",
             }}
           >
             {/* Icon */}
@@ -70,13 +80,13 @@ export default function Values() {
               />
             </div>
 
-            {/* Card title */}
+            {/* Title */}
             <h3 className="mb-4 whitespace-pre-line text-[19px] font-bold leading-[1.4] text-white">
               {card.title}
             </h3>
 
-            {/* Card description */}
-            <p className="text-[15.5px] font-normal leading-[1.68] text-white/90">
+            {/* Description */}
+            <p className="text-[15.5px] leading-[1.68] text-white/90">
               {card.description}
             </p>
           </div>

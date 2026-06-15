@@ -73,7 +73,7 @@ export default function ErpHero() {
           Priced Right. Affordable. All In One.
         </p>
         <Link href="/contactUs" 
-        className="flex items-center gap-2 bg-gradient-to-br from-[#02208C] to-[#0437F2] text-white text-sm sm:text-base font-bold mb-8 sm:mb-10 py-2.5 sm:py-3 px-5 sm:px-6 whitespace-nowrap cursor-pointer transition-all duration-200 hover:brightness-110 hover:shadow-lg hover:shadow-blue-500/40">
+            className="flex items-center gap-2 bg-gradient-to-br from-[#004A80] to-[#2D7DB8] text-white font-bold mb-10 py-3 px-6 whitespace-nowrap cursor-pointer transition-all duration-200 hover:brightness-110 hover:shadow-lg hover:shadow-blue-500/40">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-3 h-3 sm:w-4 sm:h-4"
@@ -93,7 +93,7 @@ export default function ErpHero() {
       </div>
 
       {/* Marquee strip */}
-      <div className="relative z-10 w-full pb-4 overflow-hidden">
+      {/* <div className="relative z-10 w-full pb-4 overflow-hidden">
         <div className="flex gap-4 sm:gap-6 md:gap-9 w-max animate-marquee">
           {marqueeItems.map((item, i) => (
             <div
@@ -113,7 +113,7 @@ export default function ErpHero() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

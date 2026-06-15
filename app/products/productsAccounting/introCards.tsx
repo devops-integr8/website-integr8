@@ -163,7 +163,7 @@ function CardItem({
       className="w-full transition-all duration-500 ease-in-out cursor-pointer"
       style={{ height }}
     >
-      <div className="relative h-full bg-gradient-to-br from-[#02208C] to-[#0437F2] border border-white/10 rounded-2xl shadow-md p-5 flex flex-col gap-3 overflow-hidden">
+      <div className="relative h-full bg-gradient-to-br from-[#004A80] to-[#2D7DB8] border border-white/10 rounded-2xl shadow-md p-5 flex flex-col gap-3 overflow-hidden">
         {/* TITLE */}
         <div className="relative z-10 flex items-start gap-3">
           <CheckIcon />

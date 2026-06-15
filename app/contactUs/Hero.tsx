@@ -1,46 +1,61 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.85;
-    }
-  }, []);
-
   return (
-    <section className="relative w-full h-screen min-h-[600px] overflow-hidden">
-      {/* Video Background */}
-      <video
-        ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
-        src="/videos/Hero12.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
+    <section className="bg-gradient-to-br from-[#EEF4FF] via-[#F8FBFF] to-[#0F52BA] overflow-hidden pt-8">
+      {/* Background Glow */}
+      <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-[#2D7DB8]/10 blur-[140px] rounded-full" />
 
-      {/* Dark overlay to deepen the video and ensure text legibility */}
-      <div className="absolute inset-0 bg-[#030b1a]/55" />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="min-h-screen flex items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
+            
+            {/* Left Content */}
+            <div>
 
-      {/* Content — bottom-left anchored, matching reference */}
-      <div className="relative z-10 flex flex-col justify-end h-full px-10 pb-20 md:px-16 md:pb-24 lg:px-20 lg:pb-28 max-w-4xl">
-        {/* Heading */}
-        <h1 className="text-white font-extrabold leading-tight tracking-tight text-[32px] md:text-5xl lg:text-[3.25rem] mb-4">
-          Let&apos;s Find The Right Fit
-          <br />
-          For Your Business
-        </h1>
+              <h1 className="text-[#004A80] font-bold leading-[1.05] tracking-tight text-[42px] md:text-[58px] lg:text-[72px] mb-6">
+                Let's Find The
+                <br />
+                Right Fit For
+                <br />
+                Your Business
+              </h1>
 
-        {/* Subtitle */}
-        <p className="text-white/80 font-normal text-sm md:text-base leading-relaxed max-w-sm md:max-w-md">
-          Tell us about your business and we&apos;ll show you how GR8 Software
-          can be customized to fit your business
-        </p>
+              <p className="text-[#4D647A] text-lg leading-relaxed max-w-xl mb-10">
+                Tell us about your business and we'll show you
+                how GR8 Software can be customized to fit your
+                operations and support your growth.
+              </p>
+
+              <div className="flex flex-wrap gap-4">
+                <button className="px-8 py-4 rounded-2xl bg-[#0F52BA] text-white font-semibold shadow-lg hover:scale-105 transition">
+                  Request Demo
+                </button>
+
+                <button className="px-8 py-4 rounded-2xl border border-[#0F52BA] text-[#0F52BA] font-semibold hover:bg-white transition">
+                  Contact Us
+                </button>
+              </div>
+            </div>
+
+            {/* Right Illustration */}
+            {/* <div className="relative flex justify-center">
+              <div className="absolute w-[500px] h-[500px] bg-[#2D7DB8]/10 rounded-full blur-[100px]" />
+
+              <Image
+                src="/images/contact-us/contact-hero.png"
+                alt="Business Consultation"
+                width={700}
+                height={700}
+                className="relative z-10 w-full max-w-[650px]"
+                priority
+              />
+            </div> */}
+
+          </div>
+        </div>
       </div>
     </section>
   );

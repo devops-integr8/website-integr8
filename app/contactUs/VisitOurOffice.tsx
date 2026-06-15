@@ -9,7 +9,7 @@ export default function VisitOurOffice() {
       <div className="text-center mb-10">
         <h2
           className="text-4xl md:text-6xl font-bold mb-4"
-          style={{ color: "#0818a8" }}
+          style={{ color: "#004A80" }}
         >
           Visit Our Office
         </h2>

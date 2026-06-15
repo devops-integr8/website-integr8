@@ -18,15 +18,15 @@ type Product = {
 const PRODUCTS: Product[] = [
   {
     id: "books",
-    title: "Gr8 Books",
-    subtitle: "Accounting Software",
+    title: "Gr8Books",
+    subtitle: "ACCOUNTING SOFTWARE",
     videoSrc: "/videos/products/Gr8Accounting.mp4",
     href: "/products/productsAccounting",
   },
   {
     id: "payroll",
-    title: "Gr8 Payroll and HRIS",
-    subtitle: "Human Resource Management",
+    title: "Gr8 HRIS with Payroll",
+    subtitle: "HUMAN RESOURCE MANAGEMENT",
     videoSrc: "/videos/products/Gr8Payroll.mp4",
     href: "/products/productsPayroll",
   },
@@ -39,8 +39,8 @@ const PRODUCTS: Product[] = [
   },
   {
     id: "erp",
-    title: "Gr8 ERP",
-    subtitle: "Enterprise Resource Planning",
+    title: "Gr8 ERP SYSTEM",
+    subtitle: "ENTERPRISE RESOURCE PLANNING SYSTEM",
     videoSrc: "/videos/products/Gr8ERP.mp4",
     href: "/products/productsErp",
   },
@@ -95,10 +95,10 @@ const LaptopFrame = ({
           animate={{ opacity: isHovered ? 1 : 0.8 }}
           transition={{ duration: 0.2 }}
         >
-          <h3 className="text-white font-bold text-base md:text-lg tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          <h3 className="text-[#004A80] font-bold text-base md:text-lg tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]">
             {product.title}
           </h3>
-          <p className="text-blue-200/90 text-[10px] font-medium tracking-wider uppercase mt-0.5">
+          <p className="text-black text-[10px] font-medium tracking-wider uppercase mt-0.5">
             {product.subtitle}
           </p>
         </motion.div>
@@ -176,11 +176,11 @@ const LaptopFrame = ({
   );
 };
 
-export default function ProductLandingHero() {
+export default function ProductsLaptops() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-black text-white overflow-hidden font-sans selection:bg-blue-500 selection:text-white flex flex-col">
+    <section className="relative w-full min-h-screen overflow-hidden  text-white overflow-hidden font-sans selection:bg-blue-500 selection:text-white flex flex-col">
       <Head>
         <title>Integr8 | Product Suite</title>
         <meta
@@ -190,7 +190,7 @@ export default function ProductLandingHero() {
       </Head>
 
       {/* Background Video */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <video
           autoPlay
           muted
@@ -201,7 +201,7 @@ export default function ProductLandingHero() {
           <source src="/videos/products/Hero5.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.4)_100%)]" />
-      </div>
+      </div> */}
 
       {/* Logo
       <Link
@@ -235,7 +235,7 @@ export default function ProductLandingHero() {
       </Link> */}
 
       {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center w-full max-w-[1600px] mx-auto px-4 pt-16 pb-6 h-full">
+      <div className="relative z-10 flex flex-col items-center w-full max-w-[1600px] mx-auto px-4 pt-3 pb-6 h-full">
         {/* Heading */}
         <div className="text-center mt-10 mb-8 space-y-3">
           <motion.div
@@ -246,7 +246,7 @@ export default function ProductLandingHero() {
             {/* <span className="inline-block py-1 px-3 rounded-full bg-black/30 border border-blue-400/30 text-blue-300 text-[10px] md:text-xs font-semibold tracking-widest uppercase mb-2 backdrop-blur-md">
               Integr8 Software Solutions, Inc.
             </span> */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight pt-8 text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight pt-8 text-[#004A80] drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)]">
               GR8 PRODUCT SUITE
             </h1>
           </motion.div>
@@ -255,7 +255,7 @@ export default function ProductLandingHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-base md:text-lg text-blue-100 font-light max-w-xl mx-auto leading-relaxed drop-shadow-md"
+            className="text-base md:text-lg text-black font-normal max-w-xl mx-auto leading-relaxed drop-shadow-md"
           >
             Everything your business needs, built to grow with you.
           </motion.p>
@@ -303,7 +303,7 @@ export default function ProductLandingHero() {
             transition={{ delay: 1, duration: 1 }}
             className="mt-10 text-center"
           >
-            <p className="text-xs md:text-sm text-blue-200/80 tracking-widest flex items-center justify-center gap-2 drop-shadow-md">
+            <p className="text-xs md:text-sm text-black tracking-widest flex items-center justify-center gap-2 drop-shadow-md">
               <Monitor className="w-3 h-3 md:w-4 md:h-4" />
               SELECT TO EXPLORE PRODUCTS
               <ChevronRight className="w-3 h-3 md:w-4 md:h-4 animate-pulse" />

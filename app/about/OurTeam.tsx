@@ -199,7 +199,7 @@ export default function OurTeam() {
       <div className="max-w-7xl mx-auto">
         {/* TITLE */}
         <h2
-          className="text-center text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-10 tracking-wide uppercase"
+          className="text-center text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0b1f5e] mb-10 tracking-wide uppercase"
           style={{
             textShadow:
               "0px 3px 6px rgba(0,0,0,0.25), 0px 8px 20px rgba(0,0,0,0.2)",
@@ -210,7 +210,7 @@ export default function OurTeam() {
 
         {/* FILTER BUTTONS */}
         <div className="flex justify-center mb-12 px-2">
-          <div className="inline-flex bg-gradient-to-b from-[#0437f2] to-[#224d9a] rounded-full p-2 px-3 gap-2 flex-wrap justify-center shadow-md shadow-2xl shadow-black/50">
+          <div className="inline-flex bg-gradient-to-b from-[#004A80] to-[#2D7DB8] rounded-full p-2 px-3 gap-2 flex-wrap justify-center shadow-md shadow-2xl shadow-black/50">
             {departments.map((dept) => (
               <button
                 key={dept}

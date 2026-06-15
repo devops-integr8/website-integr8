@@ -187,7 +187,7 @@ export default function RelatedProducts({
       className="relative w-full overflow-hidden text-white font-sans selection:bg-blue-500 selection:text-white py-28 md:py-36 lg:py-48"
       style={{
         background:
-          "radial-gradient(ellipse at center, #0437f2 0%, #000000 100%)",
+            "radial-gradient(ellipse at center, #004A80 0%, #0b1f5e 100%)",
       }}
     >
       {/* TOP CURVE */}
@@ -224,8 +224,9 @@ export default function RelatedProducts({
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
+         
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
-              Related Products
+            Related Products
             </h2>
           </motion.div>
 
@@ -235,7 +236,9 @@ export default function RelatedProducts({
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-base md:text-lg text-blue-100 font-light max-w-xl mx-auto leading-relaxed drop-shadow-md"
-          ></motion.p>
+          >
+           
+          </motion.p>
         </div>
 
         {/* Laptops + shelf */}

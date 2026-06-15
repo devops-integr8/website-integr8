@@ -8,7 +8,7 @@ const links = [
   },
   {
     title: "Products",
-    href: "/products/productsLanding",
+    href: "/#products",
   },
   {
     title: "Contact Us",

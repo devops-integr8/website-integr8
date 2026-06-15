@@ -41,7 +41,7 @@ import icon15 from "@/public/images/productsErpHero/icons/ImportationIcon.png";
 const Sideheader = () => {
   return (
     <div className="flex flex-col gap-4 lg:sticky lg:top-24 z-50">
-      <h1 className="text-[#0818a8] text-4xl font-bold leading-tight">
+      <h1 className="text-[#004A80] text-4xl font-bold leading-tight">
         Built for the way your business works
       </h1>
       <p className="text-gray-600 text-sm leading-relaxed">

@@ -187,7 +187,7 @@ export default function RelatedProducts({
       className="relative w-full overflow-hidden text-white font-sans selection:bg-blue-500 selection:text-white py-28 md:py-36 lg:py-48"
       style={{
         background:
-          "radial-gradient(ellipse at center, #0437f2 0%, #000000 100%)",
+            "radial-gradient(ellipse at center, #004A80 0%, #0b1f5e 100%)",
       }}
     >
       {/* TOP CURVE */}

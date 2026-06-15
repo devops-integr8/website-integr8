@@ -192,7 +192,7 @@ export default function PayrollTestimonies() {
     <section className="w-full bg-white py-16 px-0 overflow-hidden">
       {/* Heading */}
       <div className="text-center mb-10 px-4">
-        <h2 className="text-4xl md:text-[46px] font-bold text-[#0818a8] mb-3">
+        <h2 className="text-4xl md:text-[46px] font-bold text-[#0b1f5e] mb-3">
           What Our Clients Say
         </h2>
         <p className="text-black/60 text-base font-medium max-w-xl mx-auto leading-relaxed">
@@ -271,7 +271,7 @@ export default function PayrollTestimonies() {
                 >
                   <div>
                     {/* Company name */}
-                    <p className="text-[#0818a8] font-bold text-base mb-6">
+                    <p className="text-[#004A80] font-bold text-base mb-6">
                       {t.company}
                     </p>
 
@@ -305,7 +305,7 @@ export default function PayrollTestimonies() {
                       )}
                     </div>
                     <div>
-                      <p className="text-[#0818a8] font-bold text-sm">
+                      <p className="text-[#004A80] font-bold text-sm">
                         {t.name}
                       </p>
                       <p className="text-black/60 text-xs font-medium mt-0.5">

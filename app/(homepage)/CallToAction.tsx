@@ -7,18 +7,33 @@ const CallToAction = () => {
       className="relative w-full flex items-center justify-center overflow-hidden"
       style={{
         minHeight: "120dvh",
-        backgroundImage: "url('/images/home/Home CTA.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center 10%",
-        backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="flex flex-col items-center text-center sm:px-6 md:px-16 lg:px-24 gap-10 -translate-y-[45%]">
+      {/* Background Image + Brand Overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(
+              135deg,
+              rgba(0, 90, 153, 0.7) 0%,
+              rgba(0, 74, 128, 0.8) 50%,
+              rgba(0, 54, 94, 0.9) 100%
+            ),
+            url('/images/home/Home CTA.png')
+          `,
+          backgroundSize: "cover",
+          backgroundPosition: "center 10%",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+
+      <div className="relative z-10 flex flex-col items-center text-center sm:px-6 md:px-16 lg:px-24 gap-10 -translate-y-[45%]">
         <h2
           className="text-white font-extrabold leading-tight tracking-widest m-0"
           style={{
             fontSize: "clamp(2rem, 5vw, 4rem)",
-            textShadow: "0 0 40px rgba(80,140,255,0.35)",
+            textShadow: "0 0 40px rgba(0, 74, 128, 0.4)",
           }}
         >
           POWER YOUR
@@ -39,7 +54,7 @@ const CallToAction = () => {
             transition-all duration-300 ease-in-out
             hover:text-white
             hover:border-white
-            hover:shadow-[0_0_40px_12px_rgba(100,160,255,0.5)]
+            hover:shadow-[0_0_40px_12px_rgba(0,74,128,0.5)]
           "
         >
           <svg

@@ -87,14 +87,14 @@ export default function OnyxModules() {
         <div className="max-w-5xl w-full">
 
           {/* HEADER */}
-          <p className="text-base font-extrabold tracking-[0.25em] uppercase mb-5 text-[#0437f2]">
+          <p className="text-base font-extrabold tracking-[0.25em] uppercase mb-5 text-[#2D7DB8]">
             Modules
           </p>
 
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-14 sm:mb-16">
             <h2
               className="font-bold leading-[1.1]"
-              style={{ fontSize: "clamp(26px, 3vw, 46px)", color: "#0818A8" }}
+              style={{ fontSize: "clamp(26px, 3vw, 46px)", color: "#0b1f5e" }}
             >
               Run Your Business Like
               <br />
@@ -134,7 +134,7 @@ export default function OnyxModules() {
                       fill
                       className="object-cover object-top"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-[#0437f2]/60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-[#004A80]/65" />
                   </div>
 
                   {/* TITLE + DESCRIPTION — slides down and fades out on hover */}
@@ -165,7 +165,7 @@ export default function OnyxModules() {
                     }}
                     style={{
                       background:
-                        "linear-gradient(to bottom, rgba(4,55,242,0.85), rgba(0,0,0,0.90))",
+                  "linear-gradient(to bottom, rgba(45, 125, 184, 0.8) 0%, rgba(0, 74, 128, 1) 100%)",  
                       backdropFilter: "blur(2px)",
                       pointerEvents: isActive ? "auto" : "none",
                     }}

@@ -51,7 +51,7 @@ const features = [
 
 export default function payrollCloud() {
   return (
-    <section className="w-full min-h-screen bg-gradient-to-b from-[#0437F2] to-[#02208C] px-6 py-10">
+    <section className="w-full min-h-screen bg-gradient-to-b from-[#2D7DB8] to-[#004A80] px-6 py-10">
 
       {/* HEADER + DIVIDER WRAPPED */}
       <div className="max-w-3xl mx-auto">

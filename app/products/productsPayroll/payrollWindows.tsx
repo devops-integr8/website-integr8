@@ -78,7 +78,7 @@ export default function PayrollWindows() {
       <div className="max-w-3xl mx-auto">
         <div className="flex items-center justify-left gap-2.5 mb-1.5">
           <WindowsIcon />
-          <h2 className="text-2xl md:text-3xl font-bold text-[#02208C]">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0b1f5e]">
             Gr8 Payroll (Windows)
           </h2>
         </div>
@@ -95,10 +95,10 @@ export default function PayrollWindows() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-4xl mx-auto">
         {steps.map((step, i) => (
           <div key={i} className="flex flex-col items-center gap-2">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#02208C] to-[#0437F2] text-white flex items-center justify-center font-bold text-xl">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0b1f5e] to-[#2D7DB8] text-white flex items-center justify-center font-bold text-xl">
               {step.number}
             </div>
-            <h3 className="font-semibold text-lg text-[#02208C]">{step.title}</h3>
+            <h3 className="font-semibold text-lg text-black">{step.title}</h3>
             <p className="text-md text-gray-500">{step.desc}</p>
           </div>
         ))}
@@ -112,8 +112,8 @@ export default function PayrollWindows() {
               {f.icon}
             </div>
 
-            <div className="w-full border border-[#0437F2] h-55 rounded-md pt-14 pb-6 px-6 text-center flex flex-col items-center">
-              <h4 className="text-base font-bold text-[#02208C] mb-2">{f.title}</h4>
+            <div className="w-full border border-[#0b1f5e] h-55 rounded-md pt-14 pb-6 px-6 text-center flex flex-col items-center">
+              <h4 className="text-base font-bold text-[#0b1f5e] mb-2">{f.title}</h4>
               <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
             </div>
           </div>

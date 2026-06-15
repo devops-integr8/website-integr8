@@ -29,7 +29,7 @@ const HoverCard = ({ title, description, background }: HoverCardProps) => {
       onClick={handleClick}
     >
       {/* Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#000000]/80 to-[#0437f2]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#004A80] to-[#5FAFFF]" />
 
       {/* Vignette */}
       <div className="absolute inset-0 bg-black/30" />

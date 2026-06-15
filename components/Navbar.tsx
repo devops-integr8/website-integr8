@@ -55,8 +55,9 @@ const Navbar = () => {
   }, [menuOpen]);
 
   const navLinks = [
-    { label: "About", href: "/about" },
-    { label: "Products", href: "/products/productsLanding" },
+    { label: "Home", href: "/" },
+    // { label: "Products", href: "/products/productsLanding" },
+    { label: "About Integr8", href: "/about" },
     { label: "Contact Us", href: "/contactUs" },
   ];
 
@@ -65,7 +66,7 @@ const Navbar = () => {
       ref={menuRef}
       data-navbar
       className={`
-        absolute left-1/2 -translate-x-1/2 w-full max-w-3xl px-4 z-50
+        absolute left-1/2 -translate-x-1/2 w-full max-w-4xl px-4 z-50
         transition-all duration-700 ease-out
         ${visible ? "top-4 opacity-100 scale-100" : "-top-20 opacity-0 scale-95"}
       `}
@@ -75,7 +76,7 @@ const Navbar = () => {
         className={`
           bg-white/10
           backdrop-blur-2xl
-          shadow-[0_8px_32px_rgba(0,0,0,0.6),0_0_0_0.5px_rgba(255,255,255,0.08)]
+
           rounded-full
           flex justify-between items-center
           px-4 py-2
@@ -89,7 +90,7 @@ const Navbar = () => {
             alt="Integr8 logo"
             width={870}
             height={400}
-            className="w-24 md:w-28 brightness-150 contrast-150 drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
+            className="w-24 md:w-28 contrast-150 drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
           />
         </Link>
 
@@ -101,15 +102,15 @@ const Navbar = () => {
                 <button
                   className={`relative px-4 py-1.5 text-sm transition-all duration-300 cursor-pointer group rounded-full ${
                     pathname === link.href
-                      ? "text-white drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]"
-                      : "text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]"
+                      ? "text-[#004A80] drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]"
+                      : "text-[#004A80] hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]"
                   }`}
                 >
                   {link.label}
 
                   {/* Underline animation — kept intact */}
                   <span
-                    className={`absolute left-0 -bottom-0.5 h-[2px] bg-white transition-all duration-300 ${
+                    className={`absolute left-0 -bottom-0.5 h-[2px] bg-[#004A80] transition-all duration-300 ${
                       pathname === link.href
                         ? "w-full"
                         : "w-0 group-hover:w-full"
@@ -126,7 +127,7 @@ const Navbar = () => {
           <Link href="https://books.integr8.com.ph/Pages/Login.aspx">
             <button
               className="
-                text-sm font-semibold text-white
+                text-sm font-semibold text-[#004A80]
                 
                 transition-all duration-300
                 px-3 py-1

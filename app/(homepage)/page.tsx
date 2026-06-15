@@ -6,11 +6,12 @@ import TeamSection from "./Team";
 import FAQs from "./FAQs";
 import Goals from "./Goals";
 import Padding from "../../components/padding";
-import NewsArticle from "./NewsArticle";
-import Introduction from "./Introduction";
+
+import ErpExperties from "./ErpExperties";
 import ProblemSolution from "./ProblemSolution";
 import Values from "./Values";
 import CompanyEdge from "./CompanyEdge";
+import ProductsLaptops from "./ProductsLaptops";
 
 const Home = () => {
   return (
@@ -18,14 +19,25 @@ const Home = () => {
       <div>
         <div className="space-y-16">
           <Hero />
-          <div id="about" className="scroll-mt-36" />
-          <Introduction />
+
+            {/* <ErpExperties /> */}
+
+           
+<div id="products">
+  <ProductsLaptops />
+</div>
+
           <Clients />
-          <ProblemSolution />
+          <div id="about" className="scroll-mt-36" />
+        
+          {/* <ProblemSolution /> */}
+
           <Values />
-          <CompanyEdge />
-          <FAQs />
-          <NewsArticle />
+
+          {/* <CompanyEdge /> */}
+
+          {/* <FAQs /> */}
+
           <CallToAction />
         </div>
       </div>

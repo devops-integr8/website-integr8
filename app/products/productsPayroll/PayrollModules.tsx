@@ -144,7 +144,7 @@ function ModuleCard({
       >
         <h3
           className="font-extrabold text-base tracking-wide uppercase leading-snug"
-          style={{ color: "#0818a8" }}
+          style={{ color: "#004A80" }}
         >
           {mod.title}
         </h3>
@@ -161,7 +161,7 @@ function ModuleCard({
         transition={{ duration: 0.42, ease: [0.25, 0.46, 0.45, 0.94] }}
         style={{
           background:
-            "linear-gradient(to bottom, rgba(4,55,242,0.8) 0%, rgba(0,0,0,0.8) 100%)",
+        "linear-gradient(to bottom, rgba(45, 125, 184, 0.8) 0%, rgba(0, 74, 128, 1) 100%)",  
           pointerEvents: isActive ? "auto" : "none",
         }}
       >
@@ -224,7 +224,7 @@ export default function PayrollModules() {
         <p
           className="text-base font-extrabold tracking-[0.25em] uppercase mb-5"
           style={{
-            background: "linear-gradient(to right, #0437f2, #02208C)",
+            background: "linear-gradient(to right, #2D7DB8, #2D7DB8)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -237,7 +237,7 @@ export default function PayrollModules() {
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-14 sm:mb-16">
           <h2
             className="font-bold leading-[1.1]"
-            style={{ fontSize: "clamp(26px, 3vw, 46px)", color: "#0818A8" }}
+            style={{ fontSize: "clamp(26px, 3vw, 46px)", color: "#0b1f5e" }}
           >
             Your People, Perfectly
             <br />

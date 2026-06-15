@@ -20,7 +20,7 @@ export default function ErpFeatures() {
         <p
           className="text-base font-extrabold tracking-[0.2em] uppercase mb-4"
           style={{
-            background: "linear-gradient(to right, #0437f2, #02208C)",
+            background: "linear-gradient(to right, #2D7DB8, #2D7DB8)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -33,7 +33,7 @@ export default function ErpFeatures() {
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-3 mb-8 sm:mb-12 lg:mb-14">
           <h2
             className="font-bold leading-tight"
-            style={{ fontSize: "clamp(22px, 3vw, 46px)", color: "#0818A8" }}
+            style={{ fontSize: "clamp(22px, 3vw, 46px)", color: "#0b1f5e" }}
           >
             Transform Your Business
             <br />
@@ -64,7 +64,7 @@ export default function ErpFeatures() {
                 key={index}
                 className="flex flex-row sm:flex-col justify-start sm:justify-center items-center sm:items-start gap-3 px-4 sm:px-5 lg:px-6 py-3 sm:py-4 rounded-xl"
                 style={{
-                  background: "linear-gradient(to right, #0437f2, #02208C)",
+                  background: "linear-gradient(to right,  #6BB8FF 0%,#004A80 65%, #002B5C 90%)",
                 }}
               >
                 <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white flex items-center justify-center shadow-sm flex-shrink-0">
