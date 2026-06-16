@@ -19,7 +19,7 @@ export default function ContactMethods() {
     },
     {
       icon: Phone,
-      title: "Call Sales",
+      title: "Call Us",
       line1: "Ms. Jackie Cadlum",
       line2: "+639171205043",
       link: "",
@@ -83,7 +83,7 @@ export default function ContactMethods() {
         </div>
 
         {/* Top Cards */}
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 mb-12">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 mb-12">
           {contactCards.map((card, index) => {
             const Icon = card.icon;
 

@@ -143,7 +143,7 @@ const Navbar = () => {
 
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden p-1.5 text-white"
+          className="md:hidden p-1.5 text-[#004A80]"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -158,7 +158,7 @@ const Navbar = () => {
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-white/80 font-semibold py-2 border-b border-white/10 hover:text-[#0437f2] transition-colors"
+              className="text-[#004A80] font-semibold py-2 border-b border-white/10 hover:text-[#004A80] transition-colors"
             >
               {link.label}
             </Link>
@@ -172,7 +172,7 @@ const Navbar = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full border-white/20 text-[#2563EB] hover:bg-white/10 hover:text-[#0437f2] rounded-full"
+                className="w-full border-white/20 text-[#004A80] hover:bg-white/10 hover:text-[#0437f2] rounded-full"
               >
                 Login
               </Button>

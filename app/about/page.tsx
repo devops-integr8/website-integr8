@@ -3,7 +3,7 @@ import Hero from "./Hero";
 import MissionVision from "./MissionVision";
 import CompanyCarousel from "./CompanyCarousel";
 import Clients from "./Clients";
-import CompanyEdge from "../(homepage)/CompanyEdge";
+
 
 import OurStory from "./OurStory";
 import ClientTrust from "./ClientTrust";
@@ -18,6 +18,8 @@ const About = () => {
       {/* <Hero /> */}
 
       <Introduction />
+
+
 
       <section className="pt-32 md:pt-40 pb-16 md:pb-20 lg:pb-26">
         <CompanyCarousel />
@@ -39,6 +41,8 @@ const About = () => {
       <section className="py-16 md:py-20 lg:py-26">
         <OurTeam />
       </section>
+
+ 
 
        <NewsArticle />
 

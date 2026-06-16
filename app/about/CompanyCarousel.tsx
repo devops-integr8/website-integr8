@@ -231,7 +231,7 @@ export default function CompanyCarousel() {
                 <img
                   src={slides[current].image}
                   alt="slide"
-                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300  rounded-md ${
                     loadedImages.has(current) ? "opacity-100" : "opacity-0"
                   }`}
                   decoding="async"
@@ -255,7 +255,7 @@ export default function CompanyCarousel() {
                 custom={direction}
                 variants={cardVariants}
                 transition={{ ...smoothTransition, delay: 0.05 }}
-                className="absolute right-0 top-14 lg:top-20 w-[55%] h-[85%]
+                className="absolute right-0 top-14 lg:top-20 w-[55%] h-[85%] rounded-md
                 backdrop-blur-[3px] 
                 shadow-[0_10px_20px_rgba(0,0,0,0.25)]
                 z-20 flex items-center px-8 lg:px-14 will-change-transform"

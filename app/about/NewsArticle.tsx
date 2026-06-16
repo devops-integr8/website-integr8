@@ -93,7 +93,7 @@ const NewsArticle = () => {
   const small = articles.filter((a) => a.size === "small");
 
   return (
-    <section className="h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto">
+    <section className="h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto pt-16 md:pt-20 lg:pt-28">
       {/* HEADER */}
       <div className="flex justify-between items-start mb-5">
         <div className="w-full md:max-w-[55%]">

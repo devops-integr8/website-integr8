@@ -25,7 +25,7 @@ const HoverCard = ({ title, description, background }: HoverCardProps) => {
 
   return (
     <div
-      className="group relative w-full h-[300px] sm:h-[340px] md:h-[400px] lg:h-[450px] max-w-full overflow-hidden cursor-pointer"
+      className="group relative w-full h-[300px] sm:h-[340px] md:h-[400px] lg:h-[450px] max-w-full overflow-hidden cursor-pointer rounded-md"
       onClick={handleClick}
     >
       {/* Gradient */}

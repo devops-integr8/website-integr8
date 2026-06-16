@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 const modules = [
   {
     label: "ACCOUNTING",
@@ -167,14 +169,26 @@ export default function Hero() {
               Payroll, Lending, POS, and more — all in one integrated system.
             </p>
             <div className="flex flex-wrap gap-3">
-              <button className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#004A80] text-white text-[13px] font-bold shadow hover:bg-blue-800 transition">
-                <svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                Request Demo
-              </button>
-              <button className="flex items-center gap-2 px-5 py-3 rounded-xl border-2 border-[#004A80] text-[#004A80] text-[13px] font-bold hover:bg-blue-50 transition">
-                <svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                Free Consultation
-              </button>
+         <Link
+  href="/contactUs"
+  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#004A80] text-white text-[13px] font-bold shadow hover:bg-blue-800 transition"
+>
+  <svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+    <polyline points="9 11 12 14 22 4"/>
+    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+  </svg>
+  Request Demo
+</Link>
+         <Link
+  href="/contactUs"
+  className="flex items-center gap-2 px-5 py-3 rounded-xl border-2 border-[#004A80] text-[#004A80] text-[13px] font-bold hover:bg-blue-50 transition"
+>
+  <svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+    <polyline points="9 11 12 14 22 4"/>
+    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+  </svg>
+  Free Consultation
+</Link>
               <button className="flex items-center gap-2 px-5 py-3 rounded-xl border-2 border-[#004A80] text-[#004A80] text-[13px] font-bold hover:bg-blue-50 transition">
                 <svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
                 Watch Video

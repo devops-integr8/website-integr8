@@ -15,7 +15,7 @@ export default function Hero() {
             {/* Left Content */}
             <div>
 
-              <h1 className="text-[#004A80] font-bold leading-[1.05] tracking-tight text-[42px] md:text-[58px] lg:text-[72px] mb-6">
+              <h1 className="text-[#004A80] font-bold leading-[1.05] tracking-tight text-[65px]  mb-6">
                 Let's Find The
                 <br />
                 Right Fit For
@@ -29,7 +29,7 @@ export default function Hero() {
                 operations and support your growth.
               </p>
 
-              <div className="flex flex-wrap gap-4">
+              {/* <div className="flex flex-wrap gap-4">
                 <button className="px-8 py-4 rounded-2xl bg-[#0F52BA] text-white font-semibold shadow-lg hover:scale-105 transition">
                   Request Demo
                 </button>
@@ -37,7 +37,7 @@ export default function Hero() {
                 <button className="px-8 py-4 rounded-2xl border border-[#0F52BA] text-[#0F52BA] font-semibold hover:bg-white transition">
                   Contact Us
                 </button>
-              </div>
+              </div> */}
             </div>
 
             {/* Right Illustration */}
