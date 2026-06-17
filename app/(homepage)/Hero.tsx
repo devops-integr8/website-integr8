@@ -148,17 +148,17 @@ export default function Hero() {
             </div>
 
            <h1 className=" leading-[1.1] text-[#0b1f5e] mb-5">
-  <span className="text-[65px] font-bold">
+  <span className="text-[40px] sm:text-[50px] lg:text-[65px] font-bold">
     Complete
   </span>
   <br />
 
-  <span className="text-[65px] font-bold text-[#004A80]">
+  <span className="text-[40px] sm:text-[50px] lg:text-[65px] font-bold text-[#004A80]">
     ERP Software
   </span>
   <br />
 
-  <span className="text-[40px] font-semibold">
+  <span className="text-[40px] sm:text-[50px] lg:text-[65px] font-semibold">
     for Philippine Businesses
   </span>
 </h1>
@@ -196,9 +196,10 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: Diagram */}
-          <div className="relative flex justify-center items-center">
-            <div className="relative w-[520px] h-[520px]">
+        {/* Right: Diagram */}
+<div className="relative flex justify-center items-center overflow-hidden">
+  <div className="relative scale-[0.65] sm:scale-[0.75] md:scale-[0.9] lg:scale-100 origin-center">
+    <div className="relative w-[520px] h-[520px]">
               {/* Rings */}
               {[480, 380, 280].map((size) => (
                 <div
@@ -238,6 +239,7 @@ export default function Hero() {
               ))}
             </div>
           </div>
+        </div>
         </div>
 
         {/* Feature Strip */}
